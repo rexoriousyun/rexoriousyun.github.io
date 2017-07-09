@@ -1,0 +1,14 @@
+@font-face {
+    font-family: openSansCondensedBold;
+    src: url(fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
+}
+
+@font-face {
+    font-family: openSansCondensedLight;
+    src: url(fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
+}
+
+@font-face {
+    font-family: openSansCondensedItalic;
+    src: url(fonts/Open_Sans_Condensed/OpenSansCondensed-LightItalic.ttf);
+}
