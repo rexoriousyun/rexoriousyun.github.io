@@ -2,11 +2,12 @@ var sliders = document.querySelectorAll('.slider');
 var sliderImgs = document.querySelectorAll('.slider');
 var arrowUp = document.getElementById('arrow-up');
 var arrowDown = document.getElementById('arrow-down');
+var menuList = document.querySelectorAll('.menuNum');
 var imgI = 0;
 
 function sliderHeight(){
   ;[].forEach.call(sliders, function(slider){
-    slider.style.height = window.innerHeight - 200 + 'px';
+    slider.style.height = window.innerHeight - 120 + 'px';
   })
 }
 
@@ -24,6 +25,10 @@ function sliderChange(dir){
       imgI = 0;
     }
   }
+  sliderShift();
+}
+
+function sliderShift(){
   for (var i = 0; i < sliderImgs.length; i++) {
     if (i == imgI){
       sliderImgs[i].style.display = 'block';
@@ -31,6 +36,25 @@ function sliderChange(dir){
       sliderImgs[i].style.display = 'none';
     }
   }
+  menuColor();
+}
+
+function menuColor(){
+  ;[].forEach.call(menuList, function(menu){
+    var menuIndex = Array.prototype.indexOf.call(menuList, menu);
+    console.log(imgI, menuIndex)
+    if (menuIndex == 0) {
+      menuList[menuIndex].style.color = "#000";
+      menuList[menuIndex].style.backgroundColor = "#FFF";
+    } else if (menuIndex == imgI){
+      menuList[menuIndex].style.color = "#FFF";
+      menuList[menuIndex].style.backgroundColor = "#000";
+    } else {
+      menuList[menuIndex].style.color = "#000";
+      menuList[menuIndex].style.backgroundColor = "#FFF";
+    }
+  })
+
 }
 
 function keyDownField(e) {
@@ -41,6 +65,14 @@ function keyDownField(e) {
     sliderChange('up');
   }
 }
+
+;[].forEach.call(menuList, function(menu){
+    menu.addEventListener('click', function(){
+      var menuIndex = Array.prototype.indexOf.call(menuList, menu);
+      imgI = menuIndex;
+      sliderShift();
+    })
+})
 
 window.onload = sliderHeight;
 window.onresize = sliderHeight;

@@ -10,13 +10,14 @@ html, body {
 header {
   width: 100%;
   background-color: #fff;
-  height: 120px;
+  height: 60px;
   text-align: center;
 }
 
 .logo {
   height: 100%;
   display: inline-block;
+  cursor: pointer;
 }
 
 img {
@@ -27,22 +28,32 @@ img {
   list-style-type: none;
   float: right;
   display: none;
+  position: relative;
+  float: right;
+  padding-right: 8px;
+  margin: 0;
+  height: 100%;
 }
 
 .menu li {
   font-family: openSansCondensedBold;
-  font-size: 36px;
+  font-size: 20px;
   display: inline-block;
-  padding: 0 12px;
+  padding: 16px;
   cursor: pointer;
+}
+
+.menu li:hover {
+  color: #FFF;
+  background-color: #000;
 }
 
 #arrow-up {
   position: absolute;
   z-index: 1;
   display: inline-block;
-  right: 20px;
-  bottom: 240px;
+  right: 10px;
+  bottom: 140px;
   cursor: pointer;
 }
 
@@ -51,12 +62,12 @@ img {
   z-index: 1;
   display: inline-block;
   bottom: 80px;
-  right: 20px;
+  right: 10px;
   cursor: pointer;
 }
 
 #arrow-up img, #arrow-down img {
-  width: 120px;
+  width: 30px;
   height: auto;
 }
 
@@ -75,35 +86,35 @@ img {
   transform: translate(-50%, -50%);
   color: #000;
   border-style: solid;
-  border-width: 10px;
-  padding: 0 30px 30px;
+  border-width: 5px;
+  padding: 0 5px 5px;
 }
 
 h1 {
-  font-size: 120px;
+  font-size: 60px;
   margin: 0;
   line-height: 1;
 }
 
 h2 {
-  font-size: 50px;
-  margin: 12px 0;
+  font-size: 25px;
+  margin: 0;
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 20px;
   margin: 0;
 }
 
 h4 {
   font-family: openSansCondensedItalic;
-  font-size: 30px;
+  font-size: 15px;
   margin: 0;
 }
 
 h5, li {
   font-family: openSansCondensedLight;
-  font-size: 30px;
+  font-size: 15px;
   margin: 0;
 }
 
@@ -112,23 +123,25 @@ ul {
 }
 
 p {
-  font-size: 30px;
+  font-size: 15px;
   margin: 0;
 }
 
 footer {
   width: 100%;
   background-color: #000;
-  height: 80px;
+  height: 60px;
   text-align: center;
   position: relative;
   color: #FFF;
 }
 
 footer p {
-  position: relative;
+  position: absolute;
+  width: 100%;
   top: 50%;
-  transform: translate(0, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #title {
@@ -144,24 +157,24 @@ footer p {
 
 .container {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
 
 #intro .img-container {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
   position: relative;
   display: inline-block;
   border-radius: 50%;
-  margin: 60px 0 30px;
+  margin: 30px 0 15px;
 }
 
 #intro img {
-  width: 1000px;
+  width: 500px;
   height: auto;
   position: absolute;
   left: 50%;
@@ -185,17 +198,26 @@ footer p {
 }
 
 #career .container > * {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .job, .school, .project {
-  margin: 12px 0;
+  margin: 6px 0;
+}
+
+#background {
+  display: none;
+  text-align: left;
+}
+
+#background .container {
+  width: 90%;
 }
 
 #project {
   background-color: #FFF;
   display: none;
-  text-align: left
+  text-align: left;
 }
 
 #project .container {
@@ -224,4 +246,36 @@ footer p {
 .webDev, .design, .threeD, .productivity {
   display: inline-block;
   width: 100%;
+  margin: 6px;
+}
+
+@media (min-width: 600px) {
+  .left, .right {
+    width: 50%;
+  }
+  .contact {
+    padding: 10px 15px 15px;
+  }
+  #intro .text-container {
+    width: 50%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%)
+  }
+  #arrow-up, #arrow-down {
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 768px){
+  .menu {
+    display: inline-block;
+  }
+  .contact {
+    padding: 15px 20px 20px;
+  }
+  .logo {
+    float: left;
+    padding-left: 20px;
+  }
 }
