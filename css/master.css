@@ -42,7 +42,8 @@ img {
   z-index: 1;
   display: inline-block;
   right: 20px;
-  bottom: 160px;
+  bottom: 240px;
+  cursor: pointer;
 }
 
 #arrow-down {
@@ -51,6 +52,12 @@ img {
   display: inline-block;
   bottom: 80px;
   right: 20px;
+  cursor: pointer;
+}
+
+#arrow-up img, #arrow-down img {
+  width: 120px;
+  height: auto;
 }
 
 .slider {
@@ -79,24 +86,24 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 50px;
   margin: 12px 0;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 40px;
   margin: 0;
 }
 
 h4 {
   font-family: openSansCondensedItalic;
-  font-size: 20px;
+  font-size: 30px;
   margin: 0;
 }
 
 h5, li {
   font-family: openSansCondensedLight;
-  font-size: 20px;
+  font-size: 30px;
   margin: 0;
 }
 
@@ -105,7 +112,7 @@ ul {
 }
 
 p {
-  font-size: 20px;
+  font-size: 30px;
   margin: 0;
 }
 
@@ -137,7 +144,7 @@ footer p {
 
 .container {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -211,7 +218,7 @@ footer p {
 .left, .right {
   display: inline-block;
   float: left;
-  width: 50%;
+  width: 100%;
 }
 
 .webDev, .design, .threeD, .productivity {
