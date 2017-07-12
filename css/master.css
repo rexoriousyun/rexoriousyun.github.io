@@ -13,6 +13,9 @@ header {
   background-color: #fff;
   height: 60px;
   text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logo {
@@ -291,7 +294,7 @@ footer p {
 }
 
 @media (min-width: 1024px){
-  .main {
+  .main, header{
     max-width: 1024px;
   }
 }
