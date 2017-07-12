@@ -5,6 +5,7 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   font-family: openSansCondensedBold;
+  text-align: center;
 }
 
 header {
@@ -69,6 +70,12 @@ img {
 #arrow-up img, #arrow-down img {
   width: 30px;
   height: auto;
+}
+
+.main {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .slider {
@@ -277,5 +284,14 @@ footer p {
   .logo {
     float: left;
     padding-left: 20px;
+  }
+  #intro .text-container {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 1024px){
+  .main {
+    max-width: 1024px;
   }
 }
