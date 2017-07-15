@@ -72,6 +72,13 @@ function keyDownField(e) {
       imgI = menuIndex;
       sliderShift();
     })
+    menu.addEventListener('mouseover', function(){
+      menu.style.color = '#FFF';
+      menu.style.backgroundColor = '#000'
+    })
+    menu.addEventListener('mouseout', function(){
+      menuColor();
+    })
 })
 
 window.onload = sliderHeight;

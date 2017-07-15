@@ -47,11 +47,6 @@ img {
   cursor: pointer;
 }
 
-.menu li:hover {
-  color: #FFF;
-  background-color: #000;
-}
-
 #arrow-up {
   position: absolute;
   z-index: 1;
