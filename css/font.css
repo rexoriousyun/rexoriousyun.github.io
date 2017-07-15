@@ -12,3 +12,8 @@
     font-family: openSansCondensedItalic;
     src: url(fonts/Open_Sans_Condensed/OpenSansCondensed-LightItalic.ttf);
 }
+
+@font-face {
+  font-family: agencyFB;
+  src: url(fonts/AgencyFB.ttf);
+}

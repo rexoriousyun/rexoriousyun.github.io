@@ -16,12 +16,37 @@ header {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .logo {
   height: 100%;
   display: inline-block;
-  cursor: pointer;
+  font-family: agencyFB;
+  font-size: 45px;
+  font-weight: bold;
+  overflow: hidden;
+  vertical-align: middle;
+  border-right: 2px solid #000;
+  white-space: nowrap;
+  letter-spacing: 5px;
+  animation:
+    blink-caret .75s step-end infinite;
+}
+
+.logoStable {
+  height: 100%;
+  display: inline-block;
+  font-family: agencyFB;
+  font-size: 45px;
+  font-weight: bold;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #000; }
 }
 
 img {
@@ -44,6 +69,9 @@ img {
   font-size: 20px;
   display: inline-block;
   padding: 16px;
+}
+
+.menuNum {
   cursor: pointer;
 }
 
@@ -283,13 +311,17 @@ footer p {
     float: left;
     padding-left: 20px;
   }
+  .logoStable {
+    float: left;
+    padding-left: 5px;
+  }
   #intro .text-container {
     margin-left: 20px;
   }
 }
 
 @media (min-width: 1024px){
-  .main, header{
+  .main, header .container{
     max-width: 1024px;
   }
 }

@@ -73,8 +73,11 @@ function keyDownField(e) {
       sliderShift();
     })
     menu.addEventListener('mouseover', function(){
-      menu.style.color = '#FFF';
-      menu.style.backgroundColor = '#000'
+      var menuIndex = Array.prototype.indexOf.call(menuList, menu);
+      if (menuIndex != 0){
+        menu.style.color = '#FFF';
+        menu.style.backgroundColor = '#000';
+      } 
     })
     menu.addEventListener('mouseout', function(){
       menuColor();
