@@ -211,7 +211,7 @@ footer p {
 }
 
 #intro img {
-  width: 500px;
+  width: 200px;
   height: auto;
   position: absolute;
   left: 50%;
@@ -321,6 +321,9 @@ footer p {
   }
   #intro .text-container {
     margin-left: 20px;
+  }
+  .slider > .container > *, .education > * {
+    margin: 20px 0;
   }
 }
 
