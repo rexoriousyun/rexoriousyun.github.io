@@ -94,13 +94,13 @@ document.addEventListener('wheel', function(e){
     sliderChange('down');
   }
 })
-Hammer(document).on('swipe', function(e){
-  if (e.deltaY < 0 || e.deltaX < 0) {
-    sliderChange('up');
-  } else {
-    sliderChange('down');
-  }
-});
+// Hammer(document).on('swipe', function(e){
+//   if (e.deltaY < 0 || e.deltaX < 0) {
+//     sliderChange('up');
+//   } else {
+//     sliderChange('down');
+//   }
+// });
 document.addEventListener('keydown', keyDownField, false);
 arrowUp.addEventListener('click', function(){sliderChange('up')});
 arrowDown.addEventListener('click', function(){sliderChange('down')});
