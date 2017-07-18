@@ -363,10 +363,12 @@ a {
   .logo {
     float: left;
     padding-left: 20px;
+    font-size: 35px;
   }
   .logoStable {
     float: left;
     padding-left: 5px;
+    font-size: 35px;
   }
   #intro .text-container {
     margin-left: 20px;
@@ -388,5 +390,8 @@ a {
   }
   #front .logo, #front .logoStable {
     font-size: 150px;
+  }
+  .logo, .logoStable {
+    font-size: 40px;
   }
 }
