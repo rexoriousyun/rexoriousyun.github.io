@@ -31,9 +31,11 @@ function sliderChange(dir){
 function sliderShift(){
   for (var i = 0; i < sliderImgs.length; i++) {
     if (i == imgI){
-      sliderImgs[i].style.display = 'block';
+      // sliderImgs[i].style.display = 'block';
+      $(sliderImgs[i]).show('slow');
     } else {
-      sliderImgs[i].style.display = 'none';
+      // sliderImgs[i].style.display = 'none';
+      $(sliderImgs[i]).hide('slow');
     }
   }
   menuColor();
@@ -42,7 +44,6 @@ function sliderShift(){
 function menuColor(){
   ;[].forEach.call(menuList, function(menu){
     var menuIndex = Array.prototype.indexOf.call(menuList, menu);
-    console.log(imgI, menuIndex)
     if (menuIndex == 0) {
       menuList[menuIndex].style.color = "#000";
       menuList[menuIndex].style.backgroundColor = "#FFF";
@@ -77,7 +78,7 @@ function keyDownField(e) {
       if (menuIndex != 0){
         menu.style.color = '#FFF';
         menu.style.backgroundColor = '#000';
-      } 
+      }
     })
     menu.addEventListener('mouseout', function(){
       menuColor();

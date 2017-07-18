@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: openSansCondensedBold;
   text-align: center;
 }
@@ -13,7 +13,7 @@ header {
   background-color: #fff;
   height: 60px;
   text-align: center;
-  position: relative;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -23,13 +23,14 @@ header {
   height: 100%;
   display: inline-block;
   font-family: agencyFB;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
   overflow: hidden;
   vertical-align: middle;
   border-right: 2px solid #000;
   white-space: nowrap;
   letter-spacing: 5px;
+  margin-top: 5px;
   animation:
     blink-caret .75s step-end infinite;
 }
@@ -38,10 +39,11 @@ header {
   height: 100%;
   display: inline-block;
   font-family: agencyFB;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
   overflow: hidden;
   vertical-align: middle;
+  margin-top: 5px;
 }
 
 @keyframes blink-caret {
@@ -102,6 +104,7 @@ img {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  top: 60px;
 }
 
 .slider {
@@ -165,7 +168,8 @@ footer {
   background-color: #000;
   height: 60px;
   text-align: center;
-  position: relative;
+  position: fixed;
+  bottom: 0;
   color: #FFF;
 }
 
