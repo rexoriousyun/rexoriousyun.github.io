@@ -95,7 +95,7 @@ document.addEventListener('wheel', function(e){
   }
 })
 Hammer(document).on('swipe', function(e){
-  if (e.deltaY < 0) {
+  if (e.deltaY < 0 || e.deltaX < 0) {
     sliderChange('up');
   } else {
     sliderChange('down');
