@@ -94,6 +94,8 @@ document.addEventListener('wheel', function(e){
     sliderChange('down');
   }
 })
+$(document).swipeup(sliderChange('up'));
+$(document).swipedown(sliderChange('down'));
 document.addEventListener('keydown', keyDownField, false);
 arrowUp.addEventListener('click', function(){sliderChange('up')});
 arrowDown.addEventListener('click', function(){sliderChange('down')});
