@@ -94,8 +94,13 @@ document.addEventListener('wheel', function(e){
     sliderChange('down');
   }
 })
-Hammer(document).on('swipeup', sliderChange('up'));
-Hammer(document).on('swipedown', sliderChange('down'));
+Hammer(document).on('swipe', function(e){
+  if (e.deltaY < 0) {
+    sliderChange('up');
+  } else {
+    sliderChange('down');
+  }
+});
 document.addEventListener('keydown', keyDownField, false);
 arrowUp.addEventListener('click', function(){sliderChange('up')});
 arrowDown.addEventListener('click', function(){sliderChange('down')});
