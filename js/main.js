@@ -31,6 +31,11 @@ function sliderChange(dir){
 function sliderShift(){
   for (var i = 0; i < sliderImgs.length; i++) {
     if (i == imgI){
+      if (imgI == 0) {
+        $(menuList[0]).hide('fast');
+      } else {
+        $(menuList[0]).show('fast');
+      }
       // sliderImgs[i].style.display = 'block';
       $(sliderImgs[i]).show('slow');
     } else {
