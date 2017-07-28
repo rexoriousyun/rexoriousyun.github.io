@@ -70,7 +70,7 @@ img {
   font-family: openSansCondensedBold;
   font-size: 20px;
   display: inline-block;
-  padding: 16px;
+  padding: 10px;
 }
 
 .menuNum {
@@ -285,8 +285,12 @@ a {
   text-align: left;
 }
 
-#project .container {
+#project .container, #game .container {
   width: 90%;
+}
+
+#game {
+  text-align: left;
 }
 
 #skill {
@@ -393,5 +397,8 @@ a {
   }
   .logo, .logoStable {
     font-size: 40px;
+  }
+  .menu li {
+    padding: 16px;
   }
 }
