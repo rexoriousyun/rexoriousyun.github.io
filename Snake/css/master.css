@@ -4,6 +4,4 @@ body {
 
 canvas {
   display: inline-block !important;
-  width: 100% !important;
-  height: auto !important;
 }
