@@ -5,6 +5,31 @@ var slides = document.getElementsByClassName('slide');
 var currentModal;
 var pageNum = 0;
 var pageMax = $('.menu-item').last().attr('value');
+$('.modal').css('height', window.innerHeight * 0.7);
+
+function onReady(callback) {
+    var intervalID = window.setInterval(checkReady, 1000);
+    function checkReady() {
+        if (document.getElementsByTagName('body')[0] !== undefined) {
+            window.clearInterval(intervalID);
+            callback.call(this);
+        }
+    }
+}
+
+function show(id, value) {
+  if (value) {
+    $('#'+id).animate({opacity: 'show'}, 200);
+  } else {
+    $('#'+id).animate({opacity: 'hide'}, 200);
+  }
+}
+
+onReady(function () {
+    show('main', true);
+    show('navigation', true);
+    show('loader', false);
+});
 
 $('.introModal').click(function(){
   $(this).animate({
@@ -112,8 +137,9 @@ $('.slide').click(function(){
 $('.close').click(function(){
   $(currentModal).animate({opacity: 'hide'}, 200);
 })
-
-var slideLength = parseInt($('.slideGroup').css('width')) + 400 - window.outerWidth;
+$('#main').css('display', 'block');
+var slideLength = parseInt($('.slideGroup').css('width')) + 400 - parseInt(window.outerWidth);
+$('#main').css('display', 'none');
 var barToSlideRatio = window.outerWidth/slideLength;
 if (barToSlideRatio > 1 || barToSlideRatio <= 0) {
   barToSlideRatio = 0.8;
