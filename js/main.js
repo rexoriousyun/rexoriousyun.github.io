@@ -7,29 +7,29 @@ var pageNum = 0;
 var pageMax = $('.menu-item').last().attr('value');
 $('.modal').css('height', window.innerHeight * 0.7);
 
-function onReady(callback) {
-    var intervalID = window.setInterval(checkReady, 1000);
-    function checkReady() {
-        if (document.getElementsByTagName('body')[0] !== undefined) {
-            window.clearInterval(intervalID);
-            callback.call(this);
-        }
-    }
-}
-
-function show(id, value) {
-  if (value) {
-    $('#'+id).animate({opacity: 'show'}, 200);
-  } else {
-    $('#'+id).animate({opacity: 'hide'}, 200);
-  }
-}
-
-onReady(function () {
-    show('main', true);
-    show('navigation', true);
-    show('loader', false);
-});
+// function onReady(callback) {
+//     var intervalID = window.setInterval(checkReady, 1000);
+//     function checkReady() {
+//         if (document.getElementsByTagName('body')[0] !== undefined) {
+//             window.clearInterval(intervalID);
+//             callback.call(this);
+//         }
+//     }
+// }
+//
+// function show(id, value) {
+//   if (value) {
+//     $('#'+id).animate({opacity: 'show'}, 200);
+//   } else {
+//     $('#'+id).animate({opacity: 'hide'}, 200);
+//   }
+// }
+//
+// onReady(function () {
+//     show('main', true);
+//     show('navigation', true);
+//     show('loader', false);
+// });
 
 $('.introModal').click(function(){
   $(this).animate({
@@ -192,3 +192,9 @@ window.onload = function(){
     $('.introModal').show();
   }
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+  $('#loader').animate({opacity: 'hide'}, 200);
+  $('#main').animate({opacity: 'show'}, 200);
+  $('#navigation').animate({opacity: 'show'}, 200);
+})
