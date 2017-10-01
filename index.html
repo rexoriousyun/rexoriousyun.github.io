@@ -225,6 +225,9 @@ Developed the website using Ruby on Rails</p>
     <footer>
     </footer>
     <script type="text/javascript">
+      if (window.outerWidth < 768) {
+        $('.introModal').show();
+      }
       if (window.innerWidth < 700) {
         var barSize = window.outerWidth - 40;
         $('.bar').css('width', barSize);

@@ -206,6 +206,9 @@ img {
 	transform: translateY(-50%);
 	text-align: center;
 }
+.page:not(:first-child){
+	display: none;
+}
 .title h1 {
 	font-size: 150px;
 }
@@ -308,6 +311,7 @@ img {
 	border-color: #444;
 	border-width: 10px;
 	border-style: solid;
+	display: none;
 }
 .text {
 	display: inline-block;

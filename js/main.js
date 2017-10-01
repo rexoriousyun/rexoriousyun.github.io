@@ -174,21 +174,3 @@ $('.bar').click(function(){
   $('.horizontal-slide').animate({'left': barLocation}, 200);
   $('.slideGroup').animate({'left': slideLocation}, 200);
 })
-
-
-window.onload = function(){
-  ;[].forEach.call(pages, function(page){
-    var pageIndex = page.getAttribute('value');
-    if (pageIndex == 0) {
-      page.style.display = 'block';
-    } else {
-      page.style.display = 'none';
-    }
-    ;[].forEach.call(modals, function(modal){
-      modal.style.display = 'none';
-    })
-  })
-  if (window.outerWidth < 768) {
-    $('.introModal').show();
-  }
-}
