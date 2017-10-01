@@ -138,8 +138,11 @@ $('.close').click(function(){
   $(currentModal).animate({opacity: 'hide'}, 200);
 })
 $('#main').css('display', 'block');
+$('.page:not(:first-child)').css('display', 'block');
+console.log(parseInt($('.slideGroup').css('width')))
 var slideLength = parseInt($('.slideGroup').css('width')) + 400 - parseInt(window.outerWidth);
 $('#main').css('display', 'none');
+$('.page:not(:first-child)').css('display', 'none');
 var barToSlideRatio = window.outerWidth/slideLength;
 if (barToSlideRatio > 1 || barToSlideRatio <= 0) {
   barToSlideRatio = 0.8;

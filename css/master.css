@@ -309,7 +309,7 @@ img {
 	background-color: rgba(255,255,255,0.5);
 	z-index: 1;
 	border-color: #444;
-	border-width: 10px;
+	border-width: 5px;
 	border-style: solid;
 	display: none;
 }
