@@ -1,29 +1,19 @@
 @font-face {
+    font-family: openSansCondensedBold;
+    src: url(fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
+}
+
+@font-face {
+    font-family: openSansCondensedLight;
+    src: url(fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
+}
+
+@font-face {
+    font-family: openSansCondensedItalic;
+    src: url(fonts/Open_Sans_Condensed/OpenSansCondensed-LightItalic.ttf);
+}
+
+@font-face {
   font-family: agencyFB;
   src: url(fonts/AgencyFB.ttf);
-}
-
-@font-face {
-  font-family: Orkney-Bold;
-  src: url(fonts/Orkney-Bold.otf);
-}
-
-@font-face {
-  font-family: Orkney-Light;
-  src: url(fonts/Orkney-Light.otf);
-}
-
-@font-face {
-  font-family: Orkney-Medium;
-  src: url(fonts/Orkney-Medium.otf);
-}
-
-@font-face {
-  font-family: Orkney-Regular;
-  src: url(fonts/Orkney-Regular.otf);
-}
-
-@font-face {
-  font-family: Openas;
-  src: url(fonts/Openas.ttf);
 }
