@@ -7,171 +7,338 @@
     <link rel="stylesheet" href="css/font.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-migrate-3.0.0.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="menuNum">
-          <div class="logo">
-            Rexor:ous {
+      <nav id='navigation'>
+        <div class="menu-item logo" value='0'>
+          <h1 class='blink'><</h1>&nbsp;&nbsp;<h1>Rexor:ous {</h1><h1>}</h1>&nbsp;&nbsp;<h1 class="blink">></h1>
+        </div>
+        <div class="menu">
+          <div class="menu-item" value='1'>
+            <h3>Rex</h3>
           </div>
-          <div class="logoStable">
-            }
+          <div class="menu-item" value='2'>
+            <h3>About</h3>
+          </div>
+          <div class="menu-item" value='3'>
+            <h3>Works</h3>
+          </div>
+          <div class="menu-item" value='4'>
+            <h3>Contact</h3>
           </div>
         </div>
-        <ul class="menu">
-          <li class="menuNum" id="toIntro">Rex</li>
-          <li class="menuNum" id="toCareer">Career</li>
-          <li class="menuNum" id="toBackground">Education</li>
-          <li class="menuNum" id="toProject">Projects</li>
-          <li class="menuNum" id="toSkill">Skill</li>
-          <li class="menuNum" id="toContact">Contact</li>
-        </ul>
-      </div>
+        <div class="question">
+          <h2>?</h2>
+        </div>
+      </nav>
     </header>
-    <div id="arrow-up">
-      <img src="image/chevron-arrow-up.png" alt="">
+    <div id="loader">
+
     </div>
-    <div id="arrow-down">
-      <img src="image/chevron-arrow-down.png" alt="">
+    <div class="introModal">
+      <h3>Swipe horizontally on this navigation bar area <br/>to navigate between pages</h3>
+      <h2>Tab to Proceed</h2>
     </div>
-    <div class="main">
-      <div class="slider" id="front">
-        <div class="container">
-          <div class="logo">
-            Rexor:ous {
-          </div>
-          <div class="logoStable">
-            }
-          </div>
+    <div id="main" style="display: none">
+      <div class='page' value='0'>
+        <div class="title">
+          <h1>Rexor:ous {</h1><h1>}</h1>
         </div>
       </div>
-      <div class="slider" id="intro">
-        <div class="container">
-          <div class="img-container">
-            <img src="image/rex.jpg" alt="">
-          </div>
-          <div class="text-container">
-            <h3>A web developer and an interaction designer based in Toronto, Canada.</h3>
-            <h3>Investigates interaction between user and the goal through different mediums</h3>
-          </div>
+      <div class="page" value='1'>
+        <div class="rex">
+          <h3>An interaction developer | designer based in Toronto, Canada.<br/>
+Investigates interaction between user and the goal using website.<br/><br/>
+
+My interest is in application of technologies such as NFC, AR and VR in real life.</h3>
         </div>
       </div>
-      <div class="slider" id="career">
-        <div class="container">
-          <h2>Experience</h2>
-          <div class="job">
-            <h3>Intellisoft Development Inc.</h3>
-            <h4>Software Developer<h4>
-            <h5>Developed new content and functionality for the George Brown College website</h5>
-            <h5>Troubleshooted and maintained George Brown College website</h5>
-            <h5>Converted George Brown college website to be WCAG compliant</h5>
-          </div>
-          <div class="job">
-            <h3>George Brown College</h3>
-            <h4>Web Designer<h4>
-            <h5>Designed layout of financial aid department </h5>
-            <h5>Advised students on how to access and use the financial aid website</h5>
-          </div>
+      <div class="page" value='2'>
+        <div class="profile">
+          <img src="image/rex.jpg" alt="">
+        </div>
+        <div class="about">
+          <h3>After graduating University of Toronto, I took Interactive Media
+Management program at George Brown College where I learned
+how to design interactive media. By combining my development
+skills I learned from University and Bitmaker Lab, I was able to
+create websites of my own.<br/><br/>
+
+I try my best to create unique and innovative website that fits the needs. I strongly think that the future of the website will not simply be
+in the monitor nor cell phone but in combination with other technologies such as near-field communication,
+
+augmented reality and virtual reality.</h3>
         </div>
       </div>
-      <div class="slider" id="background">
-        <div class="container">
-          <div class="education">
-            <h2>Education</h2>
-            <div class="school">
-              <h3>George Brown College</h3>
-              <h4>Ontario College Graduate Certificate</h4>
-              <h5>Interactive Media Management</h5>
+      <div class="page" value='3'>
+        <div class="works">
+
+          <div class="category">
+            <ul class="slideGroup">
+              <li>
+                <div class="slide" value="0">
+                  <img src="image/GBC PDF.png" alt="">
+                  <h3>Intellisoft Development Inc.</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="1">
+                  <img src="image/treeofknowledge.png" alt="">
+                  <h3>Tree of Knowledge</h3>
+                  <h6>UI|UX / Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="2">
+                  <img src="image/autobin.png" alt="">
+                  <h3>AutoBin</h3>
+                  <h6>UI|UX / Design</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="3">
+                  <img src="image/happytribe.png" alt="">
+                  <h3>HappyTribe</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="0">
+                  <img src="image/GBC PDF.png" alt="">
+                  <h3>Intellisoft Development Inc.</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="1">
+                  <img src="image/treeofknowledge.png" alt="">
+                  <h3>Tree of Knowledge</h3>
+                  <h6>UI|UX / Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="2">
+                  <img src="image/autobin.png" alt="">
+                  <h3>AutoBin</h3>
+                  <h6>UI|UX / Design</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="3">
+                  <img src="image/happytribe.png" alt="">
+                  <h3>HappyTribe</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="0">
+                  <img src="image/GBC PDF.png" alt="">
+                  <h3>Intellisoft Development Inc.</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="1">
+                  <img src="image/treeofknowledge.png" alt="">
+                  <h3>Tree of Knowledge</h3>
+                  <h6>UI|UX / Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="2">
+                  <img src="image/autobin.png" alt="">
+                  <h3>AutoBin</h3>
+                  <h6>UI|UX / Design</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="3">
+                  <img src="image/happytribe.png" alt="">
+                  <h3>HappyTribe</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="0">
+                  <img src="image/GBC PDF.png" alt="">
+                  <h3>Intellisoft Development Inc.</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="1">
+                  <img src="image/treeofknowledge.png" alt="">
+                  <h3>Tree of Knowledge</h3>
+                  <h6>UI|UX / Development</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="2">
+                  <img src="image/autobin.png" alt="">
+                  <h3>AutoBin</h3>
+                  <h6>UI|UX / Design</h6>
+                </div>
+              </li>
+              <li>
+                <div class="slide" value="3">
+                  <img src="image/happytribe.png" alt="">
+                  <h3>HappyTribe</h3>
+                  <h6>Development</h6>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="bar">
+            <div class="horizontal-slide">
+
             </div>
-            <div class="school">
-              <h3>Bitmaker</h3>
-              <h5>Web Development</h5>
+          </div>
+          <div class="modalGroup">
+            <div class="modal" value="0">
+              <div class="text">
+                <div class="left">
+                  <h2>Intellisoft Development Inc.</h2>
+                  <h4>Development</h4>
+                  <a href="https://georgebrown.ca">https://georgebrown.ca</a>
+                </div>
+                <div class="right">
+                  <p>Developed new content and functionality for the George Brown College website<br/>
+                    Troubleshooted and maintained George Brown College website<br/>
+                    Converted George Brown college website to be WCAG compliant
+                  </p>
+                  <div class="close">
+                    <h4>Close</h4>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="school">
-              <h3>University of Toronto</h3>
-              <h4>Bachelor of Science</h4>
-              <h5>Human Biology: Health & Disease Specialist</h5>
-              <h5>Candidate for Computer Science and Economics</h5>
+            <div class="modal" value="1">
+              <div class="text">
+                <div class="left">
+                  <h2>Tree of Knowledge</h2>
+                  <h4>NFC | Development</h4>
+                  <a href="https://immtreeofknowledge.herokuapp.com">https://immtreeofknowledge.herokuapp.com</a>
+                </div>
+                <div class="right">
+                  <p>
+                    Investigated required technology to meet the goal of the project<br/>
+                    Led and planned an iPad app development team<br/>
+                    Developed a required website and used NFC technology to control
+                  </p>
+                  <div class="close">
+                    <h4>Close</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal" value="2">
+              <div class="text">
+                <div class="left">
+                  <h2>AutoBin</h2>
+                  <h4>UI|UX | Design</h4>
+                  <a href="https://projects.invisionapp.com/share/3RATL6YCW#/screens">https://projects.invisionapp.com/share/3RATL6YCW#/</a>
+                </div>
+                <div class="right">
+                  <p>
+                    Designed and created prototype<br/>
+                    The goal of this project was to promote people to recycle
+                  </p>
+                  <div class="close">
+                    <h4>Close</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal" value="3">
+              <div class="text">
+                <div class="left">
+                  <h2>HappyTribe</h2>
+                  <h4>Development</h4>
+                  <a href="https://infinite-atoll-6714.herokuapp.com/">https://infinite-atoll-6714.herokuapp.com/</a>
+                </div>
+                <div class="right">
+                  <p>
+                    Designed the website using UI/UX and user interviews<br/>
+                    Developed the website using Ruby on Rails
+                  </p>
+                  <div class="close">
+                    <h4>Close</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modalSwitch">
+              <div class="switch" value="0">
+
+              </div>
+              <div class="switch" value="1">
+
+              </div>
+              <div class="switch" value="2">
+
+              </div>
+              <div class="switch" value="3">
+
+              </div>
+
             </div>
           </div>
+
         </div>
       </div>
-      <div class="slider" id="project">
-        <div class="container">
-          <h2>Project</h2>
-          <div class="project">
-            <h3><a href="http://immtreeofknowledge.herokuapp.com/">Digifest - Tree of Knowledge</a></h3>
-            <h4>Technology Department Manager</h4>
-            <h4>http://immtreeofknowledge.herokuapp.com/</h4>
-              <h5>Investigated required technology to meet the goal of the project</h5>
-              <h5>Led and planned an iPad app development team</h5>
-              <h5>Developed a required website and used NFC technology to control</h5>
-          </div>
-          <div class="project">
-            <h3><a href="https://infinite-atoll-6714.herokuapp.com/">HappyTribe</a></h3>
-            <h4>Full-stack Developer</h4>
-            <h4>https://infinite-atoll-6714.herokuapp.com/</h4>
-              <h5>Designed the website using UI/UX and user interviews</h5>
-              <h5>Developed the website using Ruby on Rails</h5>
-          </div>
-        </div>
-      </div>
-      <div class="slider" id="skill">
-        <div class="container">
-          <h2>Skill</h2>
-          <div class="left">
-            <ul class="webDev">
-              <h3>Web Development</h3>
-              <li>Ruby on Rails</li>
-              <li>ASP.net</li>
-              <li>JavaScript</li>
-              <li>JQuery</li>
-              <li>SASS</li>
-              <li>Phaser</li>
-              <li>CSS/HTML</li>
-              <li>Git</li>
-              <li>CMS</li>
-              <li>WCAG</li>
-            </ul>
-          </div>
-          <div class="right">
-            <ul class="design">
-              <h3>Design</h3>
-              <li>UI/UX Design</li>
-              <li>Adobe Suite</li>
-              <li>FL studio</li>
-            </ul>
-            <ul class="threeD">
-              <h3>3D Applications</h3>
-              <li>Maya</li>
-              <li>3DMax</li>
-            </ul>
-            <ul class="productivity">
-              <h3>Productivity</h3>
-              <li>Microsoft Office</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="slider" id="title">
+      <div class="page" value='4'>
         <div class="contact">
-          <h1>REX YUN</h1>
-          <div class="links">
-            <a href="mailto:rexoriousyun@gmail.com?subject=feedback"><img src="image\if_Medium_logo_2258488.png" alt=""><h3>rexoriousyun@gmail.com</h3></a>
-            <a href="https://github.com/rexoriousyun"><img src="image\if_Significon-Github_330378.png" alt=""><h3>/rexoriousyun</h3></a>
-            <a href="http://twitter.com/rexionize"><img src="image\if_Twitter_letter_logo_2258489.png" alt=""><h3>@rexionize</h3></a>
-            <a href="http://instagram.com/rexoriousyun"><img src="image\if_Instagram_logo_2258498.png" alt=""><h3>/rexoriousyun</h3></a>
-            <a href="https://www.linkedin.com/in/rexyun/"><img src="image\if_Linkedin_logo_2258497.png" alt=""><h3>Rex Hong Young Yun</h3></a>
+          <div class="item">
+            <a href="mailto:rexoriousyun@gmail.com?subject=feedback">
+              <img src="image/mail.png" alt="">
+              <h5>rexorious@gmail.com</h5>
+            </a>
           </div>
-        </div>
+          <div class="item">
+            <a href="https://github.com/rexoriousyun">
+              <img src="image/github.png" alt="">
+              <h5>/rexoriousyun</h5>
+            </a>
+          </div>
+          <div class="item">
+            <a href="http://twitter.com/rexionize">
+              <img src="image/linkedin.png" alt="">
+              <h5>@rexionize</h5>
+            </a>
+          </div>
+          <div class="item">
+            <a href="http://instagram.com/rexoriousyun">
+              <img src="image/instagram.png" alt="">
+              <h5>/rexoriousyun</h5>
+            </a>
+          </div>
+          <div class="item">
+            <a href="https://www.linkedin.com/in/rexyun/">
+              <img src="image/twitter.png" alt="">
+              <h5>/rexoriousyun</h5>
+            </a>
+          </div>
+      </div>
       </div>
     </div>
     <footer>
-      <p>Designed/Developed by Rex Yun</p>
     </footer>
-
+    <script type="text/javascript">
+      if (window.outerWidth < 768) {
+        $('.introModal').show();
+        $('.modal:first-child').show();
+        $('.modalSwitch').show();
+      }
+      if (window.innerWidth < 700) {
+        var barSize = window.outerWidth - 40;
+        $('.bar').css('width', barSize);
+      }
+    </script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
