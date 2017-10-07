@@ -514,6 +514,19 @@ img {
 	.question {
 		display: inline-block;
 	}
+	.contact {
+		padding: 10px;
+	}
+	.item {
+		display: inline-block;
+	}
+	.item h5 {
+		display: none;
+	}
+	.item img {
+		padding: 0;
+		width: 50px;
+	}
 }
 
 @media only screen and (max-width: 425px) {
@@ -549,13 +562,6 @@ img {
 	}
 	a {
 		font-size: 12px;
-	}
-	.item img {
-		padding: 8px 20px;
-	}
-	.contact {
-		padding-top: 0px;
-		padding-bottom: 0px;
 	}
 }
 
