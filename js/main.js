@@ -206,10 +206,10 @@ $('.modal').on("swiperight", function(){
       var modalIndex = modal.getAttribute('value');
       if (modalNum == modalIndex) {
         $(modal).animate({opacity: 'show'}, 200)
-        // if (parseInt($('.modal').css('height')) < parseInt($(modal).children('.text').css('height'))) {
-        //   $(modal).css('height', parseInt($(modal).children('.text').css('height')))
-        //   console.log(parseInt($(modal).children('.text').css('height')))
-        // }
+        if (parseInt($('.modal').css('height')) < parseInt($(modal).children('.text').css('height'))) {
+          $(modal).css('height', parseInt($(modal).children('.text').css('height')) + 100)
+          $(modal).css('paddingTop', '80px')
+        }
         $('.switch[value='+ modalIndex +']').animate({backgroundColor: '#444'}, 200)
       } else {
         $(modal).animate({opacity: 'hide'}, 200);
@@ -229,6 +229,10 @@ $('.modal').on("swipeleft", function(){
       var modalIndex = modal.getAttribute('value');
       if (modalNum == modalIndex) {
         $(modal).animate({opacity: 'show'}, 200)
+        if (parseInt($('.modal').css('height')) < parseInt($(modal).children('.text').css('height'))) {
+          $(modal).css('height', parseInt($(modal).children('.text').css('height')) + 100)
+          $(modal).css('paddingTop', '80px')
+        }
         $('.switch[value='+ modalIndex +']').animate({backgroundColor: '#444'}, 200)
       } else {
         $(modal).animate({opacity: 'hide'}, 200);
