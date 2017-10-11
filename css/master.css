@@ -320,8 +320,8 @@ img {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-  margin: 0 25px;
-	width: 80%;
+  margin: 0;
+	width: 90%;
 }
 
 .modal {
@@ -365,16 +365,22 @@ img {
 	filter: blur(2px);
 }
 .modal[value='0']::after {
-	background-image: url('../image/GBC PDF.png');
+	background-image: url('../image/happytribe.png');
 }
 .modal[value='1']::after {
-	background-image: url('../image/treeofknowledge.png');
-}
-.modal[value='2']::after {
 	background-image: url('../image/autobin.png');
 }
+.modal[value='2']::after {
+	background-image: url('../image/IMG_7434.jpg');
+}
 .modal[value='3']::after {
-	background-image: url('../image/happytribe.png');
+	background-image: url('../image/GBC PDF.png');
+}
+.modal[value='4']::after {
+	background-image: url('../image/Interchangeable_X_Classroom_Layout.png');
+}
+.modal[value='5']::after {
+	background-image: url('../image/rexorious.png');
 }
 .close {
 	float: right;
@@ -406,7 +412,7 @@ img {
 	margin: 5px;
 }
 
-.switch[value='0'] {
+.switch:first-child {
 	background-color: #444;
 }
 
@@ -478,9 +484,6 @@ img {
 	}
 	.right {
 		width: auto;
-	}
-	.modalGroup{
-		width: 90%
 	}
 }
 

@@ -5,8 +5,11 @@ var slides = document.getElementsByClassName('slide');
 var currentModal;
 var pageNum = 0;
 var pageMax = $('.menu-item').last().attr('value');
-var modalNum = 0;
-var modalMax = $('.modal').last().attr('value');
+var modalNum = $('.modal').first().attr('value');
+var modalMax = modalNum;
+var colorNum = 0;
+var colorMax = 3;
+var colors = ['#3fa9f5', '#564FF7', '#FFCF35', '#FFA735']
 var slideLength;
 var fixedSlideLength = 0;
 if (window.outerWidth < 768) {
@@ -57,7 +60,7 @@ $('.introModal').click(function(){
       if (menuButton.getAttribute('value') == menuIndex && menuIndex != 0) {
         $(menuButton).animate({color: '#444', backgroundColor: '#FFF'}, 200)
       } else {
-        $(menuButton).animate({color: '#FFF', backgroundColor: '#3fa9f5'}, 200)
+        $(menuButton).animate({color: '#FFF', backgroundColor: colors[colorNum]}, 200)
       }
     })
 
@@ -134,6 +137,22 @@ $('nav').on("swiperight", function(){
         $(page).animate({opacity: 'hide'}, 200);
       }
     })
+  } else {
+    if (colorNum == 0) {
+      colorNum = colorMax;
+    } else {
+      colorNum -= 1;
+    }
+    $('.contact').animate({'borderColor': colors[colorNum]}, 200);
+    $('nav').animate({'backgroundColor': colors[colorNum]}), 200;
+    $('.horizontal-slide').animate({'backgroundColor': colors[colorNum]}, 200);
+    ;[].forEach.call(menuButtons, function(menuButton){
+      if (menuButton.style.backgroundColor == 'rgb(255, 255, 255)') {
+        $(menuButton).animate({color: '#444', backgroundColor: '#FFF'})
+      } else {
+        $(menuButton).animate({color: '#FFF', backgroundColor: colors[colorNum]})
+      }
+    })
   }
 })
 $('nav').on("swipeleft", function(){
@@ -154,6 +173,22 @@ $('nav').on("swipeleft", function(){
         $(page).animate({opacity: 'hide'}, 200)
       }
     })
+  } else {
+    if (colorNum == colorMax) {
+      colorNum = 0;
+    } else {
+      colorNum += 1;
+    }
+    $('.contact').animate({'borderColor': colors[colorNum]}, 200);
+    $('nav').animate({'backgroundColor': colors[colorNum]}), 200;
+    $('.horizontal-slide').animate({'backgroundColor': colors[colorNum]}, 200);
+    ;[].forEach.call(menuButtons, function(menuButton){
+      if (menuButton.style.backgroundColor == 'rgb(255, 255, 255)') {
+        $(menuButton).animate({color: '#444', backgroundColor: '#FFF'})
+      } else {
+        $(menuButton).animate({color: '#FFF', backgroundColor: colors[colorNum]})
+      }
+    })
   }
 })
 $('.question').on('click', function(){
@@ -162,15 +197,19 @@ $('.question').on('click', function(){
 
 $('.modal').on("swiperight", function(){
   if (window.outerWidth < 768) {
-    if (modalNum == 0) {
-      modalNum = modalMax;
+    if (modalNum == modalMax) {
+      modalNum = 0;
     } else {
-      modalNum -= 1;
+      modalNum += 1;
     }
     ;[].forEach.call(modals, function(modal){
       var modalIndex = modal.getAttribute('value');
       if (modalNum == modalIndex) {
         $(modal).animate({opacity: 'show'}, 200)
+        // if (parseInt($('.modal').css('height')) < parseInt($(modal).children('.text').css('height'))) {
+        //   $(modal).css('height', parseInt($(modal).children('.text').css('height')))
+        //   console.log(parseInt($(modal).children('.text').css('height')))
+        // }
         $('.switch[value='+ modalIndex +']').animate({backgroundColor: '#444'}, 200)
       } else {
         $(modal).animate({opacity: 'hide'}, 200);
@@ -181,10 +220,10 @@ $('.modal').on("swiperight", function(){
 })
 $('.modal').on("swipeleft", function(){
   if (window.outerWidth < 768) {
-    if (modalNum == modalMax) {
-      modalNum = 0;
+    if (modalNum == 0) {
+      modalNum = modalMax;
     } else {
-      modalNum += 1;
+      modalNum -= 1;
     }
     ;[].forEach.call(modals, function(modal){
       var modalIndex = modal.getAttribute('value');
