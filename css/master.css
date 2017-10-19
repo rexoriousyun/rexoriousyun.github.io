@@ -201,11 +201,15 @@ img {
 }
 .introModal h2 {
 	top: 40%;
-  position: relative;
+  position: absolute;
+	left: 0;
+	right: 0;
 }
 .introModal h3 {
 	top: 25px;
-	position: relative;
+	position: absolute;
+	left: 0;
+	right: 0;
 }
 #main {
 	margin-top: 80px;
@@ -328,8 +332,8 @@ img {
 	height: 800px;
 	background-color: rgba(255,255,255,0.5);
 	z-index: 1;
-	border-color: #444;
-	border-width: 5px;
+	border-color: #3fa9f5;
+	border-width: 3px;
 	border-style: solid;
 	display: none;
 }
@@ -421,18 +425,18 @@ img {
 	max-width: 350px;
 	display: inline-block;
 	text-align: left;
-	padding: 15px 30px 15px 0;
+	padding: 15px 15px 10px 5px;
   border-style: dashed;
   border-color: #3fa9f5;
 }
 .item img {
 	display: inline-block;
 	width: 80px;
-	padding: 10px 30px;
+  padding: 0 12px;
 }
 .item h5 {
 	display: inline-block;
-	vertical-align: 45px;
+	vertical-align: 35px;
 }
 
 /* responsive section */

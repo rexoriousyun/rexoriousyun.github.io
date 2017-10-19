@@ -145,6 +145,7 @@ $('nav').on("swiperight", function(){
     $('.contact').animate({'borderColor': colors[colorNum]}, 200);
     $('nav').animate({'backgroundColor': colors[colorNum]}), 200;
     $('.horizontal-slide').animate({'backgroundColor': colors[colorNum]}, 200);
+    $('.modal').animate({'borderColor': colors[colorNum]}, 200);
     ;[].forEach.call(menuButtons, function(menuButton){
       if (menuButton.style.backgroundColor == 'rgb(255, 255, 255)') {
         $(menuButton).animate({color: '#444', backgroundColor: '#FFF'})
@@ -181,6 +182,7 @@ $('nav').on("swipeleft", function(){
     $('.contact').animate({'borderColor': colors[colorNum]}, 200);
     $('nav').animate({'backgroundColor': colors[colorNum]}), 200;
     $('.horizontal-slide').animate({'backgroundColor': colors[colorNum]}, 200);
+    $('.modal').animate({'borderColor': colors[colorNum]}, 200);
     ;[].forEach.call(menuButtons, function(menuButton){
       if (menuButton.style.backgroundColor == 'rgb(255, 255, 255)') {
         $(menuButton).animate({color: '#444', backgroundColor: '#FFF'})
