@@ -1,307 +1,230 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Rexorious</title>
-    <link rel="stylesheet" href="css/master.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="stylesheet" href="css/normalize.min.css"> -->
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/font.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-3.0.0.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
+    <video playsinline autoplay muted loop class="backgroundVideo">
+      <source src="img/Background.mp4" type="video/mp4">
+    </video>
     <header>
-      <nav id='navigation'>
-        <div class="menu-item logo" value='0'>
-          <h1 class='blink'><</h1>&nbsp;&nbsp;<h1>Rexor:ous {</h1><h1>}</h1>&nbsp;&nbsp;<h1 class="blink">></h1>
-        </div>
-        <div class="menu">
-          <div class="menu-item" value='1'>
-            <h3>Rex</h3>
-          </div>
-          <div class="menu-item" value='2'>
-            <h3>About</h3>
-          </div>
-          <div class="menu-item" value='3'>
-            <h3>Works</h3>
-          </div>
-          <div class="menu-item" value='4'>
-            <h3>Contact</h3>
-          </div>
-        </div>
-        <div class="question">
-          <h2>?</h2>
-        </div>
-      </nav>
+      <div class="trigger">
+        <h2>+</h2>
+      </div>
     </header>
-    <div id="loader">
-
-    </div>
-    <div class="introModal">
-      <h3>Swipe horizontally on this navigation bar area <br/>to navigate between pages</h3>
-      <h2>Tab to Proceed</h2>
-    </div>
-    <div id="main" style="display: none">
-      <div class='page' value='0'>
-        <div class="title">
-          <h1>Rexor:ous {</h1><h1>}</h1>
-        </div>
-      </div>
-      <div class="page" value='1'>
-        <div class="rex">
-          <h3>An interaction developer | designer based in Toronto, Canada.<br/>
-Investigates interaction between user and the goal using website.<br/><br/>
-
-My interest is in application of technologies such as NFC, AR and VR in real life.</h3>
-        </div>
-      </div>
-      <div class="page" value='2'>
-        <div class="profile">
-          <img src="image/rex.jpg" alt="">
-        </div>
-        <div class="about">
-          <p>After graduating University of Toronto, I took Interactive Media
-Management program at George Brown College where I learned
-how to design interactive media. By combining my development
-skills I learned from University and Bitmaker Lab, I was able to
-create websites of my own.<br/><br/>
-
-I try my best to create unique and innovative website that fits the needs. I strongly think that the future of the website will not simply be
-in the monitor nor cell phone but in combination with other technologies such as near-field communication,
-
-augmented reality and virtual reality.</p>
-        </div>
-      </div>
-      <div class="page" value='3'>
-        <div class="works">
-
-          <div class="category">
-            <ul class="slideGroup">
-              <li>
-                <div class="slide" value="5">
-                  <img src="image/rexorious.png" alt="">
-                  <h3>Rexorious</h3>
-                  <h6>Design / Development | 2017</h6>
-                </div>
-              </li>
-              <li>
-                <div class="slide" value="4">
-                  <img src="image/Interchangeable_X_Classroom_Layout.png" alt="">
-                  <h3>Interchangable X</h3>
-                  <h6>UX / Design | 2017</h6>
-                </div>
-              </li>
-              <li>
-                <div class="slide" value="3">
-                  <img src="image/GBC PDF.png" alt="">
-                  <h3>Intellisoft Development Inc.</h3>
-                  <h6>Development | 2017</h6>
-                </div>
-              </li>
-              <li>
-                <div class="slide" value="2">
-                  <img src="image/treeofknowledge.png" alt="">
-                  <h3>Tree of Knowledge</h3>
-                  <h6>UI|UX / Development | 2017</h6>
-                </div>
-              </li>
-              <li>
-                <div class="slide" value="1">
-                  <img src="image/autobin.png" alt="">
-                  <h3>AutoBin</h3>
-                  <h6>UI|UX / Design | 2017</h6>
-                </div>
-              </li>
-              <li>
-                <div class="slide" value="0">
-                  <img src="image/happytribe.png" alt="">
-                  <h3>HappyTribe</h3>
-                  <h6>Development | 2016</h6>
-                </div>
-              </li>
-            </ul>
+    <div class="container">
+      <div class="item content">
+        <div class="page" value="0">
+          <div class="logo">
+            <h1>Rexor</h1><h1 class='blink'>:ous {</h1><h1>}</h1>
+            <h3>Interactive developer | designer</h3>
           </div>
-          <div class="bar">
-            <div class="horizontal-slide">
+        </div>
+        <div class="page" value="1">
+          <h2>About</h2>
+          <p>After graduating University of Toronto, I took Interactive Media
+              Management program at George Brown College where I learned
+              how to design interactive media. By combining my development
+              skills I learned from University and Bitmaker Lab, I was able to
+              create websites of my own.
+              <br/>
+              <br/>
+              I create unique and innovative website that fits the needs by investigating interaction between user and the goal using UI | UX and various technologies.
+            </p>
+        </div>
+        <div class="page" value="2">
+          <h2>Works</h2>
+          <div class="works">
+            <div class="card" value="5">
+              <img src="img/rexorious.png" alt="">
+              <div class="color"></div>
+              <div class="text">
+                <h4>Rexorious</h4>
+                <h6>Design / Development | 2017</h6>
+              </div>
+            </div>
+            <div class="card" value="4">
+              <img src="img/Interchangeable_X_Classroom_Layout.png" alt="">
+              <div class="color"></div>
+              <div class="text">
+                <h4>Interchangable X</h4>
+                <h6>UX / Design | 2017</h6>
+              </div>
+            </div>
+            <div class="card" value="3">
+              <img src="img/GBC PDF.png" alt="">
+              <div class="color"></div>
+              <div class="text">
+                  <h4>Intellisoft Development Inc.</h4>
+                  <h6>Development | 2017</h6>
+              </div>
+            </div>
+            <div class="card" value="2">
+              <img src="img/treeofknowledge.png" alt="">
+              <div class="color"></div>
+              <div class="text">
+                <h4>Tree of Knowledge</h4>
+                <h6>UI|UX / Development | 2017</h6>
+              </div>
+            </div>
+            <div class="card" value="1">
+              <img src="img/autobin.png" alt="">
+              <div class="color"></div>
+              <div class="text">
+                <h4>AutoBin</h4>
+                <h6>UI|UX / Design | 2017</h6>
+              </div>
+            </div>
+            <div class="card" value="0">
+              <img src="img/happytribe.png" alt="">
+              <div class="color"></div>
+              <div class="text">
+                <h4>HappyTribe</h4>
+                <h6>Development | 2016</h6>
+              </div>
             </div>
           </div>
           <div class="modalGroup">
             <div class="modal" value="5">
+              <img src="img/rexorious.png" alt="">
+              <div class="front"><h2><</h2></div>
               <div class="text">
-                <div class="left">
-                  <h2>Rexorious</h2>
-                  <h4>Design / Development | 2017</h4>
-                  <a href="https://rexoriousyun.github.com">https://rexoriousyun.github.com</a>
-                </div>
-                <div class="right">
-                  <p>
-                    The site you are looking at right now is designed and developed by myself. Most of the functionalities are developed from scratch as I really wanted to practice my JavaScript skills. The site is designed as simple as possible that the user can navigate between page easily. The site consist some 'hidden piece' so keep looking!
-                  </p>
-                  <div class="close">
-                    <h4>Close</h4>
-                  </div>
-                </div>
+                <h4>Rexorious</h4>
+                <h6>Design / Development | 2017</h6>
+                <a href="https://rexoriousyun.github.com">https://rexoriousyun.github.com</a>
+                <p>
+                  The site you are looking at right now is designed and developed by myself. Most of the functionalities are developed from scratch as I really wanted to practice my JavaScript skills. The site is designed as simple as possible that the user can navigate between page easily. The site consist some 'hidden piece' so keep looking!
+                </p>
               </div>
+              <div class="back"><h2>></h2></div>
             </div>
             <div class="modal" value="4">
+              <img src="img/Interchangeable_X_Classroom_Layout.png" alt="">
+              <div class="front"><h2><</h2></div>
               <div class="text">
-                <div class="left">
-                  <h2>Interchangable X</h2>
-                  <h4>UX / Design | 2017</h4>
-                  <a href="download\Interchangeable_X_Product_Producing_Plan.pdf">Production Plan PDF</a>
-                </div>
-                <div class="right">
-                  <p>
-                    Interchangable X is a concept design for an immersive kindergarten classroom using augmented reality. The design consists a physical classroom design and accompanying curriculum recommendations. The link leads to PDF file which consist production plan for this project.
-                  </p>
-                  <div class="close">
-                    <h4>Close</h4>
-                  </div>
-                </div>
+                <h4>Interchangable X</h4>
+                <h6>UX / Design | 2017</h6>
+                <a href="download\Interchangeable_X_Product_Producing_Plan.pdf">Production Plan PDF</a>
+                <p>
+                  Interchangable X is a concept design for an immersive kindergarten classroom using augmented reality. The design consists a physical classroom design and accompanying curriculum recommendations. The link leads to PDF file which consist production plan for this project.
+                </p>
               </div>
+              <div class="back"><h2>></h2></div>
             </div>
             <div class="modal" value="3">
+              <img src="img/GBC PDF.png" alt="">
+              <div class="front"><h2><</h2></div>
               <div class="text">
-                <div class="left">
-                  <h2>Intellisoft Development Inc.</h2>
-                  <h4>Development | 2017</h4>
+                  <h4>Intellisoft Development Inc.</h4>
+                  <h6>Development | 2017</h6>
                   <a href="https://georgebrown.ca">https://georgebrown.ca</a>
-                </div>
-                <div class="right">
                   <p>While working at Intellisoft Development, I have developed and maintained contents and functionality for George Brown College website. I have encountered new technologies such as ASP.Net, WCAG and SASS that were incorporated with the tasks I was given. The tasks involved mostly front-end work using JavaScript and its frameworks. One of the interesting tasks I was given was where the user being able to download specific selection of files into one zipped file format. The solution I have used was System.IO.Compression library and ajax calls using jQuery.
                   </p>
-                  <div class="close">
-                    <h4>Close</h4>
-                  </div>
-                </div>
               </div>
+              <div class="back"><h2>></h2></div>
             </div>
             <div class="modal" value="2">
+              <img src="img/treeofknowledge.png" alt="">
+              <div class="front"><h2><</h2></div>
               <div class="text">
-                <div class="left">
-                  <h2>Tree of Knowledge</h2>
-                  <h4>NFC | Development | 2017</h4>
-                  <a href="download/Interchangeable_X_Style Guide.pdf">Style Guide PDF</a><Br/>
-                  <a href="https://immtreeofknowledge.herokuapp.com">https://immtreeofknowledge.herokuapp.com</a>
-                </div>
-                <div class="right">
-                  <p>
+                <h4>Tree of Knowledge</h4>
+                <h6>UI|UX / Development | 2017</h6>
+                <a href="download/Interchangeable_X_Style Guide.pdf">Style Guide PDF</a>
+                <a href="https://immtreeofknowledge.herokuapp.com">https://immtreeofknowledge.herokuapp.com</a>
+                <p>
                   Tree of Knowledge was exhibited in Digifest 2017. It is an immersive learning tool for children to gain knowledge about the world. Users pick up various shapes, from animals to stars, of wooden piece from tree structure, then place the piece on a stage to solve interesting questions. My job on this project was to plan, lead and develop all technological parts. Near-field communication technology was chosen to initiate the page on an iPad app, then the app passed corresponding Javascript codes to the site to view the right page to the user. As the most NFC frameworks are focused on android or apple app developments, I developed an iPad app which loads the website in Kiosk mode then passes Javascript code to load the corresponding page.
                   </p>
-                  <div class="close">
-                    <h4>Close</h4>
-                  </div>
-                </div>
               </div>
+              
+              <div class="back"><h2>></h2></div>
             </div>
             <div class="modal" value="1">
+              <img src="img/autobin.png" alt="">
+              <div class="front"><h2><</h2></div>
               <div class="text">
-                <div class="left">
-                  <h2>AutoBin</h2>
-                  <h4>UI|UX | Design | 2017</h4>
-                  <a href="https://projects.invisionapp.com/share/3RATL6YCW#/screens">https://projects.invisionapp.com/share/3RATL6YCW#/</a>
-                </div>
-                <div class="right">
-                  <p>
-                    AutoBin is a recycling app targeted towards Canadians who have different biweekly/weekly waste collection schedule depending on where you live. The app not only notify the user the correct schedule but also tracks how much he or she has correctly placed waste into a correct container. Depending on how much the user have correctly put waste in, it transfers into credits which he or she can use in the community such as garbage bin upgrade or fee waive. The app uses an assumption that the garbage truck has a bulit-in technology where it can track how much individual household is correctly disposing the garbage. inVision was used to build the prototype of this app.
-                  </p>
-                  <div class="close">
-                    <h4>Close</h4>
-                  </div>
-                </div>
+                <h4>AutoBin</h4>
+                <h6>UI|UX / Design | 2017</h6>
+                <a href="https://projects.invisionapp.com/share/3RATL6YCW#/screens">https://projects.invisionapp.com/share/3RATL6YCW#/</a>
+                <p>
+                  AutoBin is a recycling app targeted towards Canadians who have different biweekly/weekly waste collection schedule depending on where you live. The app not only notify the user the correct schedule but also tracks how much he or she has correctly placed waste into a correct container. Depending on how much the user have correctly put waste in, it transfers into credits which he or she can use in the community such as garbage bin upgrade or fee waive. The app uses an assumption that the garbage truck has a bulit-in technology where it can track how much individual household is correctly disposing the garbage. inVision was used to build the prototype of this app.
+                </p>
               </div>
+              <div class="back"><h2>></h2></div>
             </div>
             <div class="modal" value="0">
+              <img src="img/happytribe.png" alt="">
+              <div class="front"><h2><</h2></div>
               <div class="text">
-                <div class="left">
-                  <h2>HappyTribe</h2>
-                  <h4>Development | 2016</h4>
-                  <a href="https://infinite-atoll-6714.herokuapp.com/">https://infinite-atoll-6714.herokuapp.com/</a>
-                </div>
-                <div class="right">
-                  <p>
-                    HappyTribe is volunteering registration app for both hosts and volunteers. The app is a solution to a problem which the users are having hard time trying to find a volunteering event and track changes to the information and capacity of the event. The core function of the site involves sign-up, mailing, messaging and reservation. My task on this project was to develop the website with other members of the team using git version control tool. The site was developed using Ruby on Rails and various JavaScript library such as hammer.js and jQuery mobile. A lot of feedback between the members went back and forth in a limited time.
-                  </p>
-                  <div class="close">
-                    <h4>Close</h4>
-                  </div>
-                </div>
+                <h4>HappyTribe</h4>
+                <h6>Development | 2016</h6>
+                <a href="https://infinite-atoll-6714.herokuapp.com/">https://infinite-atoll-6714.herokuapp.com/</a>
+                <p>
+                  HappyTribe is volunteering registration app for both hosts and volunteers. The app is a solution to a problem which the users are having hard time trying to find a volunteering event and track changes to the information and capacity of the event. The core function of the site involves sign-up, mailing, messaging and reservation. My task on this project was to develop the website with other members of the team using git version control tool. The site was developed using Ruby on Rails and various JavaScript library such as hammer.js and jQuery mobile. A lot of feedback between the members went back and forth in a limited time.
+                </p>
               </div>
-            </div>
-            <div class="modalSwitch">
-              <div class="switch" value="5">
-
-              </div>
-              <div class="switch" value="4">
-
-              </div>
-              <div class="switch" value="3">
-
-              </div>
-              <div class="switch" value="2">
-
-              </div>
-              <div class="switch" value="1">
-
-              </div>
-              <div class="switch" value="0">
-
-              </div>
+              <div class="back"><h2>></h2></div>
             </div>
           </div>
-
+        </div>
+        <div class="page" value="3">
+          <h2>Contact</h2>
+          <div class="contact">
+            <div class="item">
+              <a href="mailto:rexoriousyun@gmail.com?subject=feedback">
+                <img src="img/mail.png" alt="">
+                <h5>rexoriousyun@gmail.com</h5>
+              </a>
+            </div>
+            <div class="item">
+              <a href="https://github.com/rexoriousyun">
+                <img src="img/github.png" alt="">
+                <h5>/rexoriousyun</h5>
+              </a>
+            </div>
+            <div class="item">
+              <a href="https://www.linkedin.com/in/rexyun/">
+                <img src="img/linkedin.png" alt="">
+                <h5>in/rexyun/</h5>
+              </a>
+            </div>
+            <div class="item">
+              <a href="https://dribbble.com/rexoriousyun">
+                <img src="img/dribbble.png" alt="">
+                <h5>/rexoriousyun</h5>
+              </a>
+            </div>
+            <div class="item">
+              <a href="https://codepen.io/rexoriousyun/">
+                <img src="img/codepen.png" alt="">
+                <h5>/rexoriousyun</h5>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="page" value='4'>
-        <div class="contact">
-          <div class="item">
-            <a href="mailto:rexoriousyun@gmail.com?subject=feedback">
-              <img src="image/mail.png" alt="">
-              <h5>rexoriousyun@gmail.com</h5>
-            </a>
-          </div>
-          <div class="item">
-            <a href="https://github.com/rexoriousyun">
-              <img src="image/github.png" alt="">
-              <h5>/rexoriousyun</h5>
-            </a>
-          </div>
-          <div class="item">
-            <a href="http://twitter.com/rexionize">
-              <img src="image/linkedin.png" alt="">
-              <h5>@rexionize</h5>
-            </a>
-          </div>
-          <div class="item">
-            <a href="http://instagram.com/rexoriousyun">
-              <img src="image/instagram.png" alt="">
-              <h5>/rexoriousyun</h5>
-            </a>
-          </div>
-          <div class="item">
-            <a href="https://www.linkedin.com/in/rexyun/">
-              <img src="image/twitter.png" alt="">
-              <h5>/rexoriousyun</h5>
-            </a>
-          </div>
-      </div>
-      </div>
+      <div class="item menu">
+          <ul>
+            <li value="0"><h2>Title</h2></li>
+            <li value="1"><h2>About</h2></li>
+            <li value="2"><h2>Works</h2></li>
+            <li value="3"><h2>Contact</h2></li>
+          </ul>
+        </div>
     </div>
-    <footer>
-    </footer>
-    <script type="text/javascript">
-      if (window.outerWidth < 768) {
-        $('.introModal').show();
-        $('.modal:first-child').show();
-        $('.modalSwitch').show();
-      }
-      if (window.innerWidth < 700) {
-        var barSize = window.outerWidth - 40;
-        $('.bar').css('width', barSize);
-      }
-    </script>
-    <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/main.js"></script>
   </body>
 </html>
