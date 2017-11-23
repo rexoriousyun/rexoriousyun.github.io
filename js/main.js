@@ -1,6 +1,6 @@
-$(window).load(function(){
-  $('#loader').fadeOut('fast');
-});
+window.onload = function(){
+  $('header, .container').css({'display': 'flex'});
+}
 
 var menuOpen = false;
 var modalOpen = false;
