@@ -1,3 +1,7 @@
+$(window).load(function(){
+  $('#loader').fadeOut('fast');
+});
+
 var menuOpen = false;
 var modalOpen = false;
 var currentNumber;
