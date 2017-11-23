@@ -16,8 +16,7 @@ $('.trigger').click(function(){
     } else {
       $('.menu').animate({'width': '30%', 'minWidth': '300px'});
     }
-    $('.page').animate({'marginLeft': '20px'});
-    $('.page').animate({'marginRight': '20px'});
+    $('.page').animate({'marginLeft': '20px', 'marginRight': '20px'});
     $(this).css({'transition': 'transform 0.5s', 'transform': 'rotate(45deg)'});
     menuOpen = true;
   } else {
@@ -76,22 +75,7 @@ $('.card').click(function(){
   modalOpen = true;
 })
 
-$('.front').click(function(){
-  $('.modal[value=' + currentNumber + ']').animate({
-    'left':'100%'
-  }, function(){
-    $(this).css({'left':'0'});
-    $(this).hide();
-  });
-  if (currentNumber >= maxModalValue) {
-    currentNumber = 0;
-  } else {
-    currentNumber += 1;
-  }
-  $('.modal[value=' + currentNumber + ']').animate({'opacity':'show'});
-})
-
-$('.back').click(function(){
+function toLeft() {
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'-100%'
   }, function(){
@@ -105,7 +89,41 @@ $('.back').click(function(){
     currentNumber -= 1;
   }
   $('.modal[value=' + currentNumber + ']').animate({'opacity':'show'});
+}
+
+function toRight() {
+  $('.modal[value=' + currentNumber + ']').animate({
+    'left':'100%'
+  }, function(){
+    $(this).css({'left':'0'});
+    $(this).hide();
+  });
+  if (currentNumber >= maxModalValue) {
+    currentNumber = 0;
+  } else {
+    currentNumber += 1;
+  }
+  $('.modal[value=' + currentNumber + ']').animate({'opacity':'show'});
+}
+
+$('.front').click(function(){
+  toRight();
+})
+
+$('.modal').on('swiperight', function(){
+  toRight();
+})
+
+$('.back').click(function(){
+  toLeft();
+})
+
+$('.modal').on('swipeleft', function(){
+  toLeft();
 })
 
 $('.page[value="1"], .page[value="2"], .page[value="3"]').hide();
 $('.modal').hide();
+if (window.innerWidth < 600) {
+  $('.back, .front').css({'top': window.innerHeight/2})
+}

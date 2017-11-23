@@ -111,6 +111,8 @@ h5 {
   display: inline-block; }
 
 h6 {
+  font-weight: normal;
+  font-family: Orkney-Light;
   margin: 5px 0;
   line-height: 20px; }
 
