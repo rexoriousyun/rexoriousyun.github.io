@@ -16,7 +16,7 @@ var maxModalValue = $('.modal:first-child').attr('value');
 $('.trigger').click(function(){
   if (modalOpen && menuOpen == false) {
     $('.modal').hide();
-    $('.works').animate({'opacity':'show'});
+    $('.works').animate({'opacity':'show'}, 200);
     $(this).css({'transition': 'transform 0.5s', 'transform': 'rotate(0deg)'});
     modalOpen = false;
   } else if (menuOpen == false){
@@ -56,9 +56,9 @@ $('.menu li').click(function(){
 })
 
 $('.card').hover(function() {
-    $(this).children('.color').animate({'opacity': 0.2});
+    $(this).children('.color').animate({'opacity': 0.2}, 200);
   }, function() {
-    $(this).children('.color').animate({'opacity': 1});
+    $(this).children('.color').animate({'opacity': 1}, 200);
   }
 );
 
