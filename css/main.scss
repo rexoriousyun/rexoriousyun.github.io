@@ -473,10 +473,11 @@ img {
     width: 100%;
   }
   .menu {
-    justify-content: flex-end;
+    justify-content: center;
     ul {
+      margin-left: 0;
       li {
-        justify-content: flex-end;
+        justify-content: center;
       }
     }
   }
