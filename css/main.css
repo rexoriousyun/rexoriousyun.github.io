@@ -392,6 +392,11 @@ img {
     height: 207px;
     width: 100%; }
 
+  .menu {
+    justify-content: flex-end; }
+    .menu ul li {
+      justify-content: flex-end; }
+
   h1 {
     font-size: 80px; }
 
