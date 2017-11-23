@@ -1,5 +1,11 @@
 window.onload = function(){
+  $('#loader').css({'display':'none'});
   $('header, .container').css({'display': 'flex'});
+  $('.backgroundVideo').animate({'opacity':'1'}, 'fast',
+    function(){
+      $('header, .container').animate({'opacity': '1'}, 'slow');
+    }
+  );
 }
 
 var menuOpen = false;
