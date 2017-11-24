@@ -144,6 +144,7 @@ $('.modal').on('swipeleft', function(){
 
 $('.page[value="1"], .page[value="2"], .page[value="3"]').hide();
 $('.modal').hide();
+$('.page').css({'height': window.innerHeight - 160});
 if (window.innerWidth < 600) {
   $('.back, .front').css({'top': window.innerHeight/2})
 }
