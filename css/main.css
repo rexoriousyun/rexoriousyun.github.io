@@ -189,7 +189,7 @@ img {
   flex: 1 0;
   color: white;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 80px 0;
   position: relative; }
@@ -201,8 +201,7 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  max-width: 1024px;
-  align-self: flex-start; }
+  max-width: 1024px; }
   .page > p {
     display: flex; }
   .page > .contact {
