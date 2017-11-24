@@ -150,7 +150,7 @@ h6 {
 p {
   font-family: Orkney-Regular;
   font-size: 20px;
-  line-height: 26px;
+  line-height: 30px;
 }
 
 a {
@@ -244,6 +244,7 @@ img {
   max-width: 1024px;
   > p {
     display: flex;
+    align-self: flex-start;
   }
   > .contact {
     display: flex;
@@ -251,7 +252,7 @@ img {
   }
   h2 {
     align-self: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     cursor: default;
   }
 }
@@ -312,7 +313,7 @@ img {
     background-color: #bf2226;
   }
   .card[value='5'] .color {
-    background-color: #575757;
+    background-color: #000000;
   }
   .card {
     width: calc(100%/3);
@@ -363,35 +364,62 @@ img {
   background-color: #bf2226;
 }
 .modal[value='5']{
-  background-color: #575757;
+  background-color: #000000;
 }
 .modal {
   width: 100%;
-  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
-    width: 40%;
-    max-height: 80%;
-    max-width: 512px;
-    object-fit: contain;
-  }
   .text {
     display: flex;
     flex-direction: column;
-    width: 40%;
-    margin-left: 40px;
+    width: 100%;
+    max-width: 1024px;
+    align-self: flex-start;
+    padding: 80px 80px;
+    img {
+      padding: 40px;
+      object-fit: contain;
+      height: auto;
+    }
     a {
       margin: 10px 0;
       text-decoration: underline;
     }
+    .title {
+      margin-bottom: 60px;
+    }
+    .full {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+    .half {
+      width: 50%;
+    }
+    p.half {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+    }
+    .skills {
+      text-align: right;
+      h5 {
+        margin-bottom: 5px;
+      }
+      li {
+        list-style-type: circle;
+        list-style-position: inside;
+        margin: 5px;
+      }
+    }
   }
   .front {
-    position: absolute;
+    position: fixed;
     left: 0;
     margin-left: 20px;
     top: 50%;
@@ -401,7 +429,7 @@ img {
     }
   }
   .back {
-    position: absolute;
+    position: fixed;
     right: 0;
     margin-right: 20px;
     top: 50%;
@@ -514,15 +542,45 @@ img {
   .modal {
     flex-direction: column;
     height: auto;
-    img {
-      width: 90%;
-      padding: 0 20px;
-      margin-top: 30px;
-    }
     .text {
-      width: 90%;
-      padding: 20px;
-      margin: 0;
+      padding: 40px;
+      img {
+        padding: 20px 0;
+        object-fit: contain;
+        height: auto;
+      }
+      a {
+        margin: 10px 0;
+        text-decoration: underline;
+      }
+      .title {
+        margin-bottom: 60px;
+      }
+      .full {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .half {
+        width: 100%;
+      }
+      p.half {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+      }
+      .skills {
+        margin-top: 20px;
+        text-align: left;
+        h5 {
+          margin-bottom: 5px;
+        }
+        li {
+          list-style-type: circle;
+          list-style-position: inside;
+          margin: 5px;
+        }
+      }
     }
     .front {
       margin-left: 10px;

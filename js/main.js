@@ -147,7 +147,6 @@ $('.modal').on('swipeleft', function(){
 
 document.onkeydown = function(evt) {
   evt = evt || window.event;
-  console.log(evt.keyCode);
   if (evt.keyCode == 27 || evt.keyCode == 32) {
     $('.trigger').trigger('click');
   } else if (modalOpen) {
@@ -161,7 +160,5 @@ document.onkeydown = function(evt) {
 
 $('.page[value="1"], .page[value="2"], .page[value="3"]').hide();
 $('.modal').hide();
-$('.page').css({'height': window.innerHeight - 160});
-if (window.innerWidth < 600) {
-  $('.back, .front').css({'top': window.innerHeight/2})
-}
+$('.page').css({'height': '100vh-160px'});
+$('.back, .front').css({'top': window.innerHeight/2})
