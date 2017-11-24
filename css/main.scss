@@ -234,6 +234,7 @@ img {
   justify-content: center;
   flex-direction: column;
   max-width: 1024px;
+  align-self: flex-start;
   > p {
     display: flex;
   }
