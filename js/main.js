@@ -12,6 +12,8 @@ var menuOpen = false;
 var modalOpen = false;
 var currentNumber;
 var maxModalValue = $('.modal:first-child').attr('value');
+var liVal = 0;
+var liValMax = parseInt($('li:last-child').attr('value'));
 
 $('.trigger').click(function(){
   if (modalOpen && menuOpen == false) {
@@ -42,7 +44,7 @@ $('.trigger').click(function(){
 })
 
 $('.menu li').click(function(){
-  var liVal = $(this).attr('value');
+  liVal = $(this).attr('value');
   $('.page').each(function(){
     if (liVal == $(this).attr('value')){
       $(this).animate({'opacity':'show'}, 1000);
@@ -141,6 +143,21 @@ $('.back').click(function(){
 $('.modal').on('swipeleft', function(){
   toLeft();
 })
+
+
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  console.log(evt.keyCode);
+  if (evt.keyCode == 27 || evt.keyCode == 32) {
+    $('.trigger').trigger('click');
+  } else if (modalOpen) {
+    if (evt.keyCode == 39) {
+      toLeft();
+    } else if (evt.keyCode == 37) {
+      toRight();
+    }
+  } 
+};
 
 $('.page[value="1"], .page[value="2"], .page[value="3"]').hide();
 $('.modal').hide();

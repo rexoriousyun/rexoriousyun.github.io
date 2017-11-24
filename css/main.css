@@ -163,6 +163,13 @@ img {
   flex: 1 0 300px;
   opacity: 0; }
 
+@keyframes fade {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0.2; }
+  100% {
+    opacity: 1; } }
 .menu {
   color: #FFF;
   width: 0;
@@ -183,6 +190,8 @@ img {
       flex: 1 0;
       align-items: center;
       justify-content: flex-start; }
+      .menu ul li :hover {
+        animation: fade 2s linear 0s infinite; }
 
 .content {
   flex: 1 0;
