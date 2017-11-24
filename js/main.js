@@ -160,5 +160,4 @@ document.onkeydown = function(evt) {
 
 $('.page[value="1"], .page[value="2"], .page[value="3"]').hide();
 $('.modal').hide();
-$('.page').css({'height': '100vh-160px'});
 $('.back, .front').css({'top': window.innerHeight/2})
