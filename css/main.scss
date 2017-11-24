@@ -546,40 +546,17 @@ img {
       padding: 40px;
       img {
         padding: 20px 0;
-        object-fit: contain;
         height: auto;
-      }
-      a {
-        margin: 10px 0;
-        text-decoration: underline;
-      }
-      .title {
-        margin-bottom: 60px;
       }
       .full {
         width: 100%;
-        display: flex;
         flex-direction: column;
       }
       .half {
         width: 100%;
       }
-      p.half {
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-      }
       .skills {
-        margin-top: 20px;
         text-align: left;
-        h5 {
-          margin-bottom: 5px;
-        }
-        li {
-          list-style-type: circle;
-          list-style-position: inside;
-          margin: 5px;
-        }
       }
     }
     .front {
