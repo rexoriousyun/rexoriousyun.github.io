@@ -78,7 +78,7 @@ $('.card').click(function(){
     var modalNumber = parseInt($(this).attr('value'));
     if (cardNumber == modalNumber){
       $(this).animate({'opacity':'show'}, function(){
-        $( 'html, body' ).animate( { scrollTop : '0' }, 500, 'swing' )
+        $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
       });
       $('.trigger').css({'transition': 'transform 0.5s', 'transform': 'rotate(45deg)'});
       currentNumber = modalNumber;
@@ -102,7 +102,7 @@ function toLeft() {
   }
   $('.modal[value=' + currentNumber + ']').animate({'opacity':'show'}, 
     function(){
-      $( 'html, body' ).animate( { scrollTop : '0' }, 500, 'swing' )
+      $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
     }
   );
 }
@@ -121,7 +121,7 @@ function toRight() {
   }
   $('.modal[value=' + currentNumber + ']').animate({'opacity':'show'}, 
     function(){
-      $( 'html, body' ).animate( { scrollTop : '0' }, 500, 'swing' )
+      $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
     }
   );
 }
