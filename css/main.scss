@@ -153,6 +153,11 @@ p {
   line-height: 30px;
 }
 
+li {
+  font-weight: normal;
+  font-family: Orkney-Light;
+}
+
 a {
 	font-family: Orkney-Light;
   text-decoration: none;
@@ -375,11 +380,12 @@ img {
   justify-content: center;
   align-items: center;
   .text {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    // align-self: flex-start;
     width: 100%;
     max-width: 1024px;
-    align-self: flex-start;
+    
     padding: 80px 80px;
     img {
       padding: 40px;
