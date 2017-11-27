@@ -466,6 +466,8 @@ img {
         width: 100%; }
       .modal .text .skills {
         text-align: left; }
+      .modal .text .title .half {
+        margin-bottom: 20px; }
     .modal .front {
       margin-left: 10px; }
     .modal .back {

@@ -78,11 +78,11 @@ $('.card').click(function(){
   var cardNumber = parseInt($(this).attr('value'));
   $('.modal').each(function(index){
     var modalNumber = parseInt($(this).attr('value'));
-    $('iframe').css({'height': parseInt($(this).css('width')) * 0.5625})
     if (cardNumber == modalNumber){
       $(this).animate({'opacity':'show'}, function(){
         $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
       });
+      $('iframe').css({'height': parseInt($(this).css('width')) * 0.5625});
       $('.trigger').css({'transition': 'transform 0.5s', 'transform': 'rotate(45deg)'});
       currentNumber = modalNumber;
     }
