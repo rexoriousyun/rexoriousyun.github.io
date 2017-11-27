@@ -78,6 +78,7 @@ $('.card').click(function(){
   var cardNumber = parseInt($(this).attr('value'));
   $('.modal').each(function(index){
     var modalNumber = parseInt($(this).attr('value'));
+    $('iframe').css({'height': parseInt($(this).css('width')) * 0.5625})
     if (cardNumber == modalNumber){
       $(this).animate({'opacity':'show'}, function(){
         $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
@@ -90,6 +91,8 @@ $('.card').click(function(){
 })
 
 function toLeft() {
+  	
+  document.getElementById('treeVideo').src += '';
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'-100%'
   }, function(){
@@ -110,6 +113,7 @@ function toLeft() {
 }
 
 function toRight() {
+  document.getElementById('treeVideo').src += '';
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'100%'
   }, function(){

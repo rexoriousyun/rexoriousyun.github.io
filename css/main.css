@@ -324,7 +324,9 @@ img {
     .modal .text img {
       padding: 40px;
       object-fit: contain;
-      height: auto; }
+      height: 100%; }
+    .modal .text iframe {
+      padding: 40px; }
     .modal .text a {
       margin: 10px 0;
       text-decoration: underline; }
@@ -454,8 +456,9 @@ img {
     .modal .text {
       padding: 40px; }
       .modal .text img {
-        padding: 20px 0;
-        height: auto; }
+        padding: 20px 0; }
+      .modal .text iframe {
+        padding: 20px 0; }
       .modal .text .full {
         width: 100%;
         flex-direction: column; }

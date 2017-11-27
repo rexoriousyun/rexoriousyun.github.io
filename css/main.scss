@@ -384,7 +384,10 @@ img {
     img {
       padding: 40px;
       object-fit: contain;
-      height: auto;
+      height: 100%;
+    }
+    iframe {
+      padding: 40px;
     }
     a {
       margin: 10px 0;
@@ -546,7 +549,9 @@ img {
       padding: 40px;
       img {
         padding: 20px 0;
-        height: auto;
+      }
+      iframe {
+        padding: 20px 0;
       }
       .full {
         width: 100%;
