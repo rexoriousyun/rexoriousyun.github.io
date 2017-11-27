@@ -462,7 +462,7 @@ img {
         padding: 20px 0; }
       .modal .text .full {
         width: 100%;
-        flex-direction: column; }
+        display: block; }
       .modal .text .half {
         width: 100%; }
       .modal .text .skills {
