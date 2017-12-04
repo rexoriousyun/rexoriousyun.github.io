@@ -15,6 +15,10 @@ var maxModalValue = $('.modal:first-child').attr('value');
 var liVal = 0;
 var liValMax = parseInt($('li:last-child').attr('value'));
 
+function isTouchDevice() {
+  return 'ontouchstart' in document.documentElement;
+}
+
 $('.trigger').click(function(){
   if (modalOpen && menuOpen == false) {
     $('.modal').hide();
@@ -82,7 +86,8 @@ $('.card').click(function(){
       $(this).animate({'opacity':'show'}, function(){
         $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
       });
-      $('iframe').css({'height': parseInt($(this).css('width')) * 0.5625});
+      var treeVideoHeight = parseInt($('#treeVideo').css('width'));
+      $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
       $('.trigger').css({'transition': 'transform 0.5s', 'transform': 'rotate(45deg)'});
       currentNumber = modalNumber;
     }
@@ -90,9 +95,11 @@ $('.card').click(function(){
   modalOpen = true;
 })
 
-function toLeft() {
-  	
+function toLeft() {	
   document.getElementById('treeVideo').src += '';
+  var treeVideoHeight = parseInt($('#treeVideo').css('width'));
+  $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
+
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'-100%'
   }, function(){
@@ -114,6 +121,9 @@ function toLeft() {
 
 function toRight() {
   document.getElementById('treeVideo').src += '';
+  var treeVideoHeight = parseInt($('#treeVideo').css('width'));
+  $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
+  
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'100%'
   }, function(){
@@ -137,7 +147,9 @@ $('.front').click(function(){
 })
 
 $('.modal').on('swiperight', function(){
-  toRight();
+  if (isTouchDevice()) {
+    toRight();
+  }
 })
 
 $('.back').click(function(){
@@ -145,7 +157,9 @@ $('.back').click(function(){
 })
 
 $('.modal').on('swipeleft', function(){
-  toLeft();
+  if (isTouchDevice()) {
+    toLeft();
+  }
 })
 
 
