@@ -96,10 +96,6 @@ $('.card').click(function(){
 })
 
 function toLeft() {	
-  document.getElementById('treeVideo').src += '';
-  var treeVideoHeight = parseInt($('#treeVideo').css('width'));
-  $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
-
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'-100%'
   }, function(){
@@ -114,6 +110,9 @@ function toLeft() {
   }
   $('.modal[value=' + currentNumber + ']').animate({'opacity':'show'}, 
     function(){
+      document.getElementById('treeVideo').src += '';
+      var treeVideoHeight = parseInt($('#treeVideo').css('width'));
+      $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
       $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
     }
   );
@@ -123,7 +122,6 @@ function toRight() {
   document.getElementById('treeVideo').src += '';
   var treeVideoHeight = parseInt($('#treeVideo').css('width'));
   $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
-  
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'100%'
   }, function(){
@@ -137,6 +135,9 @@ function toRight() {
   }
   $('.modal[value=' + currentNumber + ']').animate({'opacity':'show'}, 
     function(){
+      document.getElementById('treeVideo').src += '';
+      var treeVideoHeight = parseInt($('#treeVideo').css('width'));
+      $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
       $( 'html, body' ).animate( { scrollTop : '0' }, 300, 'swing' )
     }
   );
