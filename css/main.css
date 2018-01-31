@@ -465,6 +465,8 @@ img {
     height: auto; }
     .modal .text {
       padding: 40px; }
+      .modal .text .codepen {
+        height: 400px; }
       .modal .text img {
         padding: 20px 0; }
       .modal .text iframe {

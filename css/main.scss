@@ -564,6 +564,9 @@ img {
     height: auto;
     .text {
       padding: 40px;
+      .codepen {
+        height: 400px;
+      }
       img {
         padding: 20px 0;
       }
