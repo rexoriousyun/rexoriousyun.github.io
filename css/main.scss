@@ -131,6 +131,7 @@ h4 {
   font-weight: bold;
   font-family: Orkney-Medium;
   user-select: none;
+  line-height: 32px;
 }
 
 h5 {
@@ -320,6 +321,9 @@ img {
   .card[value='5'] .color {
     background-color: #000000;
   }
+  .card[value='6'] .color {
+    background-color: #D678D2;
+  }
   .card {
     width: calc(100%/3);
     position: relative;
@@ -371,6 +375,9 @@ img {
 .modal[value='5']{
   background-color: #000000;
 }
+.modal[value='6']{
+  background-color: #D678D2;
+}
 .modal {
   width: 100%;
   position: absolute;
@@ -379,6 +386,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   .text {
     // display: flex;
     // flex-direction: column;
@@ -387,6 +395,9 @@ img {
     max-width: 1024px;
     
     padding: 80px 80px;
+    .codepen {
+      height: 600px;
+    }
     img {
       padding: 40px;
       object-fit: contain;

@@ -88,6 +88,7 @@ $('.card').click(function(){
       });
       var treeVideoHeight = parseInt($('#treeVideo').css('width'));
       $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
+      document.getElementsByClassName('codepen')[0].src = document.getElementsByClassName('codepen')[0].src
       $('.trigger').css({'transition': 'transform 0.5s', 'transform': 'rotate(45deg)'});
       currentNumber = modalNumber;
     }
@@ -96,6 +97,10 @@ $('.card').click(function(){
 })
 
 function toLeft() {	
+  document.getElementById('treeVideo').src += '';
+  var treeVideoHeight = parseInt($('#treeVideo').css('width'));
+  $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
+  document.getElementsByClassName('codepen')[0].src = document.getElementsByClassName('codepen')[0].src
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'-100%'
   }, function(){
@@ -122,6 +127,7 @@ function toRight() {
   document.getElementById('treeVideo').src += '';
   var treeVideoHeight = parseInt($('#treeVideo').css('width'));
   $('#treeVideo').css({'height': treeVideoHeight * 0.5625});
+  document.getElementsByClassName('codepen')[0].src = document.getElementsByClassName('codepen')[0].src
   $('.modal[value=' + currentNumber + ']').animate({
     'left':'100%'
   }, function(){

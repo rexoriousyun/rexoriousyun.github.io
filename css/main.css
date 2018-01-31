@@ -112,7 +112,8 @@ h4 {
   font-size: 26px;
   font-weight: bold;
   font-family: Orkney-Medium;
-  user-select: none; }
+  user-select: none;
+  line-height: 32px; }
 
 h5 {
   font-size: 20px;
@@ -265,6 +266,8 @@ img {
     background-color: #bf2226; }
   .works .card[value='5'] .color {
     background-color: #000000; }
+  .works .card[value='6'] .color {
+    background-color: #D678D2; }
   .works .card {
     width: calc(100%/3);
     position: relative;
@@ -310,6 +313,9 @@ img {
 .modal[value='5'] {
   background-color: #000000; }
 
+.modal[value='6'] {
+  background-color: #D678D2; }
+
 .modal {
   width: 100%;
   position: absolute;
@@ -317,11 +323,14 @@ img {
   left: 0;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  min-height: 100vh; }
   .modal .text {
     width: 100%;
     max-width: 1024px;
     padding: 80px 80px; }
+    .modal .text .codepen {
+      height: 600px; }
     .modal .text img {
       padding: 40px;
       object-fit: contain;
