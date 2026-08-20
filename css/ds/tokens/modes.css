@@ -1,0 +1,24 @@
+/* MODE — Nightshift (default) and Daylight. Same tokens, inverted roles.
+   The accent HEX never changes between modes; only its role does.
+   Daylight is for anything read longer than two minutes, and for all print. */
+:root{color-scheme:dark light}
+[data-mode="day"]{
+  --rx-bg:#F7F5EF;
+  --rx-bg-inset:#EDEAE3;
+  --rx-surface:#FFFFFF;
+  --rx-raised:#EDEAE3;
+  --rx-line:#D9D5CA;
+  --rx-line-strong:#08090A;
+  --rx-text:#08090A;
+  --rx-text-dim:#5C636D;
+  --rx-text-mute:#8A929E;
+  --rx-text-body:#3A414B;
+  --rx-accent:#D9FF1E;
+  --rx-accent-ink:#08090A;
+  --rx-accent-text:#5F7A00;
+  --rx-link:#0E8C82;
+  --rx-danger:#D62310;
+  --rx-disabled-bg:#EDEAE3;
+  --rx-disabled-text:#8A929E;
+  --rx-scrim:rgba(8,9,10,.55);
+}

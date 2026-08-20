@@ -1,0 +1,49 @@
+/* TYPE — two families. Archivo carries display, UI and body; its wdth axis is the contrast engine.
+   Chivo Mono carries every number, tag, timestamp and code string so data reads as instrumented.
+   Scale is a 1.34 ratio rounded to 4px. Avoid Archivo's middle weights outside dense UI. */
+:root{
+  --rx-font-display:Archivo,'Helvetica Neue',Helvetica,sans-serif;
+  --rx-font-body:Archivo,'Helvetica Neue',Helvetica,sans-serif;
+  --rx-font-mono:'Chivo Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* width axis stops */
+  --rx-wdth-hero:118%;
+  --rx-wdth-wide:112%;
+  --rx-wdth-h1:105%;
+  --rx-wdth-normal:100%;
+  --rx-wdth-h2:95%;
+  --rx-wdth-label:88%;
+  --rx-wdth-narrow:75%;
+  --rx-wdth-pinch:62%;
+
+  /* weights */
+  --rx-wght-body:400;
+  --rx-wght-ui:600;
+  --rx-wght-strong:800;
+  --rx-wght-display:900;
+
+  /* sizes / line-heights */
+  --rx-size-d1:96px;   --rx-lh-d1:.84;
+  --rx-size-d2:64px;   --rx-lh-d2:.90;
+  --rx-size-h1:42px;   --rx-lh-h1:1.05;
+  --rx-size-h2:28px;   --rx-lh-h2:1.14;
+  --rx-size-h3:19px;   --rx-lh-h3:1.26;
+  --rx-size-body:15px; --rx-lh-body:1.60;
+  --rx-size-small:13px;--rx-lh-small:1.55;
+  --rx-size-stencil:10px;--rx-lh-stencil:1.2;
+
+  /* fluid display sizes */
+  --rx-fluid-d1:clamp(36px,9vw,96px);
+  --rx-fluid-d2:clamp(32px,6vw,64px);
+  --rx-fluid-h1:clamp(28px,5vw,42px);
+
+  /* tracking */
+  --rx-track-d1:-.035em;
+  --rx-track-d2:-.03em;
+  --rx-track-h1:-.02em;
+  --rx-track-btn:.04em;
+  --rx-track-stencil:.16em;
+  --rx-track-descriptor:.24em;
+
+  --rx-measure:68ch;
+}

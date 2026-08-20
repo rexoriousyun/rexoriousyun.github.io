@@ -1,0 +1,27 @@
+/* MOTION — nothing cross-fades. Everything enters on an axis: hard out, soft landing.
+   Route changes stay inside 640ms; first load inside 900ms. */
+:root{
+  --rx-t-snap:120ms;
+  --rx-t-cut:240ms;
+  --rx-t-sweep:360ms;
+  --rx-t-scene:640ms;
+  --rx-t-mode:140ms;
+  --rx-stagger:30ms;
+
+  --rx-ease-cut:cubic-bezier(.16,1,.3,1);
+  --rx-ease-slam:cubic-bezier(.7,0,.2,1);
+  --rx-ease-mech:steps(6,end);
+  --rx-ease-linear:linear;
+
+  --rx-toast-life:3200ms;
+  --rx-marquee-dur:26s;
+  --rx-scan-dur:4.5s;
+  --rx-sweep-dur:1.6s;
+  --rx-drift-dur:18s;
+}
+@keyframes rx-scan{0%{transform:translateY(-100%)}100%{transform:translateY(900%)}}
+@keyframes rx-drift{0%{background-position:0 0}100%{background-position:120px 60px}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important}
+  html{scroll-behavior:auto}
+}

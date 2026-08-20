@@ -1,0 +1,8 @@
+/* BREAK — decoration is spent down in a fixed order as the viewport shrinks:
+   marquees, then textures, then hazard height, then notch size. Type and hierarchy are never cut. */
+:root{
+  --rx-bp-sm:600px;
+  --rx-bp-md:960px;
+  --rx-bp-lg:1280px;
+  --rx-bp-xl:1600px;
+}

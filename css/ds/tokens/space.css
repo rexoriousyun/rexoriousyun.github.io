@@ -1,0 +1,24 @@
+/* SPACE — 4px base, 8px rhythm. Inside a component 8-16, between components 24-32, sections 64-96. */
+:root{
+  --rx-1:4px;  --rx-2:8px;  --rx-3:12px; --rx-4:16px;
+  --rx-5:20px; --rx-6:24px; --rx-7:32px; --rx-8:40px;
+  --rx-9:48px; --rx-10:64px;--rx-11:80px;--rx-12:96px;
+
+  --rx-gutter:56px;
+  --rx-gutter-md:32px;
+  --rx-gutter-sm:20px;
+  --rx-gutter-fluid:clamp(20px,4.5vw,56px);
+  --rx-section-y:clamp(36px,6vw,64px);
+  --rx-col-gap:24px;
+  --rx-max-content:1180px;
+
+  --rx-rail:42px;
+  --rx-sidebar:232px;
+  --rx-row-comfy:48px;
+  --rx-row-compact:36px;
+  --rx-tap-min:44px;
+  --rx-tap-pref:48px;
+  --rx-control-sm:32px;
+  --rx-control-md:40px;
+  --rx-control-lg:48px;
+}

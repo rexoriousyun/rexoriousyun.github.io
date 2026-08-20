@@ -1,0 +1,8 @@
+/* Z — four stops, nothing between them. */
+:root{
+  --rx-z-base:0;
+  --rx-z-nav:100;
+  --rx-z-drawer:200;
+  --rx-z-modal:300;
+  --rx-z-toast:400;
+}

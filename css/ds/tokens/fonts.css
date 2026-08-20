@@ -1,0 +1,4 @@
+/* Rexorious webfonts — Archivo (variable: wght 100-900, wdth 62-125) + Chivo Mono (wght 200-900).
+   Both are free Google Fonts and are loaded from the Google Fonts CDN; no binaries ship with this system.
+   The width axis on Archivo is load-bearing: wdth is what makes headlines read as painted signage. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Chivo+Mono:ital,wght@0,200..900;1,200..900&display=swap');

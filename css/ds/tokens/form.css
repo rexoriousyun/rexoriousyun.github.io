@@ -1,0 +1,33 @@
+/* FORM — radius is zero everywhere. Relief comes from a notch, a shear, or a hazard band.
+   Depth is surface step + hairline, never blur. The only legal shadow is a hard offset in Void. */
+:root{
+  --rx-radius:0px;
+  --rx-notch:14px;
+  --rx-notch-sm:8px;
+  --rx-notch-md:12px;
+  --rx-notch-lg:16px;
+  --rx-notch-dialog:18px;
+  --rx-skew:-8deg;
+  --rx-skew-counter:8deg;
+  --rx-rotate:-3deg;
+
+  --rx-hairline:1px solid var(--rx-line);
+  --rx-hairline-strong:1px solid var(--rx-line-strong);
+  --rx-rule:3px;
+  --rx-rule-edge:5px;
+  --rx-underline:2px;
+
+  --rx-shadow-hard:6px 6px 0 var(--rx-void);
+  --rx-shadow-sticker:5px 5px 0 var(--rx-void);
+
+  --rx-hazard-pitch:16px;
+  --rx-hazard-angle:135deg;
+  --rx-hazard:repeating-linear-gradient(135deg,var(--rx-accent) 0 16px,var(--rx-void) 16px 32px);
+  --rx-hazard-danger:repeating-linear-gradient(135deg,var(--rx-signal) 0 16px,var(--rx-void) 16px 32px);
+  --rx-scanline:repeating-linear-gradient(0deg,rgba(237,234,227,.07) 0 1px,transparent 1px 3px);
+  --rx-halftone-size:6px;
+  --rx-halftone:radial-gradient(circle at 1px 1px,var(--rx-fog) 1.1px,transparent 0);
+  --rx-blueprint-size:22px;
+  --rx-slot-stripe:repeating-linear-gradient(135deg,var(--rx-seam) 0 6px,var(--rx-housing) 6px 12px);
+  --rx-fill-stripe:repeating-linear-gradient(135deg,var(--rx-volt) 0 8px,var(--rx-volt-shade) 8px 16px);
+}

@@ -1,425 +1,642 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Rexorious</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#000000">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rex Yun — Interactive and creative interfaces, and the systems behind them</title>
+<meta name="description" content="Rex Yun builds interactive and creative interfaces — canvas, WebGL and shader work — and the systems that keep them shipping: a verified technique corpus and a design substrate with a CI gate. Production web since 2018.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="css/ds/styles.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
 
-    <!-- <link rel="stylesheet" href="css/normalize.min.css"> -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" sizes="192x192" href="img/icon.png">
+<a class="skip" href="#main">Skip to content</a>
 
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    
-  </head>
-  <body>
-    <div id='loader'><img src="img/Loading-Screen.gif" alt=""></div>
-    <video playsinline autoplay muted loop class="backgroundVideo">
-      <source src="img/Background.mp4" type="video/mp4">
-    </video>
-    <header>
-      <div class="trigger">
-        <h2>+</h2>
+<div class="shell" id="shell" data-mode="night">
+
+  <header class="masthead">
+    <div class="hazard hazard--hair"></div>
+    <div class="wrap masthead__bar">
+      <a class="masthead__home" href="#/">
+        <span class="wordmark">RE<b>X</b> YUN</span>
+      </a>
+      <div class="masthead__tools">
+        <div class="swatches" role="group" aria-label="Accent colour">
+          <button type="button" class="swatch swatch--volt"    data-accent="volt"    aria-pressed="true"  aria-label="Volt accent"><i></i></button>
+          <button type="button" class="swatch swatch--coolant" data-accent="coolant" aria-pressed="false" aria-label="Coolant accent"><i></i></button>
+          <button type="button" class="swatch swatch--amber"   data-accent="amber"   aria-pressed="false" aria-label="Amber accent"><i></i></button>
+          <button type="button" class="swatch swatch--rose"    data-accent="rose"    aria-pressed="false" aria-label="Rose accent"><i></i></button>
+        </div>
+        <button type="button" class="ctl" id="mode-toggle" aria-pressed="false">Daylight ◐</button>
+        <button type="button" class="ctl ctl--link" data-jump="contact">Contact</button>
       </div>
-    </header>
-    <div class="container">
-      <div class="item content">
-        <div class="page" value="0">
-          <div class="logo">
-            <h1>Rexor</h1><h1 class='blink'>:ous {</h1><h1>}</h1>
-            <h3>Interactive developer | designer</h3>
-          </div>
-        </div>
-        <div class="page" value="1">
-          <h2>About</h2>
-          <p>
-            Hi,<br/>
-            I am Rex Yun.<br/>
-            An interactive developer | designer<br/>
-            Alumni of University of Toronto and George Brown College<br/>
-            Health & disease | Web development | Interactive media management<br/>
-            Combines development skills with functional and user-based design<br/>
-            Craves for unique design and adapting new technologies<br/>
-            Enjoy creating interactive interfaces,<br/>
-            Nice beer, computer games,<br/>
-            and Jellies.<br/>
-          </p>
-        </div>
-        <div class="page" value="2">
-          <h2>Works</h2>
-          <div class="works">
-            <div class="card" value="6">
-              <div class="color"></div>
-              <img src="img/iei.png" alt="">
-              <div class="text">
-                <h4>IEI</h4>
-                <h6>Design / Development | 2017</h6>
-              </div>
-            </div>
-            <div class="card" value="5">
-              <div class="color"></div>
-              <img src="img/rexorious 2.png" alt="">
-              <div class="text">
-                <h4>Rexorious</h4>
-                <h6>Design / Development | 2017</h6>
-              </div>
-            </div>
-            <div class="card" value="4">
-              <div class="color"></div>
-              <img src="img/Interchangeable_X.png" alt="">
-              <div class="text">
-                <h4>Interchangable X</h4>
-                <h6>UX / Design | 2017</h6>
-              </div>
-            </div>
-            <div class="card" value="3">
-              <div class="color"></div>
-              <img src="img/GBC 2.png" alt="">
-              <div class="text">
-                  <h4>Intellisoft Development Inc.</h4>
-                  <h6>Development | 2017</h6>
-              </div>
-            </div>
-            <div class="card" value="2">
-              <div class="color"></div>
-              <img src="img/treeofknowledge 5.jpg" alt="">
-              <div class="text">
-                <h4>Tree of Knowledge</h4>
-                <h6>UI|UX / Development | 2017</h6>
-              </div>
-            </div>
-            <div class="card" value="1">
-              <div class="color"></div>
-              <img src="img/autobin.png" alt="">
-              <div class="text">
-                <h4>AutoBin</h4>
-                <h6>UI|UX / Design | 2017</h6>
-              </div>
-            </div>
-            <div class="card" value="0">
-              <div class="color"></div>
-              <img src="img/happytribe 1.png" alt="">
-              <div class="text">
-                <h4>HappyTribe</h4>
-                <h6>Development | 2016</h6>
-              </div>
-            </div>
-          </div>
-          <div class="modalGroup">
-              <div class="modal" value="6">
-                <div class="front"><h2><</h2></div>
-                <div class="text">
-                  <iframe class="full codepen" src="https://codepen.io/rexoriousyun/full/xWOgvw/" frameborder="0"></iframe>
-                  <div class="full title">
-                    <div class="half">
-                      <h4>Interestingly Entertaining Interfaces (IEI)</h4>
-                      <h6>UI / Development | 2018</h6>
-                      <a href="https://codepen.io/rexoriousyun/">Link to the project</a>
-                    </div>
-                    <div class="skills half">
-                      <h5>Technology | Skills</h5>
-                      <ul>
-                        <li>UI Design</li>
-                        <li>JavaScript</li>
-                        <li>Canvas</li>
-                        <li>HTML | CSS</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="full">
-                    <p class="full">
-                      An ongoing project that uses Canvas to produce amusing interactive interfaces to an another level.
-                    </p>
-                  </div>
-                </div>
-                <div class="back"><h2>></h2></div>
-              </div>
-            <div class="modal" value="5">
-              <div class="front"><h2><</h2></div>
-              <div class="text">
-                <div class="full">
-                  <img class="full" src="img/rexorious 1.png">
-                </div>
-                <div class="full title">
-                  <div class="half">
-                    <h4>Rexorious</h4>
-                    <h6>Design / Development | 2017</h6>
-                  </div>
-                  <div class="skills half">
-                    <h5>Technology | Skills</h5>
-                    <ul>
-                      <li>JavaScript / JQuery</li>
-                      <li>SASS / Flex</li>
-                      <li>Git</li>
-                      <li>After Effects</li>
-                      <li>Photoshop</li>
-                    </ul>
-                  </div>
-                </div>
-                <p>
-                  The site you are looking at right now is designed and developed by me. While I was learning flex and sass, I thought I could make my personal website by practicing these technology. The background video was modified using after effects and photoshop to play back and forth infinitely.
-                </p>
-                <div class="full">
-                  <img class="half" src="img/rexorious 3.png">
-                  <p class="half">
-                    The site is made from holy grail model which allows its menu collapse with minimal disruption using flexible boxes.
-                  </p>
-                </div>
-                <div class="full">
-                  <p class="half">
-                    Flex was great when it comes to centeralizing elements both horizontally and vertically. However, there were few problems when it came to compatibility with other browsers and devices. The problems involved around iOS devices as its chrome and other browsers are based off from Safari. Safari does not get its element height to 100% even though a user assigns it. I resolved this issue by using 100vh.<br/>
-                  </p>
-                  <img class="half" src="img/rexorious 4.png">
-                </div>
-                <div class="full">
-                  <img class="half" src="img/Loading-Screen.gif" alt="">
-                  <p class="half">
-                    I've created Loading Screen using after effects to create the motion and photoshop to render it to gif form.
-                  </p>
-                </div>
-                <div class="full">
-                  <img class="full" src="img/rexorious 2.png" alt="">
-                </div>
-                <p>
-                  The site still has some bug on few browsers and devices, but I am still working on it. Please let me know if you find any weird bug you may observe!
-                </p>
-              </div>
-              <div class="back"><h2>></h2></div>
-            </div>
-            <div class="modal" value="4">
-              <div class="front"><h2><</h2></div>
-              <div class="text">
-                <div class="full">
-                  <img class='full' src="img/Interchangeable_X.png" alt="">
-                </div>
-                
-                <div class="full title">
-                  <div class="half">
-                    <h4>Interchangable X</h4>
-                    <h6>UX / Design | 2017</h6>
-                    <a href="download/Interchangeable_X_Product_Producing_Plan.pdf">Download Production Plan</a>
-                  </div>
-                  <div class="skills half">
-                    <h5>Technology | Skills</h5>
-                    <ul>
-                      <li>UX Design</li>
-                      <li>Project Management</li>
-                      <li>After Effects</li>
-                      <li>Illustrator</li>
-                    </ul>
-                  </div>
-                </div>
-                <p>
-                  Interchangable X is a concept design for an immersive kindergarten classroom using augmented reality. The classroom incoorporates augmented reality and multi-shaped furnitures for the children to express their innate creativity. The design consists a physical classroom design and accompanying curriculum recommendations.<br/>
-                  <br/>
-                  My role in this project was to explore and provide details on possible technologies and the risk involved around it.
-                </p>
-              </div>
-              <div class="back"><h2>></h2></div>
-            </div>
-            <div class="modal" value="3">
-              <div class="front"><h2><</h2></div>
-              <div class="text">
-                <div class="full">
-                  <img class="full" src="img/GBC 1.png" alt="">
-                </div>
-                <div class="full title">
-                  <div class="half">
-                    <h4>Intellisoft Development Inc.</h4>
-                    <h6>Development | 2017</h6>
-                    <a href="https://georgebrown.ca">Link to the site</a>
-                  </div>
-                  <div class="skills half">
-                    <h5>Technology | Skills</h5>
-                    <ul>
-                      <li>ASP.net</li>
-                      <li>Ektron CMS</li>
-                      <li>JavaScript</li>
-                      <li>CSS</li>
-                    </ul>
-                  </div>
-                </div>
-                <p>
-                  While working at Intellisoft Development, I've developed and maintained contents and functionality for George Brown College website. I have encountered new technologies such as ASP.Net, WCAG and SASS that were incorporated with the tasks I was given. The tasks involved mostly front-end works which I had to connect it to the back-end systems.
-                </p>
-                <div class="full">
-                  <img class="half" src="img/GBC 2.png" alt="">
-                  <p class="half">
-                    One of the interesting tasks I was given was where the user being able to download specific selection of files into one zipped file format. The solution I have used was System.IO.Compression library and ajax calls using jQuery.
-                  </p>
-                </div>
-                
-              </div>
-              <div class="back"><h2>></h2></div>
-            </div>
-            <div class="modal" value="2">
-              <div class="front"><h2><</h2></div>
-              <div class="text">
-                <iframe id="treeVideo" class="full" src="https://drive.google.com/file/d/1U1i7RCWG4UOzZOxOErwdfoZf-TThAbyM/preview" frameborder="0"></iframe>
-                <div class="full title">
-                  <div class="half">
-                    <h4>Tree of Knowledge</h4>
-                    <h6>UI|UX / Development | 2017</h6>
-                    <a href="download/Interface Style Guide.pdf">Download Style Guide PDF</a>
-                    <a href="https://immtreeofknowledge.herokuapp.com">Link to the demo</a>
-                  </div>
-                  <div class="skills half">
-                    <h5>Technology | Skills</h5>
-                    <ul>
-                      <li>UI | UX Design</li>
-                      <li>JavaScript</li>
-                      <li>NFC | iOS mobile app</li>
-                      <li>HTML | CSS</li>
-                      <li>Adobe Suite</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="full">
-                  <img class="half" src="img/treeofknowledge 2.jpg" alt="">
-                  <p class="half">
-                    Tree of Knowledge was exhibited in Digifest 2017. It is an immersive learning tool for children to gain knowledge about the world. Users pick up various shapes, from animals to stars, of wooden piece from tree structure, then place the piece on a stage to solve interesting questions.
-                  </p>
-                </div>
-                <div class="full">
-                  <p class="half">
-                    My job on this project was to plan, lead and develop all technological parts. Near-field communication technology was chosen to initiate the page on an iPad app, then the app passed corresponding Javascript codes to the site to view the right page to the user.
-                  </p>
-                  <img class="half" src="img/treeofknowledge 1.jpg" alt="">
-                </div>
-                <div class="full">
-                  <img class="half" src="img/treeofknowledge 4.png" alt="">
-                  <p class="half">
-                     As the most NFC frameworks are focused on android or apple app developments, I developed an iPad app which loads the website in Kiosk mode then passes Javascript code to load the corresponding page.
-                  </p>
-                </div>
-                <div class="full">
-                  <img class="full" src="img/treeofknowledge 5.jpg" alt="">
-                </div>
-                <div class="full">
-                  <img class="full" src="img/treeofknowledge 6.jpg" alt="">
-                </div>
-              </div>
-              <div class="back"><h2>></h2></div>
-            </div>
-            <div class="modal" value="1">
-              <div class="front"><h2><</h2></div>
-              <div class="text">
-                <div class="full">
-                  <img class="full" src="img/autobin 2.png" alt="">
-                </div>
-                
-                <div class="full title">
-                  <div class="half">
-                    <h4>AutoBin</h4>
-                    <h6>UI|UX / Design | 2017</h6>
-                    <a href="https://projects.invisionapp.com/share/3RATL6YCW#/screens">Link to the invision demo</a>
-                  </div>
-                  <div class="skills half">
-                    <h5>Technology | Skills</h5>
-                    <ul>
-                      <li>UI | UX Design</li>
-                      <li>Prototype</li>
-                      <li>Adobe suite</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="full">
-                  <img class="half" src="img/autobin.png" alt="">       
-                  <p class="half">
-                    AutoBin is a recycling app designed for Canadians who have different biweekly/weekly waste collection schedule. The schedule varies depending on where the user live. The app not only notify the user the correct schedule but also tracks how much he or she has correctly placed waste into a correct container. Depending on how much the user have correctly put waste in, it transfers into credits which he or she can use in the community such as garbage bin upgrade or fee waive. The app uses an assumption that the garbage truck has a bulit-in technology where it can track how much individual household is correctly disposing the garbage. inVision was used to build the prototype of this app.
-                  </p>
-                </div>
-              </div>
-              <div class="back"><h2>></h2></div>
-            </div>
-            <div class="modal" value="0">
-              <div class="front"><h2><</h2></div>
-              <div class="text">
-                <div class="full">
-                  <img class="full" src="img/happytribe 2.png" alt="">
-                </div>
-                <div class="full title">
-                  <div class="half">
-                    <h4>HappyTribe</h4>
-                    <h6>Development | 2016</h6>
-                    <a href="https://infinite-atoll-6714.herokuapp.com/">Link to the site</a>
-                  </div>
-                  <div class="skills half">
-                    <h5>Technology | Skills</h5>
-                    <ul>
-                      <li>Ruby on Rails</li>
-                      <li>JavaScript</li>
-                      <li>UI Design</li>
-                      <li>HTML | CSS</li>
-                    </ul>
-                  </div>
-                </div> 
-                <div class="full">
-                  <img class="half" src="img/happytribe 1.png" alt="">
-                  <p class="half">
-                      HappyTribe is volunteering registration app for both hosts and volunteers. The app is a solution to a problem which the users are having hard time trying to find a volunteering event and track changes to the information and capacity of the event.<br/>
-                      <br/>
-                      The core function of the site involves sign-up, mailing, messaging and reservation. My task on this project was to develop the website with other members of the team using git version control tool. The site was developed using Ruby on Rails and various JavaScript library such as hammer.js, google map and jQuery mobile. A lot of feedback between the members went back and forth in a limited time.
-                    </p>
-                </div>
-                <div class="full">
-                  <img class="full" src="img/happytribe 3.png" alt="">
-                </div>
-              </div>
-              <div class="back"><h2>></h2></div>
-            </div>
-          </div>
-        </div>
-        <div class="page" value="3">
-          <h2>Contact</h2>
-          <div class="contact">
-            <div class="item">
-              <a href="mailto:rexoriousyun@gmail.com?subject=feedback">
-                <img src="img/mail.png" alt="">
-                <h5>rexoriousyun@gmail.com</h5>
-              </a>
-            </div>
-            <div class="item">
-                <a href="https://www.linkedin.com/in/rexyun/">
-                  <img src="img/linkedin.png" alt="">
-                  <h5>in/rexyun/</h5>
-                </a>
-              </div>
-            <div class="item">
-              <a href="https://github.com/rexoriousyun">
-                <img src="img/github.png" alt="">
-                <h5>/rexoriousyun</h5>
-              </a>
-            </div>
-            <div class="item">
-              <a href="https://codepen.io/rexoriousyun/">
-                <img src="img/codepen.png" alt="">
-                <h5>/rexoriousyun</h5>
-              </a>
-            </div>
-          </div>
-        </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- ===================================================================
+       HOME
+       =================================================================== -->
+  <div class="view" id="view-home">
+
+    <div class="texture">
+      <div class="wrap hero">
+        <p class="filetag"><span>FILE 00 — INDEX</span></p>
+        <h1>
+          I build interactive,<br>
+          <span class="mark mark--tilt">creative</span> interfaces —<br>
+          and the systems<br>
+          others build them with
+        </h1>
       </div>
-      <div class="item menu">
-          <ul>
-            <li value="0"><h2>Title</h2></li>
-            <li value="1"><h2>About</h2></li>
-            <li value="2"><h2>Works</h2></li>
-            <li value="3"><h2>Contact</h2></li>
-          </ul>
-        </div>
     </div>
 
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-    <script src="js/vendor/jquery-ui.min.js"></script>
-    <script src="js/vendor/jquery-migrate-3.0.0.js"></script>
-    <script src="js/vendor/jquery.mobile.custom.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+    <div class="standfirst">
+      <div class="wrap standfirst__inner">
+        <p>Canvas, WebGL and shaders — interfaces that move, and sometimes physical objects wired to a web page. Plus the systems that keep that kind of work from rotting: a verified technique corpus, and a design substrate with a CI gate.</p>
+        <p class="standfirst__note">Front-end developer at <strong>eBay</strong> since 2018 — these days in TypeScript and Astro on the component system and authoring platform that non-technical teams use to publish across ten markets. Off the clock: having far too much fun working out where AI genuinely helps, and where it just returns the median of everything.</p>
+        <ul class="roles">
+          <li class="tag tag--outline"><span>UX Engineer</span></li>
+          <li class="tag tag--outline"><span>Design Technologist</span></li>
+          <li class="tag tag--outline"><span>Design Engineer</span></li>
+          <li class="tag tag--outline"><span>Product Engineer</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="wrap section" id="s-work">
+      <div class="section__head">
+        <h2 class="stencil stencil--lg stencil--accent">Work · 04 cases · strongest first</h2>
+        <p class="stencil stencil--lg">2016 → 2026</p>
+      </div>
+
+      <ol class="worklist">
+        <li>
+          <a class="worklink worklink--lead" href="#/work/grove">
+            <div class="worklink__body">
+              <div class="worklink__top">
+                <div class="worklink__id">
+                  <span class="worklink__num" aria-hidden="true">01</span>
+                  <div>
+                    <p class="worklink__kicker">Personal finance hub · sole author · 2026</p>
+                    <h3>Grove</h3>
+                  </div>
+                </div>
+                <span class="tag tag--idle"><span>Private repo</span></span>
+              </div>
+              <p>Drop in bank statements, get back the date you could stop working. Deterministic parsers handle the banks they know, a model reads the ones they don't, and you edit every category before it counts. Raw statements are never stored.</p>
+              <p class="meta">
+                <span>React</span><span>FastAPI</span><span>Supabase</span><span>Gemini</span><span class="meta__warn">Live link pending</span>
+                <span class="meta__go">Open case →</span>
+              </p>
+            </div>
+            <img class="shot shot--16x9 worklink__media" src="img/grove-card.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Grove's DIY Retirement screen: two retirement dates compared side by side, an asset growth projection chart, and a row of portfolio presets.">
+          </a>
+        </li>
+
+        <li>
+          <a class="worklink" href="#/work/design-guide">
+            <div class="worklink__body">
+              <div class="worklink__top">
+                <div class="worklink__id">
+                  <span class="worklink__num" aria-hidden="true">02</span>
+                  <div>
+                    <p class="worklink__kicker">Design substrate · sole author · 2025 →</p>
+                    <h3>design-guide</h3>
+                  </div>
+                </div>
+              </div>
+              <p>AI writes competent, tasteless design — the median of everything. This is the fix: taste elicited from A/B picks instead of adjectives, then enforced in CI by a CLI that fails a built page against all of it.</p>
+              <p class="meta">
+                <span>34 invariants</span><span>21 preferences</span><span>Recipe index</span><span>Node CLI</span>
+                <span class="meta__go">Open case →</span>
+              </p>
+            </div>
+            <img class="shot shot--16x9 worklink__media" src="img/dg-elicitation-card.jpg" width="960" height="540" loading="lazy" decoding="async" alt="The elicitation queue showing one A/B pair: the same export-settings form twice, once with labels above each field and once with labels beside them.">
+          </a>
+        </li>
+
+        <li>
+          <a class="worklink" href="#/work/creative-library">
+            <div class="worklink__body">
+              <div class="worklink__top">
+                <div class="worklink__id">
+                  <span class="worklink__num" aria-hidden="true">03</span>
+                  <div>
+                    <p class="worklink__kicker">Technique corpus · 2018 → ongoing</p>
+                    <h3>creative-library</h3>
+                  </div>
+                </div>
+              </div>
+              <p>37 web recipes with a verification harness — flow fields, dithering, halftone, shader planes, glitch, generative pattern. The mature end of a sketchbook that started on CodePen in 2018. Plus one shelf that is not a technique at all: the identity system this page is built from.</p>
+              <p class="meta">
+                <span>37 recipes</span><span>1 design system</span><span>Canvas</span><span>Three.js</span><span>Verified</span>
+                <span class="meta__go">Open case →</span>
+              </p>
+            </div>
+            <img class="shot shot--16x9 worklink__media" src="img/cl-flow-field.jpg" width="960" height="540" loading="lazy" decoding="async" alt="A flow-field render: thousands of fine green filaments curving around invisible attractors on a black ground.">
+          </a>
+        </li>
+
+        <li>
+          <a class="worklink" href="#/work/tree-of-knowledge">
+            <div class="worklink__body">
+              <div class="worklink__top">
+                <div class="worklink__id">
+                  <span class="worklink__num" aria-hidden="true">04</span>
+                  <div>
+                    <p class="worklink__kicker">Physical computing · exhibited 2017</p>
+                    <h3>Tree of Knowledge</h3>
+                  </div>
+                </div>
+                <span class="tag tag--idle"><span>Archived</span></span>
+              </div>
+              <p>NFC frameworks target native apps. The exhibit needed a website — so the iPad ran a kiosk-mode shell that loaded the site and passed the tag through to JavaScript. Digifest 2017.</p>
+              <p class="meta">
+                <span>NFC</span><span>iOS kiosk</span><span>Digifest 2017</span><span class="meta__warn">Demo offline</span>
+                <span class="meta__go">Open case →</span>
+              </p>
+            </div>
+            <img class="shot shot--16x9 worklink__media" src="img/treeofknowledge%202.jpg" width="800" height="533" loading="lazy" decoding="async" alt="The Tree of Knowledge installation on the exhibition floor: a wooden tree hung with coloured animal and star pieces, screens mounted on the wall behind it.">
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <section class="wrap section" id="s-archive">
+      <div class="section__head section__head--thin">
+        <h2 class="stencil stencil--lg">Archive · 2016 — 2017 · history, not current work</h2>
+      </div>
+      <ul class="archive">
+        <li>
+          <time datetime="2017">2017</time>
+          <p><strong>Intellisoft / George Brown College</strong> — ASP.NET and Ektron, plus a WCAG 2.0 conversion of the college site.</p>
+        </li>
+        <li>
+          <time datetime="2017">2017</time>
+          <p><strong>Interchangeable X</strong> — AR concept for kindergarten learning; technology-risk research. <a href="download/Interchangeable_X_Product_Producing_Plan.pdf">Production plan (PDF)</a>.</p>
+        </li>
+        <li>
+          <time datetime="2017">2017</time>
+          <p><strong>AutoBin</strong> — recycling app, prototyped end to end.</p>
+        </li>
+        <li>
+          <time datetime="2016">2016</time>
+          <p><strong>HappyTribe</strong> — Rails volunteer registration app, built as a team.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="wrap section" id="s-stack">
+      <div class="section__head section__head--thin">
+        <h2 class="stencil stencil--lg">Stack · range</h2>
+      </div>
+      <dl class="deflist">
+        <dt>Languages</dt>
+        <dd>TypeScript · JavaScript (ES6+) · HTML5 · CSS3 / SASS · SQL · XML</dd>
+        <dt>Frameworks</dt>
+        <dd>React · Astro · Strapi · MarkoJS · Three.js · ASP.NET · Ruby on Rails</dd>
+        <dt>Platform</dt>
+        <dd>REST APIs · Git · Docker · Build and release pipelines · Akamai caching · WCAG accessibility</dd>
+        <dt>Graphics</dt>
+        <dd>Canvas · WebGL · GLSL · SVG</dd>
+        <dt>Design</dt>
+        <dd>UI / UX · Figma · Claude Design · Adobe Suite</dd>
+      </dl>
+    </section>
+
+    <section class="wrap section section--last" id="s-contact">
+      <div class="section__head section__head--thin">
+        <h2 class="stencil stencil--lg stencil--accent">Contact</h2>
+      </div>
+      <ul class="contact">
+        <li>
+          <p class="stencil">Email</p>
+          <a href="mailto:rexoriousyun@gmail.com">rexoriousyun@gmail.com</a>
+        </li>
+        <li>
+          <p class="stencil">GitHub</p>
+          <a href="https://github.com/rexoriousyun">github.com/rexoriousyun</a>
+        </li>
+        <li>
+          <p class="stencil">CodePen</p>
+          <a href="https://codepen.io/rexoriousyun">codepen.io/rexoriousyun</a>
+        </li>
+        <li>
+          <p class="stencil">LinkedIn</p>
+          <a href="https://www.linkedin.com/in/rexyun/">linkedin.com/in/rexyun</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ===================================================================
+       CASE 01 — Grove
+       =================================================================== -->
+  <article class="view case" id="view-grove">
+  <nav class="casebar" aria-label="Case navigation">
+    <div class="wrap casebar__inner">
+      <a class="backlink" href="#/"><b>&larr;</b> All work</a>
+      <ol class="casebar__sections">
+        <li><button type="button" data-jump="gproblem">01 Problem</button></li>
+        <li><button type="button" data-jump="gflow">02 The flow</button></li>
+        <li><button type="button" data-jump="gcharts">03 The charts</button></li>
+        <li><button type="button" data-jump="gtests">04 Tests</button></li>
+      </ol>
+    </div>
+  </nav>
+    <div class="case__masthead">
+      <div class="wrap">
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 01 · Grove · personal finance hub</p>
+        <h1>Bank statements in.<br>A <span class="mark">retirement date</span> out.</h1>
+        <p class="case__lede">A privacy-first personal finance hub. Drop in a few months of statements and it works out what you actually spend, then projects the date you could stop working. The raw statements are never stored.</p>
+        <ul class="case__facts">
+          <li>Role — sole author</li><li>May → Aug 2026</li><li>React · FastAPI · Supabase · Gemini</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap case__body">
+
+      <section id="s-gproblem">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">01</span>
+            <h2 class="sec-head__title">The problem</h2>
+          </div>
+          <p class="sec-head__intro">Every retirement calculator asks what you spend a month. Nobody knows what they spend a month.</p>
+        </header>
+        <p>The honest answer is buried in a year of statements spread across four institutions, in four different CSV and PDF layouts, none of which agree on what a column is. So people estimate, put the estimate in a spreadsheet, and get a retirement date accurate to about the nearest decade. The number that matters most is the one nobody checks.</p>
+      </section>
+
+      <section id="s-gflow">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">02</span>
+            <h2 class="sec-head__title">The flow</h2>
+          </div>
+          <p class="sec-head__intro">Four steps, and the model only owns the one that genuinely needs judgment.</p>
+        </header>
+<pre>STATEMENTS ──▶ PARSE ──────▶ EXTRACT ─────▶ REVIEW ────▶ PROJECT
+
+csv · pdf      pdfplumber     Gemini 3.1     you edit     hand-built
+txt · image    + vision       Flash Lite     the table    SVG charts</pre>
+        <p>Parsing is deterministic wherever it can be — dedicated readers for TD, CIBC, RBC and Scotiabank — and a model runs only where a layout defeats them. What the model returns is a proposal, not a verdict: the category table is editable, it runs entirely client-side, and nothing counts until you confirm it.</p>
+        <p>That boundary is also the privacy story. Raw files and transaction text are never stored, the review step never leaves the browser, and what persists is a summary behind Supabase Auth with Vault encryption.</p>
+      </section>
+
+      <section id="s-gcharts">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">03</span>
+            <h2 class="sec-head__title">Charts worth hand-building</h2>
+          </div>
+          <p class="sec-head__intro">A projection is one line, one target, and the point where they cross. That is not a charting-library problem.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/grove-projection.jpg" width="1600" height="487" loading="lazy" decoding="async" alt="Grove's projection: a plan-versus-blend panel giving retirement dates of September 2042 and July 2042, beside a growth curve crossing a dashed FI-target line at the September 2042 mark.">
+          <figcaption>The crossing point, drawn deliberately — the projection meets the target and the date is labelled on the line</figcaption>
+        </figure>
+        <p>The growth and trend charts are hand-written SVG. Owning the geometry is less code than bending a library into the shape of a crossing point, and it means the one moment that matters — the year the line meets the number — can be drawn deliberately instead of configured around.</p>
+      </section>
+
+      <section id="s-gtests">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">04</span>
+            <h2 class="sec-head__title">Why every change ships with tests</h2>
+          </div>
+          <p class="sec-head__intro">AI wrote a lot of this. That is precisely the argument for a strict test policy, not against one.</p>
+        </header>
+        <p>When generated code arrives faster than anyone can read it line by line, review quietly stops being the quality gate. Something else has to be. So every change ships with tests: 25 of them across the frontend lib, the FastAPI service, the statement parsers, and a Playwright journey that drives the whole upload-to-projection path — all gated in CI.</p>
+        <p>It is the same instinct as the substrate in case 02. Decide the rule once, write it down, then make something other than my own attention responsible for holding it.</p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ===================================================================
+       CASE 02 — design-guide
+       =================================================================== -->
+  <article class="view case" id="view-design-guide">
+  <nav class="casebar" aria-label="Case navigation">
+    <div class="wrap casebar__inner">
+      <a class="backlink" href="#/"><b>&larr;</b> All work</a>
+      <ol class="casebar__sections">
+        <li><button type="button" data-jump="problem">01 Problem</button></li>
+        <li><button type="button" data-jump="shape">02 Shape</button></li>
+        <li><button type="button" data-jump="elicit">03 Elicitation</button></li>
+        <li><button type="button" data-jump="gate">04 The gate</button></li>
+      </ol>
+    </div>
+  </nav>
+    <div class="case__masthead">
+      <div class="wrap">
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 02 · design-guide · sole author</p>
+        <h1>Taste, elicited.<br>Design, <span class="mark">enforced</span> in CI</h1>
+        <p class="case__lede">A personal design substrate: four tiers of knowledge, an app that infers taste from A/B picks rather than asking for adjectives, and a CLI that gates a built page against all of it. What comes out is a portable stance an agent can load before it builds.</p>
+        <ul class="case__facts">
+          <li>Role — sole author</li><li>2025 →</li><li>Node · CLI · static analysis</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="wrap case__body">
+
+      <section id="s-problem">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">01</span>
+            <h2 class="sec-head__title">The problem</h2>
+          </div>
+          <p class="sec-head__intro">AI produces an enormous volume of competent, tasteless design. Design systems ship components; they do not ship judgment.</p>
+        </header>
+        <p>Competent, because the model absorbed the conventions. Tasteless, because it averages them — the output is the median of everything: correct spacing, safe type, the layout everyone else shipped. Nothing in it was chosen. And it cannot be fixed by asking, because <strong>elegant, minimal, with personality</strong> returns the median of those words too.</p>
+        <p>The same drift happens with no model in the room. The decisions that matter — how much space a block has earned, which rule is not tradeable against aesthetics — live in review comments and in whoever happened to be there. Nothing checks them. A month later the same argument runs again from zero.</p>
+      </section>
+
+      <section id="s-shape">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">02</span>
+            <h2 class="sec-head__title">Four tiers</h2>
+          </div>
+          <p class="sec-head__intro">Knowledge separated by how negotiable it is. The tier decides what the gate does when a page contradicts it.</p>
+        </header>
+        <ul class="tiers">
+          <li class="tier tier--bone">
+            <span class="tier__n" aria-hidden="true">34</span>
+            <p class="stencil">Tier 1 · invariants</p>
+            <p>Contrast, target size, visible focus, keyboard reach, labels. Never traded. A fail is a fail.</p>
+          </li>
+          <li class="tier tier--coolant">
+            <span class="tier__n" aria-hidden="true">21</span>
+            <p class="stencil">Tier 2 · preferences</p>
+            <p>Stanced per project, each carrying the trade-off in writing. Unstanced means: ask, do not pick.</p>
+          </li>
+          <li class="tier">
+            <span class="tier__n" aria-hidden="true">↳</span>
+            <p class="stencil">Tier 3 · recipe index</p>
+            <p>Named solutions retrievable by problem, not by component name. What to reach for, and when not to.</p>
+          </li>
+          <li class="tier">
+            <span class="tier__n" aria-hidden="true">◧</span>
+            <p class="stencil">Tier 4 · art direction</p>
+            <p>Per project. Tokens derived from real visual references — never authored by hand, never a raw hex.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="s-elicit">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">03</span>
+            <h2 class="sec-head__title">Elicitation, not a questionnaire</h2>
+          </div>
+          <p class="sec-head__intro">Nobody can describe their own taste in adjectives. Ask for adjectives and you get clean, modern, bold — three words that constrain nothing.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/dg-elicitation.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="The taste-elicitation app: a Queue tab reading 21 answered, 2 remaining, and the question Label placement above vs inline, with two working demos of the same form rendered side by side for comparison.">
+          <figcaption>Queue, mid-run — a confirmed stance keeps its summary hidden, so the pair is judged on its own terms</figcaption>
+        </figure>
+        <p>So the app never asks. It shows two candidates and takes a pick plus a reason. Six picks across five categories were enough to surface one meta-preference — <strong>space must be earned</strong> — because the reason given was never novelty or convention. It was always how the option used space or length.</p>
+        <blockquote class="pull">
+          <p>A preference you can state is a preference you can trade. A preference inferred from six picks is one you can enforce.</p>
+        </blockquote>
+      </section>
+
+      <section id="s-gate">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">04</span>
+            <h2 class="sec-head__title">The gate</h2>
+          </div>
+          <p class="sec-head__intro">One command. It reads the built page, not the source of truth someone promised to update.</p>
+        </header>
+<pre class="is-accent">node engine/cli.js gate index.html --project .
+  ✓ invariants   34/34
+  ✓ tokens       no raw hex, no magic px
+  ⚑ preferences  1 flag — reason required</pre>
+        <figure>
+          <img class="shot" src="img/dg-gate.jpg" width="1680" height="580" loading="lazy" decoding="async" alt="Terminal output from the gate: FAIL 13, two contrast-minimum failures reporting 2.68:1 and 2.50:1 against a 4.5:1 floor, FLAG 29, and 20 checks passed.">
+          <figcaption>A real run against this page with the token set left as imported — the contrast floor catches it before anyone argues about it</figcaption>
+        </figure>
+        <p>Fails are not negotiable. Flags require a stated reason, recorded next to the flag rather than in a chat log. Run it in CI and the argument stops being a matter of who reviews the pull request.</p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ===================================================================
+       CASE 02 — creative-library
+       =================================================================== -->
+  <article class="view case" id="view-creative-library">
+  <nav class="casebar" aria-label="Case navigation">
+    <div class="wrap casebar__inner">
+      <a class="backlink" href="#/"><b>&larr;</b> All work</a>
+      <ol class="casebar__sections">
+        <li><button type="button" data-jump="lineage">01 Lineage</button></li>
+        <li><button type="button" data-jump="contents">02 Contents</button></li>
+        <li><button type="button" data-jump="harness">03 The harness</button></li>
+        <li><button type="button" data-jump="system">04 The system</button></li>
+      </ol>
+    </div>
+  </nav>
+    <div class="case__masthead">
+      <div class="wrap">
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 03 · creative-library · 2018 → ongoing</p>
+        <h1>37 recipes, each one <span class="mark">verified</span></h1>
+        <p class="case__lede">A technique corpus for the web. Every recipe renders in the browser, and every recipe has a harness that says whether it still does. Alongside it, a second shelf holds something different in kind: the identity system this page is wearing.</p>
+      </div>
+    </div>
+
+
+    <div class="wrap case__body">
+
+      <section id="s-lineage">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">01</span>
+            <h2 class="sec-head__title">Eight years, one lineage</h2>
+          </div>
+          <p class="sec-head__intro">This is not two projects. It is a sketchbook and what happened when the sketches got a test.</p>
+        </header>
+        <ul class="lineage">
+          <li>
+            <p class="stencil stencil--lg">2018 → ongoing</p>
+            <h3>Interestingly Entertaining Interfaces</h3>
+            <p>The sketchbook. Canvas and Three.js pens published in public, one idea at a time, with no obligation to be reusable.</p>
+            <p><a href="https://codepen.io/rexoriousyun">codepen.io/rexoriousyun</a></p>
+          </li>
+          <li class="is-now">
+            <p class="stencil stencil--lg stencil--accent">2025 → now</p>
+            <h3>creative-library</h3>
+            <p>The corpus. Same techniques, indexed by the problem they solve, each with a harness that fails loudly when a browser moves under it.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="s-contents">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">02</span>
+            <h2 class="sec-head__title">What is in it</h2>
+          </div>
+          <p class="sec-head__intro">Six families, 37 entries. Each one is a working page, not a gist.</p>
+        </header>
+        <ul class="taglist">
+          <li class="tag tag--outline"><span>Flow fields</span></li>
+          <li class="tag tag--outline"><span>Dithering</span></li>
+          <li class="tag tag--outline"><span>Halftone</span></li>
+          <li class="tag tag--outline"><span>Shader planes</span></li>
+          <li class="tag tag--outline"><span>Glitch</span></li>
+          <li class="tag tag--outline"><span>Generative pattern</span></li>
+        </ul>
+        <figure>
+          <img class="shot" src="img/cl-families.jpg" width="1640" height="610" loading="lazy" decoding="async" alt="Six recipe renders in a grid: a green flow field, a soft shader plane, a VHS-glitched PLAY title, a particle network, glowing neon ONLINE badges, and an amber LED departure board.">
+          <figcaption>Six of the thirty-seven — flow field, shader plane, VHS glitch, particle field, glow filter, LED matrix</figcaption>
+        </figure>
+        <dl class="deflist">
+          <dt>Flow fields</dt>
+          <dd>Motion along a noise field — crowds, currents, hair, anything that should drift instead of tween.</dd>
+          <dt>Dithering</dt>
+          <dd>Ordered and error-diffusion, on the GPU and off it. Cheap texture where a gradient would be wrong.</dd>
+          <dt>Halftone</dt>
+          <dd>Dot, line and crosshatch screens with a pitch that survives being resized.</dd>
+          <dt>Shader planes</dt>
+          <dd>Full-screen fragment work with a uniform contract, so a shader can be dropped into a page in minutes.</dd>
+          <dt>Glitch</dt>
+          <dd>Channel splits and slice displacement on a step clock — a state, never idle decoration.</dd>
+          <dt>Generative pattern</dt>
+          <dd>Tiling systems that stay seamless at any viewport, seeded so a reload returns the same page.</dd>
+        </dl>
+        <p>Each entry is a working page. The renders above are its own output, written out by the render step so the corpus can be browsed without running any of it.</p>
+      </section>
+
+      <section id="s-harness">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">03</span>
+            <h2 class="sec-head__title">Why a harness</h2>
+          </div>
+          <p class="sec-head__intro">A technique demo rots quietly. A verified one tells you when it broke.</p>
+        </header>
+        <p>Canvas and WebGL work is exactly the kind of code that stops working without anyone noticing: a driver changes, a context flag flips, a device pixel ratio assumption breaks. Every recipe carries the check that proves it still renders, so the corpus can be reached for on a deadline instead of re-tested by hand.</p>
+      </section>
+
+      <section id="s-system">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">04</span>
+            <h2 class="sec-head__title">The other shelf</h2>
+          </div>
+          <p class="sec-head__intro">A recipe answers <em>how do I construct this effect</em>. A system answers <em>what does my work look like</em>.</p>
+        </header>
+        <p>The two are kept deliberately apart. Recipes are meant to be copied into any project and retuned, so nothing under <code>recipes/</code> depends on a system, and the sync toolchain never reaches into <code>design-system/</code>. One shelf is parts; the other is a point of view.</p>
+        <figure>
+          <img class="shot shot--16x9" src="img/rex-spec.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="The Rexorious spec document: a sidebar listing sixteen numbered sections, the wordmark set large, four principle cards, and a system-at-a-glance panel.">
+          <figcaption>Section 00 of sixteen — the spec opens in a browser with nothing behind it</figcaption>
+        </figure>
+        <p><strong>Rexorious v1.0</strong> is what sits on it: zero radius, notched corners, sheared labels, hazard banding and a four-step motion budget. Nightshift is the default; Daylight exists for print and for anything read longer than two minutes. 59 tokens behind an <code>--rx-</code> prefix, Archivo and Chivo Mono, and a sixteen-section spec that opens in a browser with no server behind it.</p>
+        <p>It began as a Claude Design export that could not render without React and a template runtime. Porting it to stand on the browser alone meant replacing that layer rather than the design: conditionals became <code>data-if</code> blocks at <code>display:contents</code>, so a hidden branch still sits in its parent&rsquo;s grid exactly as it did; loops expanded once at startup; and the component&rsquo;s render step became a hundred lines of script. Sections, markup and copy came across line for line.</p>
+        <blockquote class="pull">
+          <p>You are looking at it. This page is drawn with that token set.</p>
+        </blockquote>
+      </section>
+    </div>
+  </article>
+
+  <!-- ===================================================================
+       CASE 03 — Tree of Knowledge
+       =================================================================== -->
+  <article class="view case case--tk" id="view-tree-of-knowledge">
+  <nav class="casebar" aria-label="Case navigation">
+    <div class="wrap casebar__inner">
+      <a class="backlink" href="#/"><b>&larr;</b> All work</a>
+    </div>
+  </nav>
+    <div class="case__masthead">
+      <div class="wrap">
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 04 · Tree of Knowledge · Digifest 2017</p>
+        <h1>NFC was built for apps. The exhibit needed a <span class="mark">website</span></h1>
+        <p class="case__lede">An interactive installation where visitors tapped physical objects against an iPad and the page changed. Exhibited at Digifest 2017.</p>
+      </div>
+    </div>
+
+    <div class="wrap case__body">
+
+      <section>
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">01</span>
+            <h2 class="sec-head__title">The constraint</h2>
+          </div>
+          <p class="sec-head__intro">Every NFC framework available assumed a native app. The content was a website, and rewriting it as an app was not the project.</p>
+        </header>
+        <p>So the iPad ran a thin kiosk-mode shell whose only job was to load the site and forward the tag it had just read into JavaScript. The web page stayed the product; the native layer stayed a driver. On an exhibition floor that also meant it could not fail into a browser chrome or a home screen — kiosk mode was as much about the room as about the tags.</p>
+      </section>
+
+      <section>
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">02</span>
+            <h2 class="sec-head__title">What is left of it</h2>
+          </div>
+          <p class="sec-head__intro">The demo is gone — the free hosting tier it lived on was discontinued. Stills and the shape of the build are what is left.</p>
+        </header>
+        <figure>
+          <img class="shot shot--16x9" src="img/treeofknowledge%206.jpg" width="800" height="533" loading="lazy" decoding="async" alt="An iPad set into a wooden stand, showing a question screen, with a green cow-shaped wooden piece resting on the reader in front of it.">
+          <figcaption>Digifest 2017 — a tagged piece resting on the reader, and the page it triggered</figcaption>
+        </figure>
+<pre>OBJECT ──tap──▶ NFC READER ──▶ KIOSK SHELL ──▶ JS BRIDGE ──▶ ROUTE
+
+SHELL   · loads the site, owns nothing else
+BRIDGE  · hands the tag id to the page as an event
+PAGE    · the product, unchanged from the browser build</pre>
+        <figure>
+          <img class="shot shot--contain" src="img/tok-interaction-flow.png" width="1400" height="1426" loading="lazy" decoding="async" alt="Interaction flow diagram titled Interaction Type 01, Multiple Choice: a branching chart of question states and the tag reads that move between them.">
+          <figcaption>Interaction Type 01 — the multiple-choice flow, as specified in 2017</figcaption>
+        </figure>
+        <p>The interaction model and the visual system were both written down before the build — the flow above, and a style guide that still opens: <a href="download/Interface%20Style%20Guide.pdf">Interface Style Guide (PDF, 12 MB)</a>.</p>
+        <div class="notice">
+          <span class="tag tag--danger"><span>Demo link removed</span></span>
+          <p>A dead link reads as an unmaintained portfolio, so it does not ship. Stills stand in until the kiosk app is rehosted.</p>
+        </div>
+      </section>
+    </div>
+  </article>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <div class="foot__brand">
+        <span class="wordmark wordmark--foot">RE<b>X</b> YUN</span>
+        <p class="stencil stencil--lg">Design · build · gate</p>
+      </div>
+      <div class="foot__claim">
+        <p class="stencil">This page wears the system from case 03 and is gated by the substrate in case 02</p>
+        <code>node engine/cli.js gate index.html --project .</code>
+        <p class="stencil foot__pending">Claim pending — show once the gate is green</p>
+      </div>
+    </div>
+    <div class="hazard hazard--foot"></div>
+  </footer>
+
+  <div class="tabbar__spacer"></div>
+  <nav class="tabbar" aria-label="Sections">
+    <div class="hazard hazard--hair"></div>
+    <ol>
+      <li><button type="button" data-jump="work">Work</button></li>
+      <li><button type="button" data-jump="archive">Archive</button></li>
+      <li><button type="button" data-jump="stack">Stack</button></li>
+      <li><button type="button" data-jump="contact">Contact</button></li>
+    </ol>
+  </nav>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
 </html>

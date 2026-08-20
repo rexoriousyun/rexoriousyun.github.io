@@ -1,0 +1,886 @@
+/* ============================================================================
+   SITE LAYER — Rex Yun portfolio
+   Components from the Rexorious design system, rebuilt as plain CSS classes.
+   Every value here resolves to a token in css/ds/. No raw hex below the
+   override block, which is the one place raw values are allowed and explained.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------------------
+   0. INVARIANT OVERRIDES
+   The imported token set has three `contrast-minimum` failures (4.5:1 floor for
+   body text). Contrast is invariant tier — not tradeable against aesthetics —
+   so it is corrected here rather than shipped. Measured ratios in comments.
+   Fix these upstream in the design system and this block can be deleted.
+   ------------------------------------------------------------------------ */
+:root{
+  /* was --rx-slate #4E5661 → 2.68 on void, 2.50 on surface. FAIL. */
+  --rx-text-mute:#7A828E;            /* 5.13 on void, 4.79 on surface */
+
+  /* The oversized "ghost" section and case numbers are drawn in --rx-line-strong
+     (1.93:1) and --rx-raised (~1.2:1). They are large text, so the floor is 3:1
+     and both fail. Recessive but legible replacement, one token for both. */
+  --rx-ghost:#626A76;                /* 3.40 worst case on night surfaces */
+
+  /* Ramp colours are not remapped by modes.css, so surfaces built out of them
+     stay dark in Daylight. Aliased here so both modes can set them. */
+  --rx-grid-line:var(--rx-seam);
+  --rx-slot-fill:var(--rx-slot-stripe);
+  --rx-slot-dot:var(--rx-fog);
+}
+[data-mode="day"]{
+  /* was #8A929E → 2.88 on bg, 3.14 on surface. FAIL. */
+  --rx-text-mute:#666D78;            /* 4.79 on bg, 5.22 on surface */
+
+  /* was #0E8C82 → 3.78 on bg, 4.12 on surface. FAIL. */
+  --rx-link:#0A6F67;                 /* 5.53 on bg, 6.03 on surface */
+
+  /* modes.css leaves --rx-warning at full amber, which is 1.64:1 on paper. */
+  --rx-warning:#8A5A00;              /* 4.93 worst case on day surfaces */
+
+  --rx-ghost:#787F8B;                /* 3.36 worst case on day surfaces */
+  --rx-grid-line:#D9D5CA;
+  --rx-slot-fill:repeating-linear-gradient(135deg,#E4E0D6 0 6px,#EDEAE3 6px 12px);
+  --rx-slot-dot:#8A929E;
+}
+
+/* ---------------------------------------------------------------------------
+   1. DOCUMENT
+   ------------------------------------------------------------------------ */
+body{
+  background:var(--rx-void);
+  font-family:var(--rx-font-body);
+}
+.shell{
+  background:var(--rx-bg);
+  color:var(--rx-text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.wrap{
+  max-width:var(--rx-max-content);
+  margin:0 auto;
+  padding-inline:var(--rx-gutter-fluid);
+}
+main{flex:1}
+
+.skip{
+  position:absolute;
+  left:var(--rx-3);
+  top:var(--rx-3);
+  z-index:var(--rx-z-toast);
+  transform:translateY(-200%);
+  background:var(--rx-accent);
+  color:var(--rx-accent-ink);
+  border:none;
+  padding:var(--rx-3) var(--rx-4);
+  font-family:var(--rx-font-mono);
+  font-size:11px;
+  letter-spacing:var(--rx-track-stencil);
+  text-transform:uppercase;
+}
+.skip:focus{transform:translateY(0)}
+
+/* ---------------------------------------------------------------------------
+   2. DESIGN-SYSTEM COMPONENTS
+   ------------------------------------------------------------------------ */
+
+/* HazardBand — the system's warning stripe. */
+.hazard{
+  height:16px;
+  background:repeating-linear-gradient(135deg,var(--rx-accent) 0 16px,var(--rx-void) 16px 32px);
+}
+.hazard--hair{
+  height:5px;
+  background:repeating-linear-gradient(135deg,var(--rx-accent) 0 10px,var(--rx-void) 10px 20px);
+}
+.hazard--foot{height:22px}
+
+/* Wordmark — Archivo 900 / wdth 112, accent knockout on one letter. */
+.wordmark{
+  display:inline-block;
+  font-family:var(--rx-font-display);
+  font-weight:var(--rx-wght-display);
+  font-stretch:var(--rx-wdth-wide);
+  line-height:.9;
+  letter-spacing:var(--rx-track-d1);
+  text-transform:uppercase;
+  white-space:nowrap;
+  color:var(--rx-text);
+  font-size:22px;
+}
+.wordmark--foot{font-size:24px}
+.wordmark b{
+  display:inline-block;
+  font-weight:inherit;
+  background:var(--rx-accent);
+  color:var(--rx-accent-ink);
+  padding:0 .05em;
+}
+
+/* StencilLabel — the eyebrow that makes the system read as instrumented. */
+.stencil{
+  font-family:var(--rx-font-mono);
+  font-size:9.5px;
+  letter-spacing:var(--rx-track-stencil);
+  line-height:var(--rx-lh-stencil);
+  text-transform:uppercase;
+  color:var(--rx-text-mute);
+}
+.stencil--lg{font-size:11px}
+.stencil--accent{color:var(--rx-accent-text)}
+
+/* Tag — sheared chip; the text counter-skews back upright. */
+.tag{
+  display:inline-block;
+  padding:4px 9px;
+  font-family:var(--rx-font-mono);
+  font-size:10px;
+  letter-spacing:.12em;
+  line-height:1.3;
+  text-transform:uppercase;
+  transform:skewX(var(--rx-skew));
+  background:var(--rx-accent);
+  color:var(--rx-accent-ink);
+  border:none;
+}
+.tag > span{display:inline-block;transform:skewX(var(--rx-skew-counter))}
+.tag--outline{background:transparent;color:var(--rx-text);border:1px solid var(--rx-text)}
+.tag--idle{background:var(--rx-raised);color:var(--rx-text-dim);border:1px solid var(--rx-line-strong)}
+/* Paper-on-signal measured 3.23 — under the 4.5 floor. Void ink instead. */
+.tag--danger{background:var(--rx-signal);color:var(--rx-void);border:none}
+
+/* ImageSlot — every unfilled media area says what belongs there. */
+.slot{
+  border:1px dashed var(--rx-line-strong);
+  display:grid;
+  place-items:center;
+  padding:var(--rx-4);
+  text-align:center;
+  background:var(--rx-slot-fill);
+}
+.slot--halftone{
+  background-color:var(--rx-raised);
+  background-image:radial-gradient(circle at 1px 1px,var(--rx-slot-dot) 1.1px,transparent 0);
+  background-size:var(--rx-halftone-size) var(--rx-halftone-size);
+}
+.slot--16x9{aspect-ratio:16/9}
+.slot--21x9{aspect-ratio:21/9}
+.slot span{
+  font-family:var(--rx-font-mono);
+  font-size:10px;
+  letter-spacing:.12em;
+  color:var(--rx-text-dim);
+  text-transform:uppercase;
+  /* The halftone texture is drawn in the same fog the label uses, so an
+     unbacked label disappears into it. Solid chip reads over every texture. */
+  background:var(--rx-surface);
+  padding:var(--rx-2) var(--rx-3);
+}
+
+/* Filled media — a real asset in a slot that used to be a placeholder.
+   Same frame as .slot so the two read as one family while the set is mixed. */
+.shot{
+  display:block;
+  width:100%;
+  /* The width/height attributes map to CSS height, which makes aspect-ratio
+     inert and renders every image at its intrinsic pixel height. */
+  height:auto;
+  border:var(--rx-hairline-strong);
+  background:var(--rx-bg-inset);
+}
+.shot--16x9{aspect-ratio:16/9;object-fit:cover}
+.shot--wide{aspect-ratio:21/9;object-fit:cover}
+.shot--contain{object-fit:contain;background:var(--rx-paper)}
+figure{margin:0;display:flex;flex-direction:column;gap:var(--rx-3)}
+figcaption{
+  font-family:var(--rx-font-mono);
+  font-size:11px;
+  letter-spacing:var(--rx-track-stencil);
+  text-transform:uppercase;
+  color:var(--rx-text-mute);
+}
+
+/* TextureField — blueprint grid behind the hero. Never behind body copy. */
+.texture{
+  position:relative;
+  overflow:hidden;
+  background:var(--rx-raised);
+}
+.texture::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(var(--rx-grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--rx-grid-line) 1px,transparent 1px);
+  background-size:var(--rx-blueprint-size) var(--rx-blueprint-size);
+  animation:rx-drift var(--rx-drift-dur) linear infinite;
+}
+.texture > *{position:relative}
+
+/* SectionHeader — ghost number, wide uppercase title, one line of intent. */
+.sec-head__top{
+  display:flex;
+  align-items:flex-end;
+  gap:var(--rx-4);
+  margin-bottom:var(--rx-2);
+}
+.sec-head__num{
+  font-family:var(--rx-font-mono);
+  font-size:52px;
+  font-weight:700;
+  color:var(--rx-ghost);
+  line-height:.8;
+}
+.sec-head__title{
+  margin:0;
+  font-family:var(--rx-font-display);
+  font-size:var(--rx-fluid-h1);
+  line-height:1;
+  font-weight:var(--rx-wght-display);
+  font-stretch:var(--rx-wdth-h1);
+  text-transform:uppercase;
+  letter-spacing:var(--rx-track-h1);
+  color:var(--rx-text);
+}
+.sec-head__intro{
+  margin:0;
+  /* DS default is 15px, which renders below the 16px body copy that follows —
+     the lede ends up looking like a caption. One step up restores the order. */
+  font-size:17px;
+  line-height:var(--rx-lh-body);
+  color:var(--rx-ash);
+  max-width:var(--rx-measure);
+}
+[data-mode="day"] .sec-head__intro{color:var(--rx-text-body)}
+
+/* Card — stencil eyebrow, title, media, copy, one action. One notched corner. */
+.card{
+  background:var(--rx-surface);
+  border:var(--rx-hairline);
+  border-top:var(--rx-rule) solid var(--rx-fog);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+  display:flex;
+  flex-direction:column;
+  padding:var(--rx-4) 18px 18px;
+  gap:var(--rx-3);
+  height:100%;
+}
+.card--accent{border-top-color:var(--rx-accent)}
+.card__title{
+  font-family:var(--rx-font-display);
+  font-size:24px;
+  font-weight:var(--rx-wght-strong);
+  font-stretch:var(--rx-wdth-h2);
+  line-height:var(--rx-lh-h2);
+  text-transform:none;
+  color:var(--rx-text);
+  margin:0;
+}
+
+/* ---------------------------------------------------------------------------
+   3. HEADER
+   ------------------------------------------------------------------------ */
+.masthead{
+  position:sticky;
+  top:0;
+  z-index:var(--rx-z-nav);
+  background:var(--rx-surface);
+  border-bottom:var(--rx-hairline);
+}
+.masthead__bar{
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--rx-4);
+}
+.masthead__home{
+  display:flex;
+  align-items:center;
+  color:var(--rx-text);
+  border-bottom:none;
+}
+.masthead__home:hover{background:none;color:var(--rx-text)}
+.masthead__tools{
+  display:flex;
+  align-items:center;
+  gap:var(--rx-4);
+}
+.swatches{display:flex;align-items:center;gap:var(--rx-1)}
+.swatch{
+  width:32px;
+  height:32px;
+  padding:0;
+  background:none;
+  border:var(--rx-hairline);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+}
+.swatch:hover{border-color:var(--rx-text)}
+.swatch[aria-pressed="true"]{border-color:var(--rx-text);box-shadow:inset 0 0 0 2px var(--rx-surface)}
+.swatch i{width:16px;height:16px;display:block}
+.swatch--volt i{background:var(--rx-volt)}
+.swatch--coolant i{background:var(--rx-coolant)}
+.swatch--amber i{background:var(--rx-amber)}
+.swatch--rose i{background:var(--rx-rose)}
+
+.ctl{
+  min-height:40px;
+  padding:0 var(--rx-3);
+  background:none;
+  border:var(--rx-hairline);
+  color:var(--rx-text-dim);
+  font-family:var(--rx-font-mono);
+  font-size:10.5px;
+  letter-spacing:var(--rx-track-stencil);
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.ctl:hover{border-color:var(--rx-accent);color:var(--rx-accent-text)}
+.ctl--link{border-color:var(--rx-link);color:var(--rx-link)}
+
+/* ---------------------------------------------------------------------------
+   4. HOME — hero, positioning, work index
+   ------------------------------------------------------------------------ */
+.hero{padding-block:clamp(48px,7vw,88px) clamp(28px,4vw,44px)}
+.filetag{
+  display:inline-block;
+  background:var(--rx-accent);
+  color:var(--rx-accent-ink);
+  padding:5px 10px;
+  transform:skewX(var(--rx-skew));
+  margin-bottom:var(--rx-6);
+}
+.filetag span{
+  display:inline-block;
+  transform:skewX(var(--rx-skew-counter));
+  font-family:var(--rx-font-mono);
+  font-size:10px;
+  letter-spacing:var(--rx-track-descriptor);
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(32px,5.4vw,64px);
+  line-height:.86;
+  font-weight:var(--rx-wght-display);
+  font-stretch:var(--rx-wdth-hero);
+  letter-spacing:var(--rx-track-d1);
+  text-transform:uppercase;
+  color:var(--rx-text);
+  /* The three lines are authored with <br>; balancing fights them. */
+  text-wrap:normal;
+}
+.mark{
+  display:inline-block;
+  background:var(--rx-accent);
+  color:var(--rx-accent-ink);
+  padding:0 .06em;
+}
+.mark--tilt{transform:rotate(-2deg)}
+
+.standfirst{border-bottom:var(--rx-hairline)}
+.standfirst__inner{padding-block:clamp(28px,4vw,40px) clamp(36px,5vw,56px)}
+.standfirst__note{
+  margin:var(--rx-4) 0 0;
+  font-size:15px;
+  line-height:var(--rx-lh-body);
+  color:var(--rx-text-dim);
+  max-width:58ch;
+}
+.standfirst > div > p:first-of-type{
+  margin:0;
+  font-size:16px;
+  line-height:var(--rx-lh-body);
+  color:var(--rx-text-body);
+  max-width:58ch;
+}
+.roles{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--rx-2);
+  margin-top:var(--rx-7);
+  padding:0;
+  list-style:none;
+}
+
+.section{padding-top:var(--rx-section-y);scroll-margin-top:90px}
+.section--last{padding-bottom:clamp(48px,7vw,80px)}
+.section__head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:var(--rx-4);
+  padding-bottom:var(--rx-4);
+  border-bottom:3px solid var(--rx-line-strong);
+}
+.section__head--thin{
+  display:block;
+  padding-bottom:var(--rx-3);
+  border-bottom:var(--rx-hairline-strong);
+}
+
+/* Work index — stack treatment */
+.worklist{display:flex;flex-direction:column;list-style:none;margin:0;padding:0}
+.worklink{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,260px);
+  gap:var(--rx-4) var(--rx-7);
+  align-items:start;
+  padding:var(--rx-7) 0 var(--rx-8) var(--rx-5);
+  border-bottom:var(--rx-hairline);
+  border-left:var(--rx-rule-edge) solid var(--rx-line-strong);
+  color:var(--rx-text);
+}
+.worklink:hover{background:var(--rx-surface);color:var(--rx-text)}
+.worklink--lead{border-left-color:var(--rx-accent)}
+.worklink__body{display:flex;flex-direction:column;gap:var(--rx-4)}
+.worklink__top{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:var(--rx-4);
+  justify-content:space-between;
+}
+.worklink__id{
+  display:flex;
+  align-items:baseline;
+  gap:var(--rx-4);
+  min-width:0;
+}
+.worklink__num{
+  font-family:var(--rx-font-mono);
+  font-size:clamp(28px,4vw,44px);
+  font-weight:200;
+  color:var(--rx-ghost);
+  line-height:1;
+}
+.worklink__kicker{
+  font-family:var(--rx-font-mono);
+  font-size:11px;
+  letter-spacing:var(--rx-track-stencil);
+  text-transform:uppercase;
+  color:var(--rx-text-mute);
+  margin-bottom:var(--rx-2);
+}
+.worklink h3{
+  margin:0;
+  font-size:clamp(26px,3.6vw,42px);
+  line-height:var(--rx-lh-h1);
+  font-weight:var(--rx-wght-display);
+  font-stretch:var(--rx-wdth-h1);
+  letter-spacing:var(--rx-track-h1);
+  text-transform:uppercase;
+  color:var(--rx-text);
+}
+.worklink p{
+  margin:0;
+  font-size:17px;
+  line-height:1.55;
+  color:var(--rx-text-body);
+  max-width:62ch;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--rx-5);
+  font-family:var(--rx-font-mono);
+  font-size:11.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--rx-text-dim);
+}
+.meta__go{color:var(--rx-link);margin-left:auto}
+.meta__warn{color:var(--rx-warning)}
+
+/* Archive */
+.archive{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.archive li{
+  display:grid;
+  grid-template-columns:56px minmax(0,1fr);
+  gap:var(--rx-5);
+  padding:var(--rx-4) 0;
+  border-bottom:var(--rx-hairline);
+  align-items:baseline;
+}
+.archive time{
+  font-family:var(--rx-font-mono);
+  font-size:12px;
+  color:var(--rx-text-mute);
+}
+.archive p{margin:0;font-size:14px;color:var(--rx-text-dim);max-width:none}
+@media (max-width:600px){
+  .archive li{grid-template-columns:56px minmax(0,1fr)}
+  }
+.archive strong{color:var(--rx-text);font-weight:var(--rx-wght-strong)}
+
+/* Stack */
+
+/* Contact */
+.contact{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:var(--rx-4);
+  margin-top:var(--rx-6);
+  list-style:none;
+  padding:0;
+}
+.contact li{
+  border:var(--rx-hairline);
+  border-top:var(--rx-rule) solid var(--rx-line-strong);
+  background:var(--rx-surface);
+  padding:var(--rx-5);
+  display:flex;
+  flex-direction:column;
+  gap:var(--rx-2);
+}
+.contact a{
+  font-family:var(--rx-font-mono);
+  font-size:14px;
+  letter-spacing:.04em;
+}
+/* ---------------------------------------------------------------------------
+   5. CASE PAGES
+   ------------------------------------------------------------------------ */
+.case__masthead{
+  border-bottom:var(--rx-hairline);
+  background:var(--rx-bg-inset);
+}
+.case__masthead > div{padding-block:clamp(32px,5vw,64px) clamp(28px,4vw,48px)}
+.case__kicker{margin-top:var(--rx-2)}
+.case h1{
+  margin:var(--rx-4) 0 0;
+  font-size:clamp(28px,6vw,72px);
+  line-height:.9;
+  font-weight:var(--rx-wght-display);
+  font-stretch:var(--rx-wdth-wide);
+  letter-spacing:var(--rx-track-d2);
+  text-transform:uppercase;
+  color:var(--rx-text);
+  max-width:22ch;
+}
+.case--tk h1{font-size:clamp(27px,5.4vw,64px);line-height:.92;max-width:24ch}
+.case__lede{
+  margin:var(--rx-6) 0 0;
+  font-size:18px;
+  line-height:1.55;
+  color:var(--rx-text-body);
+  max-width:60ch;
+}
+.case__facts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--rx-6);
+  margin-top:var(--rx-7);
+  font-family:var(--rx-font-mono);
+  font-size:11.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--rx-text-dim);
+  list-style:none;
+  padding:0;
+}
+
+/* Case bar — sticky, directly under the site header, on every case page.
+   The way back to the index was an 11px text link inside the hero: too small
+   to aim at, and it scrolled away on a 2800px case. Now it is a 44px control
+   that never leaves the screen. */
+.casebar{
+  position:sticky;
+  top:65px;
+  z-index:90;
+  background:var(--rx-surface);
+  border-bottom:var(--rx-hairline);
+}
+.casebar__inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:var(--rx-2) var(--rx-6);
+  padding-block:var(--rx-2);
+}
+.backlink{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--rx-2);
+  min-height:44px;
+  padding:0 var(--rx-4);
+  border:var(--rx-hairline-strong);
+  border-left:var(--rx-rule-edge) solid var(--rx-accent);
+  color:var(--rx-text);
+  font-family:var(--rx-font-mono);
+  font-size:12px;
+  letter-spacing:var(--rx-track-stencil);
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.backlink:hover{
+  background:var(--rx-accent);
+  color:var(--rx-accent-ink);
+  border-color:var(--rx-accent);
+}
+.backlink b{font-size:16px;line-height:1;font-weight:400}
+.casebar__sections{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--rx-1);
+  list-style:none;
+  margin:0 0 0 auto;
+  padding:0;
+}
+.casebar__sections button{
+  background:none;
+  border:none;
+  border-bottom:2px solid transparent;
+  padding:var(--rx-3);
+  min-height:40px;
+  font-family:var(--rx-font-mono);
+  font-size:10.5px;
+  letter-spacing:var(--rx-track-stencil);
+  text-transform:uppercase;
+  color:var(--rx-text-dim);
+  cursor:pointer;
+}
+.casebar__sections button:hover{color:var(--rx-accent-text);border-bottom-color:var(--rx-accent)}
+
+.case__body{
+  padding-block:var(--rx-section-y) clamp(48px,7vw,80px);
+  display:flex;
+  flex-direction:column;
+  gap:clamp(40px,6vw,72px);
+}
+.case__body section{
+  display:flex;
+  flex-direction:column;
+  gap:var(--rx-5);
+  scroll-margin-top:120px;
+}
+.case__body > section > p{
+  margin:0;
+  font-size:16px;
+  line-height:1.65;
+  color:var(--rx-text-body);
+  max-width:var(--rx-measure);
+}
+.case__body pre{
+  margin:0;
+  overflow-x:auto;
+  background:var(--rx-bg-inset);
+  border:var(--rx-hairline);
+  border-top:var(--rx-rule) solid var(--rx-line-strong);
+  padding:var(--rx-5);
+  font-family:var(--rx-font-mono);
+  font-size:12.5px;
+  line-height:1.8;
+  color:var(--rx-text-body);
+}
+.case__body pre.is-accent{border-top-color:var(--rx-accent)}
+.case__body code{
+  font-size:.92em;
+  color:var(--rx-text);
+  background:var(--rx-bg-inset);
+  padding:0 var(--rx-1);
+}
+
+.tiers{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:var(--rx-3);
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.tier{
+  background:var(--rx-surface);
+  border:var(--rx-hairline);
+  border-left:var(--rx-rule-edge) solid var(--rx-line-strong);
+  padding:var(--rx-5);
+  display:flex;
+  flex-direction:column;
+  gap:var(--rx-3);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+}
+.tier--bone{border-left-color:var(--rx-bone)}
+.tier--coolant{border-left-color:var(--rx-coolant)}
+.tier__n{
+  font-family:var(--rx-font-mono);
+  font-size:34px;
+  font-weight:200;
+  color:var(--rx-text);
+  line-height:1;
+}
+.tier p{margin:0;font-size:14px;line-height:1.55;color:var(--rx-text-body)}
+
+.pull{
+  margin:0;
+  border-left:var(--rx-rule-edge) solid var(--rx-accent);
+  background:var(--rx-surface);
+  padding:var(--rx-6);
+  font-size:clamp(20px,2.6vw,30px);
+  line-height:1.2;
+  font-weight:var(--rx-wght-display);
+  font-stretch:var(--rx-wdth-h2);
+  text-transform:uppercase;
+  letter-spacing:var(--rx-track-h1);
+  color:var(--rx-text);
+}
+.pull p{margin:0;max-width:none;font:inherit;color:inherit}
+
+.lineage{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:var(--rx-4);
+  align-items:stretch;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.lineage li{
+  background:var(--rx-surface);
+  border:var(--rx-hairline);
+  border-top:var(--rx-rule) solid var(--rx-line-strong);
+  padding:var(--rx-5);
+  display:flex;
+  flex-direction:column;
+  gap:var(--rx-3);
+}
+.lineage li.is-now{
+  border-top-color:var(--rx-accent);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+}
+.lineage h3{
+  font-size:19px;
+  font-weight:var(--rx-wght-display);
+  font-stretch:var(--rx-wdth-label);
+  text-transform:uppercase;
+  color:var(--rx-text);
+  margin:0;
+}
+.lineage p{margin:0;font-size:14px;line-height:1.6;color:var(--rx-text-body)}
+
+.deflist{margin:0;display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr)}
+.deflist dt{
+  grid-column:1;
+  font-family:var(--rx-font-mono);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--rx-text);
+  padding:var(--rx-4) var(--rx-6) var(--rx-4) 0;
+  border-top:var(--rx-hairline);
+}
+.deflist dd{
+  grid-column:2;
+  margin:0;
+  font-size:14.5px;
+  line-height:1.55;
+  color:var(--rx-text-body);
+  padding:var(--rx-4) 0;
+  border-top:var(--rx-hairline);
+}
+.deflist dt:last-of-type,.deflist dd:last-of-type{border-bottom:var(--rx-hairline)}
+
+.taglist{display:flex;flex-wrap:wrap;gap:var(--rx-2);list-style:none;margin:0;padding:0}
+.notice{display:flex;flex-wrap:wrap;gap:var(--rx-3);align-items:center}
+.notice p{font-size:14px;line-height:1.5;color:var(--rx-text-dim);max-width:56ch;margin:0}
+
+/* ---------------------------------------------------------------------------
+   6. FOOTER
+   ------------------------------------------------------------------------ */
+.foot{
+  border-top:var(--rx-hairline);
+  background:var(--rx-surface);
+  margin-top:auto;
+}
+.foot__inner{
+  padding-block:clamp(28px,4vw,44px);
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--rx-7);
+  justify-content:space-between;
+  align-items:flex-end;
+}
+.foot__brand{display:flex;flex-direction:column;gap:var(--rx-3)}
+.foot__claim{display:flex;flex-direction:column;gap:var(--rx-2);min-width:0}
+.foot__claim code{
+  font-family:var(--rx-font-mono);
+  font-size:12px;
+  color:var(--rx-text-body);
+  background:var(--rx-bg-inset);
+  border:var(--rx-hairline);
+  padding:var(--rx-3);
+  overflow-x:auto;
+}
+.foot__pending{color:var(--rx-warning)}
+
+/* ---------------------------------------------------------------------------
+   7. MOBILE TAB BAR — five destinations at most, so a bar beats a hamburger.
+   CSS-driven, not JS width detection.
+   ------------------------------------------------------------------------ */
+.tabbar{display:none}
+@media (max-width:640px){
+  .tabbar{
+    display:block;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:120;
+    background:var(--rx-surface);
+    border-top:var(--rx-hairline-strong);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .tabbar ol{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .tabbar button{
+    width:100%;
+    min-height:56px;
+    background:none;
+    border:none;
+    border-left:var(--rx-rule) solid var(--rx-line-strong);
+    font-family:var(--rx-font-mono);
+    font-size:10.5px;
+    letter-spacing:var(--rx-track-stencil);
+    text-transform:uppercase;
+    color:var(--rx-text-dim);
+    cursor:pointer;
+  }
+  .tabbar li:first-child button{border-left-color:var(--rx-accent);color:var(--rx-text)}
+  .tabbar__spacer{height:calc(62px + env(safe-area-inset-bottom))}
+}
+
+/* ---------------------------------------------------------------------------
+   8. ROUTING
+   Views are all present in the document. The router only becomes exclusive once
+   JS confirms it is running, so with JS off the whole portfolio still reads.
+   ------------------------------------------------------------------------ */
+.js-router .view[hidden]{display:none}
+.view + .view{border-top:var(--rx-hairline)}
+.js-router .view + .view{border-top:none}
+
+/* ---------------------------------------------------------------------------
+   9. NARROW VIEWPORTS
+   Decoration is spent down before type or hierarchy.
+   ------------------------------------------------------------------------ */
+@media (max-width:960px){
+  .worklink{grid-template-columns:minmax(0,1fr)}
+  .worklink__media{max-width:320px}
+}
+@media (max-width:600px){
+  .masthead__bar{height:auto;padding-block:var(--rx-3);flex-wrap:wrap}
+  .swatches{order:2}
+  .texture::before{animation:none}
+  .deflist{grid-template-columns:minmax(0,1fr)}
+  .deflist dt{padding-bottom:0;border-top:var(--rx-hairline)}
+  .deflist dd{padding-top:var(--rx-2);border-top:none}
+  .deflist dt:last-of-type{border-bottom:none}
+  .sec-head__num{font-size:38px}
+}

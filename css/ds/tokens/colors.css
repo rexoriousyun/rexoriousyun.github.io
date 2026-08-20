@@ -1,0 +1,55 @@
+/* NEUTRAL RAMP — painted metal, not blue-grey plastic. Chroma stays under 0.02.
+   ACCENT TIER — three colors at full volume. One accent is primary per view.
+   Pure #FFFFFF appears nowhere in the night palette. */
+:root{
+  /* neutral ramp — dark to light */
+  --rx-void:#08090A;
+  --rx-sump:#0E1013;
+  --rx-chassis:#111317;
+  --rx-housing:#1A1E24;
+  --rx-seam:#23272E;
+  --rx-steel:#3A414B;
+  --rx-slate:#4E5661;
+  --rx-fog:#8A929E;
+  --rx-ash:#A8B0BB;
+  --rx-mist:#C6CCD4;
+  --rx-bone:#EDEAE3;
+  --rx-paper:#F7F5EF;
+  --rx-chalk:#D9D5CA;
+
+  /* accent tier */
+  --rx-volt:#D9FF1E;
+  --rx-volt-shade:#B8DA00;
+  --rx-coolant:#21E6D4;
+  --rx-coolant-shade:#17B3A5;
+  --rx-signal:#FF3D2E;
+  --rx-signal-shade:#C42A1E;
+
+  /* extended — charts, merch, riso only */
+  --rx-amber:#FFB300;
+  --rx-rose:#FF2D8F;
+  --rx-violet:#7B5BFF;
+  --rx-jade:#00A86B;
+
+  /* semantic aliases — night ("Nightshift") is the default mode */
+  --rx-bg:var(--rx-void);
+  --rx-bg-inset:var(--rx-sump);
+  --rx-surface:var(--rx-chassis);
+  --rx-raised:var(--rx-housing);
+  --rx-line:var(--rx-seam);
+  --rx-line-strong:var(--rx-steel);
+  --rx-text:var(--rx-bone);
+  --rx-text-dim:var(--rx-fog);
+  --rx-text-mute:var(--rx-slate);
+  --rx-text-body:var(--rx-mist);
+  --rx-accent:var(--rx-volt);
+  --rx-accent-ink:var(--rx-void);
+  --rx-accent-text:var(--rx-volt);
+  --rx-link:var(--rx-coolant);
+  --rx-info:var(--rx-coolant);
+  --rx-danger:var(--rx-signal);
+  --rx-warning:var(--rx-amber);
+  --rx-disabled-bg:var(--rx-housing);
+  --rx-disabled-text:var(--rx-slate);
+  --rx-scrim:rgba(8,9,10,.82);
+}
