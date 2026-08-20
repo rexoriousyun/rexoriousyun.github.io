@@ -23,6 +23,9 @@
 
   /* Ramp colours are not remapped by modes.css, so surfaces built out of them
      stay dark in Daylight. Aliased here so both modes can set them. */
+  /* Measured by app.js and rewritten whenever the header reflows. The
+     fallback is the desktop height: 5px hazard + a 60px bar. */
+  --rx-header-h:65px;
   --rx-grid-line:var(--rx-seam);
   --rx-slot-fill:var(--rx-slot-stripe);
   --rx-slot-dot:var(--rx-fog);
@@ -365,7 +368,10 @@ figcaption{
 .hero h1{
   margin:0;
   font-size:clamp(28px,5.4vw,64px);
-  line-height:.86;
+  /* .86 leaves the line box shorter than the glyphs, so the highlighted span —
+     an inline-block, rotated, therefore taller than the line by width*sin(2deg)
+     — cut into the comma on the line above. This buys the rotation room. */
+  line-height:.98;
   font-weight:var(--rx-wght-display);
   font-stretch:var(--rx-wdth-hero);
   letter-spacing:var(--rx-track-d1);
@@ -381,6 +387,8 @@ figcaption{
   padding:0 .06em;
 }
 .mark--tilt{transform:rotate(-2deg)}
+/* Below this the hero is dense enough that even 2 degrees collides. */
+@media (max-width:700px){ .mark--tilt{transform:none} }
 
 .standfirst{border-bottom:var(--rx-hairline)}
 .standfirst__inner{padding-block:clamp(28px,4vw,40px) clamp(36px,5vw,56px)}
@@ -407,7 +415,7 @@ figcaption{
   list-style:none;
 }
 
-.section{padding-top:var(--rx-section-y);scroll-margin-top:90px}
+.section{padding-top:var(--rx-section-y);scroll-margin-top:calc(var(--rx-header-h) + var(--rx-6))}
 .section--last{padding-bottom:clamp(48px,7vw,80px)}
 .section__head{
   display:flex;
@@ -590,7 +598,7 @@ figcaption{
    that never leaves the screen. */
 .casebar{
   position:sticky;
-  top:65px;
+  top:var(--rx-header-h);
   z-index:90;
   background:var(--rx-surface);
   border-bottom:var(--rx-hairline);
@@ -656,7 +664,7 @@ figcaption{
   display:flex;
   flex-direction:column;
   gap:var(--rx-5);
-  scroll-margin-top:120px;
+  scroll-margin-top:calc(var(--rx-header-h) + var(--rx-11));
 }
 .case__body > section > p{
   margin:0;
@@ -885,16 +893,20 @@ figcaption{
   /* The masthead has to stay one row: .casebar sticks at a hard 65px, so a
      wrapping header would slide under it. The accent swatches are the part
      that can go — decoration before navigation. */
-  .swatches{display:none}
-  .masthead__tools{gap:var(--rx-2)}
+  .masthead__bar{height:auto;padding-block:var(--rx-3);flex-wrap:wrap;row-gap:var(--rx-2)}
+  .masthead__tools{gap:var(--rx-2);flex-wrap:wrap}
   .ctl{padding:0 var(--rx-2);font-size:10px}
   .texture::before{animation:none}
   /* Four section links wrap to two rows and make the sticky bar 100px tall on
      a phone. The back link is the one that has to survive. */
   .casebar__sections{display:none}
   .deflist{grid-template-columns:minmax(0,1fr)}
-  .deflist dt{padding-bottom:0;border-top:var(--rx-hairline)}
-  .deflist dd{padding-top:var(--rx-2);border-top:none}
+  /* The base rule pins dt to column 1 and dd to column 2. Collapsing the
+     template alone left dd still asking for a second column, so every term
+     and its definition landed in the same row and overlapped. */
+  .deflist dt,.deflist dd{grid-column:1}
+  .deflist dt{padding:var(--rx-4) 0 0;border-top:var(--rx-hairline)}
+  .deflist dd{padding:var(--rx-2) 0 var(--rx-4);border-top:none}
   .deflist dt:last-of-type{border-bottom:none}
   .sec-head__num{font-size:38px}
   .worklink{padding-left:var(--rx-4)}

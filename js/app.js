@@ -116,9 +116,25 @@
     applyAccent();
   });
 
+  /* ---- header height ----------------------------------------------------
+     The case bar sticks below the header and section jumps clear it. Both used
+     to assume 65px, which is only true while the header is one row — on a
+     phone it wraps and the bar slid underneath it. Measure instead. */
+
+  var masthead = document.querySelector('.masthead');
+  function measureHeader() {
+    shell.style.setProperty('--rx-header-h', masthead.offsetHeight + 'px');
+  }
+  if (window.ResizeObserver) {
+    new ResizeObserver(measureHeader).observe(masthead);
+  } else {
+    window.addEventListener('resize', measureHeader);
+  }
+
   /* ---- boot ------------------------------------------------------------- */
 
   shell.classList.add('js-router');
+  measureHeader();
   render(false);
   applyAccent();
 })();
