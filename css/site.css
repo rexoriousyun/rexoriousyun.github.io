@@ -364,7 +364,7 @@ figcaption{
 }
 .hero h1{
   margin:0;
-  font-size:clamp(32px,5.4vw,64px);
+  font-size:clamp(28px,5.4vw,64px);
   line-height:.86;
   font-weight:var(--rx-wght-display);
   font-stretch:var(--rx-wdth-hero);
@@ -871,16 +871,41 @@ figcaption{
    Decoration is spent down before type or hierarchy.
    ------------------------------------------------------------------------ */
 @media (max-width:960px){
+  /* One column, and the media takes the full width of it. Capping the image
+     stranded it against a half-empty column on tablets. */
   .worklink{grid-template-columns:minmax(0,1fr)}
-  .worklink__media{max-width:320px}
+}
+@media (max-width:900px){
+  /* A section title wraps at this width, and flex-end drops the numeral
+     alongside the LAST line — "03" ends up beside "BUILDING". */
+  .sec-head__top{align-items:flex-start}
+  .sec-head__num{line-height:1}
 }
 @media (max-width:600px){
-  .masthead__bar{height:auto;padding-block:var(--rx-3);flex-wrap:wrap}
-  .swatches{order:2}
+  /* The masthead has to stay one row: .casebar sticks at a hard 65px, so a
+     wrapping header would slide under it. The accent swatches are the part
+     that can go — decoration before navigation. */
+  .swatches{display:none}
+  .masthead__tools{gap:var(--rx-2)}
+  .ctl{padding:0 var(--rx-2);font-size:10px}
   .texture::before{animation:none}
+  /* Four section links wrap to two rows and make the sticky bar 100px tall on
+     a phone. The back link is the one that has to survive. */
+  .casebar__sections{display:none}
   .deflist{grid-template-columns:minmax(0,1fr)}
   .deflist dt{padding-bottom:0;border-top:var(--rx-hairline)}
   .deflist dd{padding-top:var(--rx-2);border-top:none}
   .deflist dt:last-of-type{border-bottom:none}
   .sec-head__num{font-size:38px}
+  .worklink{padding-left:var(--rx-4)}
+  .worklink__kicker{letter-spacing:.1em}
+  .meta{gap:var(--rx-2) var(--rx-4)}
+  /* The ASCII diagrams cannot fit a phone at any readable size, so they
+     scroll — with a fade at the edge to say so. */
+  .case__body pre{
+    font-size:11px;
+    padding:var(--rx-4);
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);
+    mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);
+  }
 }

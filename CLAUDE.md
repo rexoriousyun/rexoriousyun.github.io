@@ -4,42 +4,95 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Rex Yun's personal portfolio site — a static single-page site hosted on GitHub Pages. No build toolchain or package manager is used.
+Rex Yun's personal portfolio site — a static site hosted on GitHub Pages. No build
+toolchain, no package manager, no dependencies. Open `index.html` in a browser; that
+is the whole development setup.
 
-## Development
-
-Open `index.html` directly in a browser (no local server required). The site is fully static.
-
-**SCSS:** `css/main.scss` compiles to `css/main.css`. After editing the SCSS, recompile with:
-```
-sass css/main.scss css/main.css
-```
-The compiled `main.css` and `main.css.map` are committed alongside the source `main.scss`.
+The site targets UX engineer / design technologist / design engineer roles, so the
+craft of the page counts as portfolio evidence. Reviewers open devtools. Bundle
+weight, semantics and accessibility are part of the work, not overhead on it.
 
 ## Architecture
 
-Everything lives in a single `index.html`. There is no routing library or framework.
+Everything lives in one `index.html`. There is no framework and no router library.
 
-**Page system:** Content is split into four `.page` elements (Title=0, About=1, Works=2, Contact=3), each identified by a `value` attribute. Only one page is visible at a time. Navigation is handled by clicking `.menu li` items, which hide/show pages by matching `value` attributes.
+**Views.** Five `.view` elements in one document: `#view-home` plus one per case
+(`#view-grove`, `#view-design-guide`, `#view-creative-library`,
+`#view-tree-of-knowledge`). `js/app.js` maps `location.hash` to a view and hides the
+rest with the `hidden` attribute, so every case has its own shareable URL
+(`#/work/grove`).
 
-**Works → Modal flow:** Clicking a `.card` hides the `.works` grid and shows the corresponding `.modal` (matched by `value`). Modals are full-screen overlays. Navigation between modals uses:
-- `.front` / `.back` arrow buttons (click)
-- Swipe left/right on touch devices (via jQuery Mobile's `swipeleft`/`swiperight`)
-- Keyboard left/right arrow keys
+**Progressive enhancement.** The router is only exclusive once JS confirms it is
+running: `app.js` adds `.js-router` to `#shell` at boot, and only
+`.js-router .view[hidden]` sets `display:none`. With JS off, all five views render in
+sequence and the work index is still readable. Do not put `hidden` in the markup.
 
-**Global state** in `js/main.js`:
-- `menuOpen` — whether the slide-in nav is open
-- `modalOpen` — whether a project modal is visible
-- `currentNumber` — the `value` of the currently displayed modal
+**Controls** in `js/app.js`: hash routing, the Nightshift/Daylight toggle
+(`data-mode` on `#shell`), and the four accent swatches (sets `--rx-accent` and a
+darkened `--rx-accent-text` inline). Section jumps use delegation on `[data-jump="x"]`
+→ `#s-x`, so no id list needs maintaining.
 
-**Menu toggle:** The `+` header button (`.trigger`) opens/closes the side nav. On mobile (<600px), the menu takes full width and hides the content. Keyboard `Escape` and `Space` also trigger it.
+## CSS
 
-**Vendor libraries** (all in `js/vendor/`, no CDN fallback except jQuery):
-- jQuery 3.2.1 — DOM manipulation and animation
-- jQuery UI — used for animate easing
-- jQuery Mobile (custom build) — touch swipe events
-- Modernizr 2.8.3 — feature detection (`no-js` class on `<html>`)
+Two layers, and the distinction matters.
 
-**Fonts** are local, declared in `css/font.css`, and stored in `css/fonts/`. The typefaces are `agencyFB` (h1 logo) and the `Orkney` family (Light, Regular, Medium — all body text).
+**`css/ds/`** — the Rexorious design system, imported verbatim. Nine token files plus
+`base.css`, pulled in by `styles.css`. This is the same system that lives in
+`~/Documents/Github/creative-library/design-system/rexorious/`. Treat it as upstream:
+do not hand-edit it to fix a page problem. If a value is wrong, fix it in the design
+system and re-import.
 
-**Responsive breakpoints** in SCSS: 1024px, 768px, 767px, 600px, 400px. Layout shifts from 3-column cards → 2-column → 1-column as viewport narrows. Modal `.full`/`.half` grid becomes block layout below 600px.
+**`css/site.css`** — this site's layer: the design-system components rebuilt as plain
+CSS classes, then the page itself. Every value resolves to a `--rx-` token.
+
+**Section 0 of `site.css` is an invariant-override block.** The imported token set has
+five `contrast-minimum` failures (`--rx-text-mute` in both modes, day `--rx-link`, day
+`--rx-warning`, and the ghost numerals). Contrast is invariant tier — not tradeable
+against aesthetics — so it is corrected there, with the measured ratio recorded in a
+comment beside each value. Fix these upstream and the whole block can be deleted.
+
+## Images
+
+Every media slot holds a real screenshot generated from the source project. There are
+no placeholders left; if you add one, `.slot` is the dashed placeholder style and
+`.shot` is a filled one.
+
+- **`.shot` sets `height:auto`, and it is load-bearing.** The `width`/`height`
+  attributes map to CSS `height`, which makes `aspect-ratio` inert and renders the
+  image at its intrinsic pixel height. Keep the attributes (they reserve layout space)
+  and keep `height:auto`.
+- Alt text is required and checked by the gate.
+- Filenames containing spaces must be percent-encoded in `src`. GitHub Pages is
+  stricter than `file://`, so a raw space works locally and 404s in production.
+
+## The gate
+
+The site is checked against the substrate that case 02 describes:
+
+```
+cd ~/Documents/Github/design-guide
+node engine/cli.js gate /home/rex/Documents/Github/rexoriousyun.github.io/index.html \
+  --project /home/rex/Documents/Github/rexoriousyun.github.io
+```
+
+Fails are not negotiable; flags need a stated reason. The gate only sees the view the
+router is showing, so to check a case page, copy `index.html` to a temp file with a
+`<script>location.hash="#/work/grove"</script>` before `app.js` and gate that. Same
+trick with a click on `#mode-toggle` after `app.js` to check Daylight.
+
+## Deliberately absent
+
+jQuery, jQuery UI, jQuery Mobile, Modernizr, the background video, the loading-screen
+GIF, and the modal carousel were all removed in the rebuild. Do not reintroduce a
+library for something the platform now does. Hand-written CSS is a portfolio asset
+here; a utility framework is not.
+
+`js/vendor/`, `css/main.scss`, `css/main.css` and several old images are still in the
+repo but referenced by nothing. They are dead weight pending a decision, not
+dependencies.
+
+## Private notes
+
+`design-brief.md`, `rex-yun-profile-brief.txt` and `linkedin-update-plan.txt` are
+gitignored. They name the job search and contain personal contact details, and this
+repo is public. Keep them out of commits.
