@@ -21,11 +21,12 @@
      and both fail. Recessive but legible replacement, one token for both. */
   --rx-ghost:#626A76;                /* 3.40 worst case on night surfaces */
 
-  /* Ramp colours are not remapped by modes.css, so surfaces built out of them
-     stay dark in Daylight. Aliased here so both modes can set them. */
   /* Measured by app.js and rewritten whenever the header reflows. The
      fallback is the desktop height: 5px hazard + a 60px bar. */
   --rx-header-h:65px;
+
+  /* Ramp colours are not remapped by modes.css, so surfaces built out of them
+     stay dark in Daylight. Aliased here so both modes can set them. */
   --rx-grid-line:var(--rx-seam);
   --rx-slot-fill:var(--rx-slot-stripe);
   --rx-slot-dot:var(--rx-fog);
@@ -368,10 +369,7 @@ figcaption{
 .hero h1{
   margin:0;
   font-size:clamp(28px,5.4vw,64px);
-  /* .86 leaves the line box shorter than the glyphs, so the highlighted span —
-     an inline-block, rotated, therefore taller than the line by width*sin(2deg)
-     — cut into the comma on the line above. This buys the rotation room. */
-  line-height:.98;
+  line-height:.86;
   font-weight:var(--rx-wght-display);
   font-stretch:var(--rx-wdth-hero);
   letter-spacing:var(--rx-track-d1);
@@ -386,9 +384,9 @@ figcaption{
   color:var(--rx-accent-ink);
   padding:0 .06em;
 }
-.mark--tilt{transform:rotate(-2deg)}
-/* Below this the hero is dense enough that even 2 degrees collides. */
-@media (max-width:700px){ .mark--tilt{transform:none} }
+/* No shear on a highlight. Rotating an inline-block grows its box by
+   width*sin(angle), which at this leading is taller than the line itself and
+   clipped the line above. The straight box is exactly one line tall. */
 
 .standfirst{border-bottom:var(--rx-hairline)}
 .standfirst__inner{padding-block:clamp(28px,4vw,40px) clamp(36px,5vw,56px)}
