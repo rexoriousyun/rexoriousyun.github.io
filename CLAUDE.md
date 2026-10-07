@@ -38,7 +38,8 @@ Two layers, and the distinction matters.
 
 **`css/ds/`** — the Rexorious design system, imported verbatim. Nine token files plus
 `base.css`, pulled in by `styles.css`. This is the same system that lives in
-`~/Documents/Github/creative-library/design-system/rexorious/`. Treat it as upstream:
+`~/Documents/Github/ultimate-design/design-systems/rexorious/` (built into Ultimate
+Design). Treat it as upstream:
 do not hand-edit it to fix a page problem. If a value is wrong, fix it in the design
 system and re-import.
 
