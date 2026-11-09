@@ -68,7 +68,7 @@ no placeholders left; if you add one, `.slot` is the dashed placeholder style an
 
 ## The gate
 
-The site is checked against the substrate that case 02 describes:
+The site is checked against the substrate that case 03 (design-guide) describes:
 
 ```
 cd ~/Documents/Github/design-guide
