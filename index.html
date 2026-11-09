@@ -68,17 +68,39 @@
 
     <section class="wrap section" id="s-work">
       <div class="section__head">
-        <h2 class="stencil stencil--lg stencil--accent">Work · 04 cases · strongest first</h2>
+        <h2 class="stencil stencil--lg stencil--accent">Work · 05 cases · strongest first</h2>
         <p class="stencil stencil--lg">2016 → 2026</p>
       </div>
 
       <ol class="worklist">
         <li>
-          <a class="worklink worklink--lead" href="#/work/grove">
+          <a class="worklink worklink--lead" href="#/work/ultimate-design">
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
                   <span class="worklink__num" aria-hidden="true">01</span>
+                  <div>
+                    <p class="worklink__kicker">AI design studio · sole author · 2026</p>
+                    <h3>Ultimate Design</h3>
+                  </div>
+                </div>
+              </div>
+              <p>Describe a page; a design agent builds it as real HTML, then has to prove it. Contrast, hierarchy and design-system conformance are checks it can't finish without passing, not instructions it may ignore. Approve a design and Claude Code builds it. A local rebuild of Claude Design, wired to design-guide and creative-library.</p>
+              <p class="meta">
+                <span>Claude Code</span><span>MCP</span><span>Playwright</span><span>411 tests</span><span>Open source</span>
+                <span class="meta__go">Open case →</span>
+              </p>
+            </div>
+            <img class="shot shot--16x9 worklink__media" src="img/ud-studio.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The Ultimate Design studio: a landing page for a bike repair co-op on the canvas, with the design agent's chat beside it.">
+          </a>
+        </li>
+
+        <li>
+          <a class="worklink" href="#/work/grove">
+            <div class="worklink__body">
+              <div class="worklink__top">
+                <div class="worklink__id">
+                  <span class="worklink__num" aria-hidden="true">02</span>
                   <div>
                     <p class="worklink__kicker">Personal finance hub · sole author · 2026</p>
                     <h3>Grove</h3>
@@ -101,7 +123,7 @@
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
-                  <span class="worklink__num" aria-hidden="true">02</span>
+                  <span class="worklink__num" aria-hidden="true">03</span>
                   <div>
                     <p class="worklink__kicker">Design substrate · sole author · 2025 →</p>
                     <h3>design-guide</h3>
@@ -123,7 +145,7 @@
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
-                  <span class="worklink__num" aria-hidden="true">03</span>
+                  <span class="worklink__num" aria-hidden="true">04</span>
                   <div>
                     <p class="worklink__kicker">Technique corpus · 2018 → ongoing</p>
                     <h3>creative-library</h3>
@@ -145,7 +167,7 @@
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
-                  <span class="worklink__num" aria-hidden="true">04</span>
+                  <span class="worklink__num" aria-hidden="true">05</span>
                   <div>
                     <p class="worklink__kicker">Physical computing · exhibited 2017</p>
                     <h3>Tree of Knowledge</h3>
@@ -233,7 +255,182 @@
   </div>
 
   <!-- ===================================================================
-       CASE 01 — Grove
+       CASE 01 — Ultimate Design
+       =================================================================== -->
+  <article class="view case" id="view-ultimate-design">
+  <nav class="casebar" aria-label="Case navigation">
+    <div class="wrap casebar__inner">
+      <a class="backlink" href="#/"><b>&larr;</b> All work</a>
+      <ol class="casebar__sections">
+        <li><button type="button" data-jump="uproblem">01 Problem</button></li>
+        <li><button type="button" data-jump="uloop">02 The loop</button></li>
+        <li><button type="button" data-jump="urefine">03 Refining</button></li>
+        <li><button type="button" data-jump="uchecks">04 Checks</button></li>
+        <li><button type="button" data-jump="urules">05 Rule book</button></li>
+        <li><button type="button" data-jump="ubuild">06 Build</button></li>
+        <li><button type="button" data-jump="ulearned">07 Learned</button></li>
+      </ol>
+    </div>
+  </nav>
+    <div class="case__masthead">
+      <div class="wrap">
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 01 · Ultimate Design · sole author</p>
+        <h1>Describe it. The agent builds it,<br>then <span class="mark">proves</span> its work</h1>
+        <p class="case__lede">A local rebuild of Anthropic's Claude Design: chat on one side, a live canvas on the other, and a design agent that writes real HTML and checks it before handing it over. The rules a design has to meet are checks the agent cannot finish without passing, not instructions it is asked to follow. When I approve a design, Claude Code builds it.</p>
+        <ul class="case__facts">
+          <li>Role — sole author</li><li>2026 →</li><li>Python · FastAPI · Playwright · Claude Code · MCP</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap case__body">
+
+      <figure>
+        <img class="shot" src="img/ud-studio.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The Ultimate Design studio: pages listed on the left, a landing page for a bike repair co-op on the canvas, and the design agent's chat on the right.">
+        <figcaption>The studio with a demo design, Spoke &amp; Wrench, made in one turn on Claude Sonnet 5.5</figcaption>
+      </figure>
+
+      <section id="s-uproblem">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">01</span>
+            <h2 class="sec-head__title">The problem</h2>
+          </div>
+          <p class="sec-head__intro">Claude Design is good at the first draft and weak at what I care about most: hierarchy, my own rules, and not losing what I asked for.</p>
+        </header>
+        <p>It runs in the cloud, on its rules. I wanted it on my machine, on my own Claude subscription, with my own design systems and my own rule book.</p>
+        <p>Nothing makes a design read in order of importance. Every AI design tool I tried in September 2026 either gives the model rules as context (Figma Make guidelines, Stitch's DESIGN.md, Claude Code skills), constrains it with pre-built parts (v0, Relume), or critiques afterwards (heatmaps, voice critique). <strong>None of them checks hierarchy inside the generation loop</strong>, while the agent can still fix it.</p>
+        <p>And comments get lost. A note pinned to an element should stay open until it has been dealt with, not disappear when the next message goes out.</p>
+      </section>
+
+      <section id="s-uloop">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">02</span>
+            <h2 class="sec-head__title">The loop</h2>
+          </div>
+          <p class="sec-head__intro">The design agent is headless Claude Code. It brings the agent loop, file tools and session resume; the app brings the canvas, the history and the checks.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/ud-turn.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The studio while the agent works: its step list reads write, verify and screenshot for each of three pages, and the canvas already shows the first direction.">
+          <figcaption>Mid-turn: every tool step is a line in the chat, and the canvas reloads after each file write</figcaption>
+        </figure>
+        <p>The canvas is a sandboxed iframe that can't reach the studio's API or DOM. Comments, tweaks and options work through a small bridge script injected only into the canvas, so the design's own files and exports stay clean.</p>
+        <p>Every message is a version: one commit in a git repository kept outside the design folder, so the agent never sees <code>.git</code>. Restoring is a new commit, so nothing is lost. Turns run in the background, so a reloaded tab reattaches instead of killing the agent. And the agent runs without my own Claude Code setup (<code>--setting-sources ""</code>, <code>--strict-mcp-config</code>); before that, it inherited unrelated instructions.</p>
+      </section>
+
+      <section id="s-urefine">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">03</span>
+            <h2 class="sec-head__title">Refining without the model</h2>
+          </div>
+          <p class="sec-head__intro">A model call is slow and costs money. Most refinement shouldn't need one.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/ud-board.jpg" width="1600" height="502" loading="lazy" decoding="async" alt="The board view: three directions for the same landing page laid out side by side at their real sizes.">
+          <figcaption>Three directions from one message, on the board</figcaption>
+        </figure>
+        <p><strong>Tweaks.</strong> The agent declares a few high-impact values in a JSON block on the page. The studio renders controls for them, and changes apply live through CSS custom properties, with no model call. "Keep values" writes them back and makes a version.</p>
+        <p><strong>Comments</strong> store the element's selector, tag and text. The agent marks each one resolved through a tool, and unresolved ones are sent again, so none are silently dropped.</p>
+        <p><strong>Direct edits</strong> place unique text in place and styles in one overrides stylesheet per page; anything that can't be placed safely goes to the agent. <strong>Directions</strong> sit side by side on a board, and keeping one is a chat message, because cutting a layout apart by string surgery breaks it.</p>
+        <figure>
+          <img class="shot" src="img/ud-comment.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Comment mode: a note pinned to the page's booking button, listed under open comments in the chat panel.">
+          <figcaption>A comment stays open until the agent resolves it</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-uchecks">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">04</span>
+            <h2 class="sec-head__title">Rules as checks, not prompts</h2>
+          </div>
+          <p class="sec-head__intro">Again and again, telling the agent a rule was not enough. Each time, the fix was the same: turn the rule into something it can't finish without passing.</p>
+        </header>
+        <p>A local model shipped a page without its stylesheet. Designs failed contrast. In a live run, Haiku loaded the design system's <code>components.css</code> and then styled its own <code>.invoice-card</code> anyway. None of it raised an error.</p>
+        <p>So the agent has a <code>verify</code> tool, an MCP server running Playwright, that renders the page at desktop and mobile widths and reports:</p>
+        <ul class="tiers">
+          <li class="tier tier--bone">
+            <span class="tier__n" aria-hidden="true">!</span>
+            <p class="stencil">Errors</p>
+            <p>Console errors and files that failed to load, including ones the agent didn't write. It fixes them with the smallest change and says so.</p>
+          </li>
+          <li class="tier tier--coolant">
+            <span class="tier__n" aria-hidden="true">4.5</span>
+            <p class="stencil">Accessibility floor</p>
+            <p>Contrast and target size. These block.</p>
+          </li>
+          <li class="tier">
+            <span class="tier__n" aria-hidden="true">↓</span>
+            <p class="stencil">Hierarchy</p>
+            <p>The agent marks the intended reading order; verify scores prominence from the rendered styles and fails until they agree.</p>
+          </li>
+          <li class="tier">
+            <span class="tier__n" aria-hidden="true">◧</span>
+            <p class="stencil">Conformance</p>
+            <p>Any colour or font outside the design system fails, and so does a look-alike of one of its components. Exceptions are declared in the code.</p>
+          </li>
+        </ul>
+        <p>The hierarchy score is a heuristic with visible parts (size, weight, colour, position), chosen over a saliency model so that every finding says what to change. After the look-alike check went in, the same Haiku run switched to the system's <code>ds-card</code> in one turn. If a turn writes files without verifying, the server nudges once — once, to bound the cost.</p>
+        <blockquote class="pull">
+          <p>An agent follows a check more reliably than an instruction.</p>
+        </blockquote>
+      </section>
+
+      <section id="s-urules">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">05</span>
+            <h2 class="sec-head__title">A rule book that learns</h2>
+          </div>
+          <p class="sec-head__intro">The built-in checks are a floor. A workspace can use <a href="#/work/design-guide">design-guide</a> as its rule book instead.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/ud-findings.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The Findings tab: design-guide's findings for the page, grouped by rule.">
+          <figcaption>Findings from design-guide's gate, in the studio</figcaption>
+        </figure>
+        <p>Every choice made in the studio is logged as a decision: picking a direction, keeping tweak values, a direct edit, restoring an old version, dismissing a finding. Each can carry a reason. design-guide reads the logs across projects and proposes a rule when the same choice keeps coming up. It only becomes a rule when I confirm it, with a reason. The tool learns my taste from what I do, not from adjectives I'd have to write down.</p>
+      </section>
+
+      <section id="s-ubuild">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">06</span>
+            <h2 class="sec-head__title">Into the codebase</h2>
+          </div>
+          <p class="sec-head__intro">The repo is also a Claude Code plugin. Claude designs in the studio, waits, and builds only what I approved.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/ud-approve.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The chosen direction on the canvas with the Approve for build button pressed, and History marking that version approved for build.">
+          <figcaption>Approve for build: the version Claude Code will implement</figcaption>
+        </figure>
+        <p>From a terminal session, Claude creates a design in the studio, sends it messages, then waits. I review it in the studio, and when it's right I press <strong>Approve for build</strong>. Claude Code reads that version and its handoff notes (screens, tokens, components, hierarchy) and implements exactly that. The MCP server holds no state: it drives the running app over HTTP, so the terminal and the studio always see the same projects and versions.</p>
+        <pre class="is-accent">uv run pytest
+  411 passed — no test calls a model
+  docs checked — every route, event, tool and flag documented
+  79 decisions recorded, each with its reason</pre>
+        <p>No API key: the agent runs on the logged-in Claude Code account, and local models run through the same harness via Ollama. Tests run against a fake engine, including Playwright tests of the studio itself. A test fails when a route, stream event, module, MCP tool or CLI flag is missing from the docs, so the docs can't drift. It ships with <a href="#/work/creative-library">creative-library</a>, which the agent searches and copies techniques from, and Sanzo Wada's 348 colour combinations.</p>
+      </section>
+
+      <section id="s-ulearned">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">07</span>
+            <h2 class="sec-head__title">What I learned</h2>
+          </div>
+          <p class="sec-head__intro">Three things I'd carry into any agent product.</p>
+        </header>
+        <p><strong>Find the rules the agent keeps breaking, and measure them.</strong> The most useful work was not prompt-writing. It was turning each repeated failure into something <code>verify</code> reports.</p>
+        <p><strong>Hierarchy can be measured well enough to act on.</strong> A heuristic with visible parts beats a model's opinion, because every finding says what to change.</p>
+        <p><strong>Keep the model out of the cheap paths.</strong> Tweaks, comments, restores and most edits cost nothing, so the model is spent only where judgment is needed.</p>
+        <p class="meta"><a href="https://github.com/rexoriousyun/ultimate-design">Source on GitHub →</a></p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ===================================================================
+       CASE 02 — Grove
        =================================================================== -->
   <article class="view case" id="view-grove">
   <nav class="casebar" aria-label="Case navigation">
@@ -249,7 +446,7 @@
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 01 · Grove · personal finance hub</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 02 · Grove · personal finance hub</p>
         <h1>Bank statements in.<br>A <span class="mark">retirement date</span> out.</h1>
         <p class="case__lede">A privacy-first personal finance hub. Drop in a few months of statements and it works out what you actually spend, then projects the date you could stop working. The raw statements are never stored.</p>
         <ul class="case__facts">
@@ -333,7 +530,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 02 · design-guide · sole author</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 03 · design-guide · sole author</p>
         <h1>Taste, elicited.<br>Design, <span class="mark">enforced</span> in CI</h1>
         <p class="case__lede">A personal design substrate: four tiers of knowledge, an app that infers taste from A/B picks rather than asking for adjectives, and a CLI that gates a built page against all of it. What comes out is a portable stance an agent can load before it builds.</p>
         <ul class="case__facts">
@@ -445,7 +642,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 03 · creative-library · 2018 → ongoing</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 04 · creative-library · 2018 → ongoing</p>
         <h1>37 recipes, each one <span class="mark">verified</span></h1>
         <p class="case__lede">A technique corpus for the web. Every recipe renders in the browser, and every recipe has a harness that says whether it still does. Alongside it, a second shelf holds something different in kind: the identity system this page is wearing.</p>
       </div>
@@ -558,7 +755,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 04 · Tree of Knowledge · Digifest 2017</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 05 · Tree of Knowledge · Digifest 2017</p>
         <h1>NFC was built for apps. The exhibit needed a <span class="mark">website</span></h1>
         <p class="case__lede">An interactive installation where visitors tapped physical objects against an iPad and the page changed. Exhibited at Digifest 2017.</p>
       </div>

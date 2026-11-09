@@ -16,15 +16,15 @@ weight, semantics and accessibility are part of the work, not overhead on it.
 
 Everything lives in one `index.html`. There is no framework and no router library.
 
-**Views.** Five `.view` elements in one document: `#view-home` plus one per case
-(`#view-grove`, `#view-design-guide`, `#view-creative-library`,
+**Views.** Six `.view` elements in one document: `#view-home` plus one per case
+(`#view-ultimate-design`, `#view-grove`, `#view-design-guide`, `#view-creative-library`,
 `#view-tree-of-knowledge`). `js/app.js` maps `location.hash` to a view and hides the
 rest with the `hidden` attribute, so every case has its own shareable URL
 (`#/work/grove`).
 
 **Progressive enhancement.** The router is only exclusive once JS confirms it is
 running: `app.js` adds `.js-router` to `#shell` at boot, and only
-`.js-router .view[hidden]` sets `display:none`. With JS off, all five views render in
+`.js-router .view[hidden]` sets `display:none`. With JS off, all six views render in
 sequence and the work index is still readable. Do not put `hidden` in the markup.
 
 **Controls** in `js/app.js`: hash routing, the Nightshift/Daylight toggle
