@@ -9,6 +9,7 @@
   var views = {
     '/': document.getElementById('view-home'),
     '/work/ultimate-design': document.getElementById('view-ultimate-design'),
+    '/work/reliable-transit': document.getElementById('view-reliable-transit'),
     '/work/grove': document.getElementById('view-grove'),
     '/work/design-guide': document.getElementById('view-design-guide'),
     '/work/creative-library': document.getElementById('view-creative-library'),

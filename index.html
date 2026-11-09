@@ -68,7 +68,7 @@
 
     <section class="wrap section" id="s-work">
       <div class="section__head">
-        <h2 class="stencil stencil--lg stencil--accent">Work · 05 cases · strongest first</h2>
+        <h2 class="stencil stencil--lg stencil--accent">Work · 06 cases · strongest first</h2>
         <p class="stencil stencil--lg">2016 → 2026</p>
       </div>
 
@@ -96,11 +96,33 @@
         </li>
 
         <li>
-          <a class="worklink" href="#/work/grove">
+          <a class="worklink" href="#/work/reliable-transit">
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
                   <span class="worklink__num" aria-hidden="true">02</span>
+                  <div>
+                    <p class="worklink__kicker">Transit trip planner · sole author · 2026</p>
+                    <h3>Reliable Transit</h3>
+                  </div>
+                </div>
+              </div>
+              <p>A TTC trip planner that says how often your trip actually goes wrong, from 180,000 of the TTC's own delay records. The research came first and overturned half the brief, including the metric every other tool reports. Where there is no data, the map says so.</p>
+              <p class="meta">
+                <span>TypeScript</span><span>MapLibre</span><span>6 audits</span><span>194 tests</span><span>Open source</span><span class="meta__warn">Demo offline</span>
+                <span class="meta__go">Open case →</span>
+              </p>
+            </div>
+            <img class="shot shot--16x9 worklink__media" src="img/ttc-trip.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="A planned TTC trip on a dark map of Toronto, each stretch coloured by how often it goes wrong, with the answer card: there by 09:41, 1% of trips go wrong.">
+          </a>
+        </li>
+
+        <li>
+          <a class="worklink" href="#/work/grove">
+            <div class="worklink__body">
+              <div class="worklink__top">
+                <div class="worklink__id">
+                  <span class="worklink__num" aria-hidden="true">03</span>
                   <div>
                     <p class="worklink__kicker">Personal finance hub · sole author · 2026</p>
                     <h3>Grove</h3>
@@ -123,7 +145,7 @@
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
-                  <span class="worklink__num" aria-hidden="true">03</span>
+                  <span class="worklink__num" aria-hidden="true">04</span>
                   <div>
                     <p class="worklink__kicker">Design substrate · sole author · 2025 →</p>
                     <h3>design-guide</h3>
@@ -145,7 +167,7 @@
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
-                  <span class="worklink__num" aria-hidden="true">04</span>
+                  <span class="worklink__num" aria-hidden="true">05</span>
                   <div>
                     <p class="worklink__kicker">Technique corpus · 2018 → ongoing</p>
                     <h3>creative-library</h3>
@@ -167,7 +189,7 @@
             <div class="worklink__body">
               <div class="worklink__top">
                 <div class="worklink__id">
-                  <span class="worklink__num" aria-hidden="true">05</span>
+                  <span class="worklink__num" aria-hidden="true">06</span>
                   <div>
                     <p class="worklink__kicker">Physical computing · exhibited 2017</p>
                     <h3>Tree of Knowledge</h3>
@@ -430,7 +452,170 @@
   </article>
 
   <!-- ===================================================================
-       CASE 02 — Grove
+       CASE 02 — Reliable Transit
+       =================================================================== -->
+  <article class="view case" id="view-reliable-transit">
+  <nav class="casebar" aria-label="Case navigation">
+    <div class="wrap casebar__inner">
+      <a class="backlink" href="#/"><b>&larr;</b> All work</a>
+      <ol class="casebar__sections">
+        <li><button type="button" data-jump="tpremise">01 Premise</button></li>
+        <li><button type="button" data-jump="tmetric">02 The metric</button></li>
+        <li><button type="button" data-jump="ttrap">03 The trap</button></li>
+        <li><button type="button" data-jump="tunknown">04 Unknown</button></li>
+        <li><button type="button" data-jump="tmeasured">05 Measured</button></li>
+        <li><button type="button" data-jump="trefused">06 Refused</button></li>
+        <li><button type="button" data-jump="tlearned">07 Learned</button></li>
+      </ol>
+    </div>
+  </nav>
+    <div class="case__masthead">
+      <div class="wrap">
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 02 · Reliable Transit · sole author</p>
+        <h1>The fastest route,<br>and how often it <span class="mark">goes wrong</span></h1>
+        <p class="case__lede">A map-first trip planner for Toronto's TTC that ranks routes by what actually happens on them, from 21 months of the TTC's own delay records. The brief was a hunch about where delays cluster. Half of it was true, and finding out which half shaped the product.</p>
+        <ul class="case__facts">
+          <li>Role — research, design and build</li><li>Aug → Nov 2026</li><li>TypeScript · React · MapLibre · Fastify · SQLite · GTFS</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap case__body">
+
+      <figure>
+        <img class="shot" src="img/ttc-trip.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="A planned trip from Jane and Eglinton to Union Station drawn on a dark map of Toronto, each stretch coloured by how often it goes wrong, with the answer: there by 09:41, 1% of trips go wrong, riskier than most trips this long.">
+        <figcaption>One planned trip: the answer first, then how often it goes wrong, compared with trips of the same length</figcaption>
+      </figure>
+
+      <section id="s-tpremise">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">01</span>
+            <h2 class="sec-head__title">Test the premise first</h2>
+          </div>
+          <p class="sec-head__intro">The brief: delays cluster on specific stretches because of usage, maintenance and infrastructure; show the fastest <em>and</em> most reliable way from A to B, and which stretches are worst.</p>
+        </header>
+        <p>That has a testable assumption inside it, so the first work was not design. Toronto publishes every TTC delay incident. I pulled 180,027 of them, January 2025 to September 2026, and asked the question everything else rested on: is unreliability a property of a place, or noise? Ranked across two periods, stations kept their order. <strong>Spearman rho 0.78: bad places stay bad.</strong></p>
+        <p>The explanation did not hold. About a third of incidents are passengers and security — disorderly patrons, ill customers, people at track level. Equipment is a thinner slice. That made the product more useful, not less: wear on the track is invisible to a rider, while crowding and time of day are things a rider can plan around.</p>
+      </section>
+
+      <section id="s-tmetric">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">02</span>
+            <h2 class="sec-head__title">The metric everyone uses is the wrong one</h2>
+          </div>
+          <p class="sec-head__intro">Every public tool reports how late the vehicle is. The rider stands in the gap it leaves behind.</p>
+        </header>
+<pre>            MEDIAN DELAY    MEDIAN GAP    RATIO
+
+subway         5 min          8 min      1.38×
+bus           13 min         26 min      1.58×</pre>
+        <p>The same records carry both numbers. 83.8% of bus incidents show the bunching signature, so the standard metric understates what a bus rider waits by more than half. And buses carry about 17 times the subway's delay-minutes. I had recommended a subway-first release; the data killed it, and the reversal is recorded rather than quietly made.</p>
+      </section>
+
+      <section id="s-ttrap">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">03</span>
+            <h2 class="sec-head__title">The trap I nearly shipped</h2>
+          </div>
+          <p class="sec-head__intro">A fifth of subway delay-minutes are logged at 12 stations. They are terminals and yards.</p>
+        </header>
+        <p>Kipling is not dangerous to ride through. It is where trains turn round and where the log entry gets written. A map that coloured those stations red would have been confidently wrong, and the competing visualisations I reviewed appear to make exactly that mistake. The same artifact turned up on the surface network as garages and loops — nearly 5% of surface delay, logged where no rider ever waits. It is excluded before anything is scored.</p>
+      </section>
+
+      <section id="s-tunknown">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">04</span>
+            <h2 class="sec-head__title">Unknown is a state, not a value</h2>
+          </div>
+          <p class="sec-head__intro">86% of bus stretches have too little data to score. Only 3.1% reach high confidence.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/ttc-explore.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Explore mode on the 504 King streetcar: measured stretches drawn in green, amber and red, unmeasured stretches as a thin dotted line, beside a list of the costliest surface and subway routes for riders and their most common cause.">
+          <figcaption>504 King, the costliest surface route: measured stretches in colour, the rest dotted as no data</figcaption>
+        </figure>
+        <p>So the honest map of a real bus route is a checkerboard of known and unknown. I didn't soften it. A pale colour would have read as "fine"; unmeasured stretches are drawn as a different kind of line.</p>
+        <p>The rule nearly failed anyway. A colour ramp written as <code>coalesce(get(exposure), 0)</code> turns missing into best: for a whole milestone, the unmeasured parts of a planned trip drew at the green end of the scale. Valid expression, correct data, invisible to the typechecker and every test. Unknown is now its own map layer, so it cannot sit on the ramp at all.</p>
+        <blockquote class="pull">
+          <p>Hiding how we know is good design. Hiding that we don't know is a lie.</p>
+        </blockquote>
+        <p>Sample sizes, windows and pooling wait behind a quiet "why this number". That a stretch has no data, or that confidence is low, is never hidden. When several such conditions apply at once they are tags that open — "Little data", never "Details": the label carries the claim, and the tap carries only the detail.</p>
+      </section>
+
+      <section id="s-tmeasured">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">05</span>
+            <h2 class="sec-head__title">Measured, then changed</h2>
+          </div>
+          <p class="sec-head__intro">Six times, something I had reasoned my way to was wrong when measured. Each audit's pass mark is written in the source before it runs, so a verdict can't be renegotiated after seeing the numbers.</p>
+        </header>
+        <ul class="tiers">
+          <li class="tier tier--bone">
+            <span class="tier__n" aria-hidden="true">0.10</span>
+            <p class="stencil">Per-stretch severity</p>
+            <p>How often a stretch costs you time persists (rho 0.76). How long you wait once it does doesn't (0.10). The engine contract I wrote that morning promised per-stretch percentiles; severity is now pooled per mode, and labelled pooled.</p>
+          </li>
+          <li class="tier tier--coolant">
+            <span class="tier__n" aria-hidden="true">0.78×</span>
+            <p class="stencil">Night</p>
+            <p>I proposed a night feature on a hunch that night is riskier. It is the safest band per trip. But 74.3% of night departures come every 20 minutes or worse, so one failure costs half an hour. Same feature, opposite reason, and the reason is what the screen says.</p>
+          </li>
+          <li class="tier">
+            <span class="tier__n" aria-hidden="true">0.83×</span>
+            <p class="stencil">Rush hour</p>
+            <p>The morning peak is less risky per trip than the day as a whole. Time of day still shipped, as one toggle, because it changes how spread out the answer is, not because of a peak curve.</p>
+          </li>
+          <li class="tier">
+            <span class="tier__n" aria-hidden="true">58</span>
+            <p class="stencil">Buffer advice</p>
+            <p>Sizing a buffer to a percentile told riders to leave 58 minutes early for a twice-a-year event. The app now states the rate and the price and stops; only the rider knows what being late costs them.</p>
+          </li>
+        </ul>
+        <p>Every claim runs along one chain: evidence, then the rider problem it shows, the principle it supports, and the decision built on it. 49 decisions, each naming what would reverse it. Superseded ones stay in the log with the reasoning error visible.</p>
+      </section>
+
+      <section id="s-trefused">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">06</span>
+            <h2 class="sec-head__title">What I refused to build</h2>
+          </div>
+          <p class="sec-head__intro">Each of these would have demoed well.</p>
+        </header>
+        <figure>
+          <img class="shot" src="img/ttc-options.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Two ways to make the same trip: 42 minutes, goes wrong on 1% of trips, riskier than most trips this long; or 47 minutes, goes wrong on 0.6% of trips, safer than most. Below, a note that a trip that goes wrong runs about 24 minutes long.">
+          <figcaption>Two ways, each with its rate and how it compares. The choice stays with the rider</figcaption>
+        </figure>
+        <p><strong>No safety score.</strong> Delay records can't speak to personal safety at night, so the app measures what it can — how long you stand there — and the rest is written down as out of scope, so it isn't proposed again. <strong>No recommendation.</strong> It states the rate and the price. <strong>Accessibility is never a weight.</strong> A broken elevator is binary, so step-free routing removes stations before ranking instead of blending into a score. <strong>No estimate in place of a gap.</strong> An unattributed record is visible; a mis-attributed one is invisible and wrong.</p>
+      </section>
+
+      <section id="s-tlearned">
+        <header>
+          <div class="sec-head__top">
+            <span class="sec-head__num" aria-hidden="true">07</span>
+            <h2 class="sec-head__title">What I learned</h2>
+          </div>
+          <p class="sec-head__intro">Three things I'd carry into any product built on data.</p>
+        </header>
+        <p><strong>Unanimity is a tell.</strong> A quick script said the ranking picked the trip with more transfers on 46 of 46 comparable journeys. Both counters were incremented on the same line, so it could only ever say 100%. The pre-registered audit put it at 73.1% — under the bar for the charge I was about to write up.</p>
+        <p><strong>Synthetic testers find defects, not answers.</strong> Four agents with distinct personas drove the app and found eleven bugs, six in code covered by tests. They could not answer one question in the research plan: an agent's reaction is training data, not a rider's.</p>
+        <p><strong>Interview earlier, but not first.</strong> Most of the questions now blocking validation could only be written once there was a screen. Rider testing is the one open item; the protocol is written, with its verdicts set in advance.</p>
+        <pre class="is-accent">npm test
+  194 passed
+  6 audits, pass marks set before they run
+  49 decisions, each with what would reverse it</pre>
+        <p>All of it runs on public Toronto Open Data and the TTC's GTFS feed, with no API keys.</p>
+        <p class="meta"><a href="https://github.com/rexoriousyun/reliable-transit-toronto">Source on GitHub →</a></p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ===================================================================
+       CASE 03 — Grove
        =================================================================== -->
   <article class="view case" id="view-grove">
   <nav class="casebar" aria-label="Case navigation">
@@ -446,7 +631,7 @@
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 02 · Grove · personal finance hub</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 03 · Grove · personal finance hub</p>
         <h1>Bank statements in.<br>A <span class="mark">retirement date</span> out.</h1>
         <p class="case__lede">A privacy-first personal finance hub. Drop in a few months of statements and it works out what you actually spend, then projects the date you could stop working. The raw statements are never stored.</p>
         <ul class="case__facts">
@@ -508,13 +693,13 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
           <p class="sec-head__intro">AI wrote a lot of this. That is precisely the argument for a strict test policy, not against one.</p>
         </header>
         <p>When generated code arrives faster than anyone can read it line by line, review quietly stops being the quality gate. Something else has to be. So every change ships with tests: 25 of them across the frontend lib, the FastAPI service, the statement parsers, and a Playwright journey that drives the whole upload-to-projection path — all gated in CI.</p>
-        <p>It is the same instinct as the substrate in case 02. Decide the rule once, write it down, then make something other than my own attention responsible for holding it.</p>
+        <p>It is the same instinct as the substrate in case 04. Decide the rule once, write it down, then make something other than my own attention responsible for holding it.</p>
       </section>
     </div>
   </article>
 
   <!-- ===================================================================
-       CASE 02 — design-guide
+       CASE 04 — design-guide
        =================================================================== -->
   <article class="view case" id="view-design-guide">
   <nav class="casebar" aria-label="Case navigation">
@@ -530,7 +715,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 03 · design-guide · sole author</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 04 · design-guide · sole author</p>
         <h1>Taste, elicited.<br>Design, <span class="mark">enforced</span> in CI</h1>
         <p class="case__lede">A personal design substrate: four tiers of knowledge, an app that infers taste from A/B picks rather than asking for adjectives, and a CLI that gates a built page against all of it. What comes out is a portable stance an agent can load before it builds.</p>
         <ul class="case__facts">
@@ -626,7 +811,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </article>
 
   <!-- ===================================================================
-       CASE 02 — creative-library
+       CASE 05 — creative-library
        =================================================================== -->
   <article class="view case" id="view-creative-library">
   <nav class="casebar" aria-label="Case navigation">
@@ -642,7 +827,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 04 · creative-library · 2018 → ongoing</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 05 · creative-library · 2018 → ongoing</p>
         <h1>37 recipes, each one <span class="mark">verified</span></h1>
         <p class="case__lede">A technique corpus for the web. Every recipe renders in the browser, and every recipe has a harness that says whether it still does. Alongside it, a second shelf holds something different in kind: the identity system this page is wearing.</p>
       </div>
@@ -745,7 +930,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </article>
 
   <!-- ===================================================================
-       CASE 03 — Tree of Knowledge
+       CASE 06 — Tree of Knowledge
        =================================================================== -->
   <article class="view case case--tk" id="view-tree-of-knowledge">
   <nav class="casebar" aria-label="Case navigation">
@@ -755,7 +940,7 @@ txt · image    + vision       Flash Lite     the table    SVG charts</pre>
   </nav>
     <div class="case__masthead">
       <div class="wrap">
-        <p class="stencil stencil--lg stencil--accent case__kicker">Case 05 · Tree of Knowledge · Digifest 2017</p>
+        <p class="stencil stencil--lg stencil--accent case__kicker">Case 06 · Tree of Knowledge · Digifest 2017</p>
         <h1>NFC was built for apps. The exhibit needed a <span class="mark">website</span></h1>
         <p class="case__lede">An interactive installation where visitors tapped physical objects against an iPad and the page changed. Exhibited at Digifest 2017.</p>
       </div>
@@ -813,7 +998,7 @@ PAGE    · the product, unchanged from the browser build</pre>
         <p class="stencil stencil--lg">Design · build · gate</p>
       </div>
       <div class="foot__claim">
-        <p class="stencil">This page wears the system from case 03 and is gated by the substrate in case 02</p>
+        <p class="stencil">This page wears the system from case 05 and is gated by the substrate in case 04</p>
         <code>node engine/cli.js gate index.html --project .</code>
         <p class="stencil foot__pending">Claim pending — show once the gate is green</p>
       </div>
